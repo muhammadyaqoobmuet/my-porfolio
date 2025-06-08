@@ -85,9 +85,9 @@ export default function Freelance() {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
+              strokeLinecap="round"
               strokeLinejoin="round"
-              stroke-width="2"
+              strokeWidth="2"
               d="M7 16l-4-4m0 0l4-4m-4 4h18"
             />
           </svg>
@@ -121,9 +121,9 @@ export default function Freelance() {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
+                strokeLinecap="round"
                 strokeLinejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M7 16l-4-4m0 0l4-4m-4 4h18"
               />
             </svg>

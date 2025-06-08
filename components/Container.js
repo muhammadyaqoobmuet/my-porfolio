@@ -21,7 +21,7 @@ export default function Container(props) {
   const meta = {
     title: "Manu Arora – Developer, writer, creator.",
     description: `Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.`,
-   
+
     type: "website",
     ...customMeta,
   };
@@ -226,7 +226,7 @@ export const Mobile = ({ links }) => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="w-6 h-6 text-black dark:text-white"
         >
@@ -272,7 +272,7 @@ export const Desktop = ({ links, hoveredIndex, setHoveredIndex, router }) => {
   return (
     <>
       {links.map((navLink, index) => (
-        <NextLink href={navLink.link}>
+        <NextLink key={index} href={navLink.link}>
           <a
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
@@ -294,11 +294,10 @@ export const Desktop = ({ links, hoveredIndex, setHoveredIndex, router }) => {
             </AnimatePresence>
 
             <span
-              className={`relative z-10 ${
-                router.asPath === navLink.link
-                  ? "text-teal-600"
-                  : "text-gray-600 dark:text-gray-50"
-              }`}
+              className={`relative z-10 ${router.asPath === navLink.link
+                ? "text-teal-600"
+                : "text-gray-600 dark:text-gray-50"
+                }`}
             >
               {navLink.name}
             </span>
