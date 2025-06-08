@@ -93,8 +93,8 @@ export default function projects() {
             <ProjectCard
               title="Zhurnuty - AI PDF Summarizer"
               description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
-              href="https://zhurnuty.vercel.app"
-              githubUrl="https://github.com/muhammadyaqoobmuet/zhurnuty"
+              href="https://zhrnuty.vercel.app/"
+              githubUrl="https://github.com/muhammadyaqoobmuet/Zhrnuty"
               icon={FileText}
               tags={["Next.js 15", "TypeScript", "Gemini AI", "Clerk", "Langchain"]}
               isLive={true}
@@ -103,8 +103,8 @@ export default function projects() {
             <ProjectCard
               title="TellMe - Anonymous Feedback"
               description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
-              href="https://tellme-app.vercel.app"
-              githubUrl="https://github.com/muhammadyaqoobmuet/tellme"
+              href="https://tellme-eta.vercel.app/"
+              githubUrl="https://github.com/muhammadyaqoobmuet/tellme-"
               icon={Globe}
               tags={["Next.js", "TypeScript", "NextAuth", "SSR", "Production"]}
               isLive={true}
@@ -113,12 +113,13 @@ export default function projects() {
             <ProjectCard
               title="CampusHub - Resource Sharing"
               description="Award-winning hackathon project (17th/1000+ teams). Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
-              href="https://campushub-frontend.vercel.app"
-              githubUrl="https://github.com/muhammadyaqoobmuet/campushub-frontend"
+              href="https://myapp-campushub.vercel.app/"
+              githubUrl="https://github.com/muhammadyaqoobmuet/resource-share-platform"
               icon={ShoppingCart}
               tags={["React", "React Query", "Shadcn UI", "Framer Motion", "JWT"]}
               isLive={true}
             />
+
           </div>
 
           <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">

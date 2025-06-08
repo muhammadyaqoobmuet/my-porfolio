@@ -82,7 +82,7 @@ export default function Home() {
           <ProjectCard
             title="Zhurnuty - AI PDF Summarizer"
             description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
-            href="https://zhurnuty.vercel.app"
+            href="https://zhrnuty.vercel.app/"
             icon="zhurnuty"
             tags={[
               "Next.js 15",
@@ -96,14 +96,14 @@ export default function Home() {
           <ProjectCard
             title="TellMe - Anonymous Feedback"
             description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
-            href="https://tellme-app.vercel.app"
+            href="https://tellme-eta.vercel.app/"
             icon="tellme"
             tags={["Next.js", "TypeScript", "NextAuth", "SSR", "Production"]}
           />
           <ProjectCard
             title="CampusHub - Resource Sharing"
             description="Award-winning hackathon project (17th/1000+ teams). Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
-            href="https://campushub-frontend.vercel.app"
+            href="https://myapp-campushub.vercel.app/"
             icon="campushub"
             tags={["React", "React Query", "Shadcn UI", "Framer Motion", "JWT"]}
           />
