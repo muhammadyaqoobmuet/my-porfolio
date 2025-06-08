@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BsPatchCheckFill } from "react-icons/bs";
 
 const Divider = () => {
   return (
@@ -18,13 +17,13 @@ const Year = ({ children }) => {
 const Step = ({ title, children }) => {
   return (
     <li className="mb-4 ml-2">
-      <div className="flex items-center mb-2 text-green-700 dark:text-green-300">
-        <span className="sr-only">Check</span>
-        <BsPatchCheckFill className="text-blue-500 mr-2" />
-
+      <div className="flex items-center mb-2">
+        <div className="w-3 h-3 bg-blue-500 rounded-full mr-3 flex-shrink-0"></div>
         <p className="font-medium text-gray-900 dark:text-gray-100">{title}</p>
       </div>
-      <p className="text-gray-700 dark:text-gray-400 ml-6">{children}</p>
+      {children && (
+        <p className="text-gray-700 dark:text-gray-400 ml-6">{children}</p>
+      )}
     </li>
   );
 };
@@ -32,105 +31,21 @@ const Step = ({ title, children }) => {
 const FullTimeline = () => (
   <>
     <Divider />
-    <Year>2018</Year>
+    <Year>2021</Year>
     <ul>
-      <Step title="Internship - Intel 🤘🏻">
-        Got an Internship at Intel as a Machine Learning Intern. Developed a
-        Pothole Detection System & Face Averaging system using Machine Learning.
+      <Step title="University Preparation 📚">
+        Focused on entrance exam preparation while completing intermediate studies.
       </Step>
-      <Step title="Entrepreneurial Workshops 🔩">
-        Organised workshops (Part of E-Cell) on topics like Entrepreneurship and
-        Web Development.
-      </Step>
-      <Step title="Full-Stack Journey 🔩">
-        Learnt NodeJS, MongoDB, MySQL along with React and the best practices to
-        build products and web apps which can scale easily.
+      <Step title="First Exposure to Programming 💻">
+        Started learning basic programming concepts and got curious about software development.
       </Step>
     </ul>
     <Divider />
-    <Year>2016</Year>
+    <Year>2020</Year>
     <ul>
-      <Step title="Startup - Aceternity 💣">
-        Started a web development and digital marketing agency from scratch.
-        Generated revenue and designed websites for clients.
+      <Step title="Academic Focus 🎯">
+        Concentrated on intermediate studies while exploring career options in technology.
       </Step>
-      <Step title="React Enthusiast ⚒">
-        Was introducted to React, took up a course on Udemy to get the hang of
-        it. I haven't stopped since then.
-      </Step>
-      <Step title="Open Source Contributions ⚙️">
-        Started contributing to open source on a daily basis. Contributed to
-        smaller projects to learn more on the contributing part.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2015</Year>
-    <ul>
-      <Step title="Started College 🔥">
-        Opted for Computer Science B.Tech Degree from University of Petroleum
-        and Energy Studies, Dehradun.
-      </Step>
-      <Step title="Introduced to Open Source ⚡️">
-        My Domain was Open Source Software and Open Standards. I got to know
-        about Free Software Foundation, Git and GitHub and Linux systems.
-      </Step>
-      <Step title="jQuery fanboy 🙌🏻">
-        Started working with jQuery, I was amazed by the level of simplicity it
-        provided back then.
-      </Step>
-      <Step title="C and C++ 🙌🏻">
-        Started learning logics and basic programming fundamentals with Object
-        Oriented Programming. C was intimidating, C++ was fun.
-      </Step>
-      <Step title="First Back 😂">
-        I consider this as an achievement. If you're a CS Engineer, you must
-        have a back in Mathematics.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2014</Year>
-    <ul>
-      <Step title="Completed 12th Grade 📜">
-        Completed 12th grade with 93.6% Marks in Science stream. Again, a big
-        achievement for me.
-      </Step>
-      <Step title="Developed interest in Web Development 🚀">
-        One of my friends introduced me to Web Development. I started off by
-        making simple HTML, CSS websites with a keen interest in design.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2012</Year>
-    <ul>
-      <Step title="Completed 10th Grade 📜">
-        Scored 9/10 CGPA in 10th Grade. For me it was huge.
-      </Step>
-      <Step title="Wanted to take up Humanities 🌪❤️">
-        I always wanted to become a Civil Servant. Though my parents didn't
-        agree and that let me to opt for Science stream.
-      </Step>
-      <Step title="Theatre and Drama 💂🏼‍♀️">
-        Acted in my first ever skit in school.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2008</Year>
-    <ul>
-      <Step title="First Computer 💻">
-        I played GTA San Andreas all day, everyday.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2001</Year>
-    <ul>
-      <Step title="Moved to Jaipur, Rajasthan 🌆">
-        We moved to Jaipur from our Hometown.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>1998</Year>
-    <ul>
-      <Step title="An Enginner was Born in India 👶🏼 🍼" />
     </ul>
   </>
 );
@@ -139,132 +54,82 @@ export default function Timeline() {
   const [isShowingFullTimeline, showFullTimeline] = useState(false);
 
   return (
-    <>
+    <div className="max-w-3xl mx-auto p-6">
       <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-        Life Changelog and Updates
+        My Journey in Software Engineering
       </h3>
+
+      <Year>2025</Year>
+      <ul>
+        <Step title="MERN Stack Development 🚀">
+          Deep dive into MongoDB and Express.js, building complete full-stack applications with proper database integration.
+        </Step>
+        <Step title="Advanced Database Work 🗄️">
+          Learning database design patterns, queries, and working with complex data relationships.
+        </Step>
+      </ul>
+
+      <Divider />
+
+      <Year>2024</Year>
+      <ul>
+        <Step title="React & Node.js Journey 💻">
+          Started learning React for frontend development and Node.js for backend. Built my first full-stack applications.
+        </Step>
+        <Step title="MERN Stack Exploration 🔧">
+          Began exploring the MERN stack (MongoDB, Express.js, React, Node.js) and understanding how all pieces fit together.
+        </Step>
+        <Step title="Database Fundamentals 🗃️">
+          Started learning database concepts and working with MongoDB for data storage and retrieval.
+        </Step>
+      </ul>
+
+      <Divider />
+
       <Year>2023</Year>
       <ul>
-        <Step title="300+ users on Algochurn 🤌🏻">
-          <a href="https://algochurn.com" target="__blank">
-            Algochurn
-          </a>{" "}
-          crossed 300 users and I couldn't be any happier.
+        <Step title="Web Development Fundamentals 🌐">
+          Mastered HTML and CSS basics, learned Tailwind CSS for efficient styling.
+        </Step>
+        <Step title="JavaScript Foundation 💡">
+          Focused on JavaScript fundamentals - DOM manipulation, functions, async programming, and ES6+ features.
+        </Step>
+        <Step title="Responsive Design 📱">
+          Learned to create responsive websites using CSS Grid, Flexbox, and Tailwind CSS utilities.
         </Step>
       </ul>
+
       <Divider />
+
       <Year>2022</Year>
       <ul>
-        <Step title="Started working on Moonbeam 🤩">
-          Started working on{" "}
-          <a href="https://gomoonbeam.com" target="__blank">
-            Moonbeam{" "}
-          </a>
-          as a front-end developer. Building a chrome extension was the most fun
-          and challenging part.
+        <Step title="University Achievement 🏆">
+          Secured 3rd position in Larkana Division NED entrance exam and 3rd position in District MUET.
+          Selected Software Engineering as my field of study.
         </Step>
-        <Step title="Algochurn crosses 200 users 🤌🏻">
-          <a href="https://algochurn.com" target="__blank">
-            Algochurn
-          </a>{" "}
-          is now helping 200+ registered users and 14,000+ monthly users.
+        <Step title="CS50 - The Foundation 🎓">
+          Started my programming journey with Harvard's CS50 course, learning fundamental computer science concepts.
         </Step>
-        <Step title="1,000+ Followers on Twitter 🌟">
-          Crossed 1,000 mark on{" "}
-          <a
-            href="https://www.twitter.com/mannupaaji"
-            className="font-semibold"
-            target="__blank"
-          >
-            Twitter
-          </a>
-          . You can help increase the count by following me. 😉
+        <Step title="Programming Fundamentals 💡">
+          Learned C++ programming, basic algorithms, and data structures through CS50. Built my first simple programs.
         </Step>
-        <Step title="Built and launched Algochurn 🍾">
-          Built{" "}
-          <a href="https://algochurn.com" target="__blank">
-            Algochurn
-          </a>
-          , A platform to practice DS ALgo along with front-end to ace your next
-          technical interview.
+        <Step title="Web Development Discovery 🌐">
+          Got introduced to HTML, CSS, and JavaScript. Created my first static websites and fell in love with web development.
         </Step>
-        <Step title="Promoted to Senior Software Engineer 🎉">
-          Promoted to Senior Software Engineer - Worked on applications handling
-          20,000+ users per day. Working on Web, Mobile, and even TV
-          applications. 🔥
+        <Step title="University Begins 🎯">
+          Started my Software Engineering degree and began exploring the vast world of programming.
         </Step>
       </ul>
-      <Divider />
-      <Year>2021</Year>
-      <ul>
-        <Step title="Built Tailwind Master Kit 🪁">
-          Built{" "}
-          <a href="https://www.tailwindmasterkit.com">TailwindMasterKit</a>, A
-          SaaS marketplace for beautiful, handcrafted Website components built
-          with and for Tailwind supported websites. Built the components from
-          the ground up for React and HTML in 30+ categories.
-        </Step>
-        <Step title="Created covidrescue.co.in 💊">
-          Created <a href="https://www.covidrescue.co.in">covidrescue.co.in</a>
-          to help people with verified leads on Oxygen, Remdesivir, Food, Beds,
-          ICU, Medicines and more.
-        </Step>
-        <Step title="Created Covid-19 Vaccination slots notification system 💉">
-          Integrated Vaccination slots notification system in covidrescue web
-          app. Notified people whenever vaccination slot was available in their
-          area and city.
-        </Step>
-      </ul>
-      <Divider />
-      <Year>2020</Year>
-      <ul>
-        <Step title="Joined mroads 🎉">
-          {" "}
-          Joined{" "}
-          <span className="font-bold">
-            <span className="text-blue-500">m</span>roads
-          </span>{" "}
-          as a Software Development Engineer. Working on their Flagship product
-          as a Front-End Developer.
-        </Step>
-        <Step title="Cleared GATE 2019 💯">
-          Cleared GATE 2019 after 8 months of continuous studies. I still hate
-          Computer System Architecture & Organization.
-        </Step>
-        <Step title="Competitive Programming 🏆">
-          Cleared Hackerrank and Hackerearth contests. Got a strong grip on
-          Competitive Programming.
-        </Step>
-        <Step title="Taught programming to students🥳">
-          Taught fundamental programming to school students. It included Basic C
-          programming, Introduction to Web Development and logic building.
-        </Step>
-      </ul>
-      <Divider />
-      <Year>2019</Year>
-      <ul>
-        <Step title="Placements - Got Placed ✨">
-          Had 3 offers in Hand. 1 On-Campus and 2 Off-Campus in the Software
-          Developer (Full-Stack) roles.
-        </Step>
-        <Step title="Full-Stack Applications 🚀">
-          Started freelancing, developed full-stack applications for clients
-          ranging from E-Commerce stores to static landing pages.
-        </Step>
-        <Step title="GATE Preparation ⚛️">
-          Started preparing for GATE (Graduate Aptitute Test in Engineering).
-          Learnt all the Computer Science subjects again from scratch.
-        </Step>
-      </ul>
+
       {isShowingFullTimeline ? (
         <FullTimeline />
       ) : (
         <button
           type="button"
-          className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100"
+          className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           onClick={() => showFullTimeline(true)}
         >
-          See More
+          See Earlier Years
           <svg
             className="h-4 w-4 ml-1"
             xmlns="http://www.w3.org/2000/svg"
@@ -281,6 +146,12 @@ export default function Timeline() {
           </svg>
         </button>
       )}
-    </>
+
+      <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+        <p className="text-sm text-blue-700 dark:text-blue-300">
+          <strong>Current Focus:</strong> Deepening my MERN stack knowledge and building more complex database-driven applications while continuing my Software Engineering studies.
+        </p>
+      </div>
+    </div>
   );
 }

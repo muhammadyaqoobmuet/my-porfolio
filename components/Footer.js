@@ -42,16 +42,16 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://github.com/manuarora700">
+          <ExternalLink href="https://github.com/muhammadyaqoobmuet">
             GitHub
           </ExternalLink>
-          <ExternalLink href="https://linkedin.com/in/manuarora28">
+          <ExternalLink href="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/">
             LinkedIn
           </ExternalLink>
-          <ExternalLink href="https://twitter.com/mannupaaji">
+          <ExternalLink href="https://twitter.com/jackub_halepoto">
             Twitter
           </ExternalLink>
-          <ExternalLink href="https://instagram.com/maninthere">
+          <ExternalLink href="https://www.instagram.com/yaqoob_halepoto">
             Instagram
           </ExternalLink>
           <Link href="/freelance">
@@ -69,11 +69,7 @@ export default function Footer() {
               Snippets
             </a>
           </Link>
-          <Link href="/tweets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Tweets
-            </a>
-          </Link>
+
           <Link href="/resources">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Resources
@@ -103,7 +99,7 @@ export default function Footer() {
       </div>
       <p className="flex flex-row text-gray-400 items-center">
         Find me on
-        <a href="https://twitter.com" target="__blank">
+        <a href="https://twitter.com/jackub_halepoto" target="__blank">
           {/* <img src="/logos/tailwind.svg" className="h-6 w-6 mx-1" /> */}
           <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 mx-1">
             <g>
@@ -111,15 +107,11 @@ export default function Footer() {
             </g>
           </svg>
         </a>{" "}
-        and{" "}
-        <a href="https://www.peerlist.io/manuarora" target="__blank">
-          <img src="/peerlist.png" className="h-5 w-5 mx-1" />
-        </a>
       </p>
       <p className="flex flex-row text-gray-400 items-center mt-2">
-        Portfolio inspired by{" "}
+        Portfolio inspired by OG{" "}
         <a href="https://leerob.io" className="ml-1" target="__blank">
-          Lee Rob
+          Lee Robk👑
         </a>
       </p>
     </footer>

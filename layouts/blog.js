@@ -9,10 +9,9 @@ import Link from "next/link";
 export default function BlogLayout({ children, frontMatter }) {
   return (
     <Container
-      title={`${frontMatter.title} – Manu Arora`}
+      title={`${frontMatter.title} – Muhammad Yaqoob`}
       description={frontMatter.summary}
-      image={`https://manuarora.in${frontMatter.image}`}
-      date={new Date(frontMatter.publishedAt).toISOString()}
+
       type="article"
     >
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
@@ -27,7 +26,7 @@ export default function BlogLayout({ children, frontMatter }) {
             >
               <path
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
                 stroke-width="2"
                 d="M7 16l-4-4m0 0l4-4m-4 4h18"
               />
@@ -40,23 +39,19 @@ export default function BlogLayout({ children, frontMatter }) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
           <div className="flex items-center">
             <Image
-              alt="Manu Arora"
+              alt="Muhammad Yaqoob"
               height={24}
               width={24}
-              src="/avatar.jpg"
+              src="/devimage.png"
               className="rounded-full"
             />
             <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
               {frontMatter.by}
-              {"Manu Arora / "}
-              {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")}
+              {"Muhammad Yaqoob  "}
+
             </p>
           </div>
-          <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
-            {frontMatter.readingTime.text}
-            {` • `}
-            <ViewCounter slug={frontMatter.slug} />
-          </p>
+
         </div>
         <div className="prose dark:prose-dark max-w-none w-full">
           {children}

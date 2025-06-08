@@ -60,7 +60,7 @@ export default function Contact() {
         Drop your message and let's discuss about your project.
       </p>
       <a
-        href="https://wa.me/919587738861?text=I want to work on a project with you"
+        href="https://wa.me/923483314202?text=I want to work on a project with you"
         className="mt-4 px-4 text-center w-full font-bold h-8 bg-green-400 dark:bg-green-400 text-gray-900 py-1 dark:text-gray-900 rounded"
         type="submit"
       >
@@ -75,7 +75,7 @@ export default function Contact() {
         <input
           ref={inputEl}
           aria-label="Email for newsletter"
-          placeholder="manu@gmail.com"
+          placeholder="yaqoobahmed45700@gmail.com"
           type="email"
           autoComplete="email"
           required

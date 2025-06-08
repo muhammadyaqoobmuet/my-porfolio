@@ -28,14 +28,14 @@ export default function BoxShadows() {
   return (
     <div className="relative antialiased">
       <div className="bg-gradient-to-r from-zinc-800  to-zinc-900 text-center py-2 dark:text-white">
-        Awesome Tailwindcss and{" "}
+        Follow me on insta{" "}
         <a
-          href="https://aceternity.com/components?ref=manuarora"
+          href="https://www.instagram.com/yaqoob_halepoto/"
           target="__blank"
           rel="dofollow"
           className="underline decoration-[2px] decoration-lime-500 dark:text-white"
         >
-          Framer Motion Components
+          yaqoob halepoto
         </a>
       </div>
       <Metadata />
@@ -90,7 +90,7 @@ const StaticCard = ({ shadow, name, vanillaCSS, customCSS }) => {
       <div className="text-center">
         Adding more, bookmark to stay updated, and maybe 👇🏻😇
         <a
-          href="https://www.buymeacoffee.com/manuarora"
+          href="https://buymeacoffee.com/yaqoob_halepoto"
           className="flex items-center justify-center rounded-md overflow-hidden mt-2"
           target="_blank"
         >
@@ -150,9 +150,8 @@ const Card = ({ shadow, name, vanillaCSS, customCSS }) => {
       )}
     >
       <div
-        className={`absolute w-full h-full transition-all flex items-center justify-center duration-100 bg-green-500 transform  ${
-          copied ? "translate-y-0" : "translate-y-full"
-        }`}
+        className={`absolute w-full h-full transition-all flex items-center justify-center duration-100 bg-green-500 transform  ${copied ? "translate-y-0" : "translate-y-full"
+          }`}
       >
         <p className="text-white">Copied! 🎉</p>
       </div>
@@ -239,7 +238,7 @@ const CustomNav = ({ onModalClick, setTheme, theme, mounted }) => {
       <div className="flex flex-row items-center">
         {" "}
         <a
-          href="https://github.com/manuarora700/manuarora.in/blob/master/pages/boxshadows.js"
+          href="https://github.com/muhammadyaqoobmuet"
           target="__blank"
           className="text-gray-400 underline hidden sm:block text-sm font-normal mr-4"
         >
@@ -312,11 +311,11 @@ const Metadata = () => {
       />
       <meta
         property="og:url"
-        content={`https://manuarora.in${router.asPath}`}
+        content={`https://yaqoobhalepoto.engineer${router.asPath}`}
       />
-      <link rel="canonical" href={`https://manuarora.in${router.asPath}`} />
+      <link rel="canonical" href={`https://yaqoobhalepoto.engineer${router.asPath}`} />
       <meta property="og:type" content={`website`} />
-      <meta property="og:site_name" content="Manu Arora" />
+      <meta property="og:site_name" content="Yaqoob Halepoto" />
       <meta
         property="og:description"
         content={`A curated list of box shadows for TailwindCSS. Available in classes, JIT
@@ -328,7 +327,7 @@ const Metadata = () => {
       />
       <meta
         property="og:image"
-        content={`https://manuarora.in/boxshadows.png`}
+        content={`https://yaqoobhalepoto.engineer/boxshadows.png`}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mannupaaji" />
@@ -344,7 +343,7 @@ const Metadata = () => {
 
       <meta
         name="twitter:image"
-        content={`https://manuarora.in/boxshadows.png`}
+        content={`https://yaqoobhalepoto.engineer/boxshadows.png`}
       />
     </Head>
   );

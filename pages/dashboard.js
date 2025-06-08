@@ -15,7 +15,7 @@ import Analytics from "@/components/metrics/Analytics";
 export default function Dashboard() {
   return (
     <Container
-      title="Dashboard – Manu Arora"
+      title="Dashboard – Muhammad Yaqoob"
       description="A Dashboard to show various metrics via Next JS _api routes, deployed as serverless functions."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">

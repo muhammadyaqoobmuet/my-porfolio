@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Freelance() {
   return (
     <Container
-      title="Freelancing – Manu Arora"
+      title="Freelancing – Muhammad Yaqoob"
       description="Freelance projects and SaaS application that I've developed."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-4 w-full">
@@ -18,17 +18,11 @@ export default function Freelance() {
           Rated Freelancer on{" "}
           <a
             className="font-bold text-[#15A800]"
-            href="https://www.upwork.com/freelancers/~0185da6b935f149e8c"
+            href="https://www.upwork.com/freelancers/~014a5c558658a1f530"
           >
             Upwork
           </a>{" "}
-          and Teach coding to people on{" "}
-          <a
-            href="https://www.codementor.io/@manuarorawork"
-            className="text-[#009FC6] font-bold"
-          >
-            Codementor
-          </a>
+
           .
         </p>
         <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">
@@ -36,67 +30,49 @@ export default function Freelance() {
         </h2>
 
         <FreelanceCard
-          href={`https://gomoonbeam.com`}
-          techStack={["Next.js", "TailwindCSS", "React", "Stripe", "Vercel"]}
-          title="Moonbeam"
-          image={`/freelance/moonbeam.png`}
+          href={`https://tellme-eta.vercel.app/`}
+          techStack={["Next.js", "TailwindCSS", "React", , "Vercel"]}
+          title="TellMe"
+          image={`/freelance/tellme.png`}
           descriptions={[
-            "Write amazing long form content with generative AI and Moonbeam.",
-            "Blogs, Twitter Threads, Essays and much more.",
+            "a platform for getting links and reciving anonymous messages",
+
           ]}
         />
         <FreelanceCard
-          href={`https://app.pings.co`}
+          href={`https://zhrnuty.vercel.app/`}
           techStack={[
             "Next.js",
             "TailwindCSS",
             "React",
-            "useGravity",
+            "Server Components",
             "Vercel",
           ]}
-          title="Pings AI"
-          image={`/freelance/pings.png`}
+          title="Zhrnuty Ai PDF Summarizer"
+          image={`/freelance/zhrnuty.png`}
           descriptions={[
-            "Created the CRM for generating dynamic reports related to drones.",
+            "Created the to transform pdf into consie reel summary .",
             "Used the legendary useGravity SaaS boilerplate to kickstart the project.",
           ]}
         />
         <FreelanceCard
-          href={`https://cremedigital.com`}
-          image={`/freelance/creme.png`}
+          href={`https://myapp-campushub.vercel.app/`}
+          image={`/freelance/campushub.png`}
           techStack={[
             "Next.js",
             "TailwindCSS",
             "React",
-            "Workers",
-            "Cloudflare",
+            "React Qurey"
           ]}
-          title="Creme Digital"
+          title="CampusHub"
           descriptions={[
-            "Complete website for a leading digital marketing agency in Malaysia.",
-            "Integrated and created a complete cloudflare worker for sending transactional emails from scratch",
+            "Complete website for sharing resources within campus with admin dashboard",
+            "used postgre sql with docker and api monitor to avoid api sleep",
           ]}
         />
-        <FreelanceCard
-          href={`https://invoker.lol`}
-          image={`/freelance/invoker.png`}
-          techStack={[
-            "Next.js",
-            "TailwindCSS",
-            "React",
-            "Vanta",
-            "Firebase",
-            "Firestore",
-          ]}
-          title="Invoker Labs"
-          descriptions={[
-            "Created a website with a custom CMS for creating and updating data.",
-            "Dynamic sections to create, read, update and delete data from the admin panel",
-            "Secure Login and Authentication system.",
-          ]}
-        />
+
         <a
-          href="https://www.upwork.com/freelancers/~0185da6b935f149e8c"
+          href="https://www.upwork.com/freelancers/~014a5c558658a1f530"
           target="__blank"
           className="text-gray-500 dark:text-gray-300  rounded-md flex flex-row space-x-2 items-center mb-10"
         >
@@ -110,7 +86,7 @@ export default function Freelance() {
           >
             <path
               stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinejoin="round"
               stroke-width="2"
               d="M7 16l-4-4m0 0l4-4m-4 4h18"
             />
@@ -122,31 +98,17 @@ export default function Freelance() {
         </h2>
 
         <FreelanceCard
-          href={`https://tailwindmasterkit.com`}
+          href={`https://myapp-campushub.vercel.app/`}
           techStack={["Next.js", "TailwindCSS", "React", "MongoDB", "Vercel"]}
-          title="Tailwind Master Kit"
-          image={`/freelance/tmk.png`}
+          title="CampusHub"
+          image={`/freelance/campushub.png`}
           descriptions={[
-            " Professinal, handcrafted TailwindCSS components for your Next Web Application.",
+            "Complete website for sharing resources within campus with admin dashboard",
+            "used postgre sql with docker and api monitor to avoid api sleep",
             " Accomodates 150+ production ready components ready to be embedded.",
           ]}
         />
-        <FreelanceCard
-          href={`https://algochurn.com`}
-          image={`/freelance/algochurn.png`}
-          techStack={[
-            "Next.js",
-            "TailwindCSS",
-            "React",
-            "Postgres",
-            "Digital Ocean",
-          ]}
-          title="Algochurn"
-          descriptions={[
-            "Practice your skills the way they are meant to be practiced - in a real interview setting.",
-            " Algochurn provides the most popular Data Structures, Algorithms and Front-end technical questions asked in a Technical Interview Round",
-          ]}
-        />
+
 
         <Link href="/projects">
           <a className="text-gray-500 dark:text-gray-300  rounded-md flex flex-row space-x-2 items-center mb-10">
@@ -160,7 +122,7 @@ export default function Freelance() {
             >
               <path
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
                 stroke-width="2"
                 d="M7 16l-4-4m0 0l4-4m-4 4h18"
               />

@@ -3,7 +3,7 @@ import React from "react";
 export default function VideoComponent({ videoUrl }) {
   return (
     <div
-      class="max-w-4xl mx-auto"
+      className="max-w-4xl mx-auto"
       style={{
         overflow: "hidden",
         paddingBottom: "56.25%",
@@ -23,9 +23,9 @@ export default function VideoComponent({ videoUrl }) {
         height="325"
         src={videoUrl}
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     </div>
   );

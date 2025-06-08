@@ -21,7 +21,7 @@ export default function Container(props) {
   const meta = {
     title: "Manu Arora – Developer, writer, creator.",
     description: `Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.`,
-    image: "https://manuarora.in/static/images/banner.png",
+   
     type: "website",
     ...customMeta,
   };

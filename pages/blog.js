@@ -35,7 +35,7 @@ export default function Blog({ posts }) {
 
   return (
     <Container
-      title="Blog – Manu Arora"
+      title="Blog – Muhammad Yaqoob"
       description="Thoughts on the Software Development, Programming, Tech, Freelancing, Open Source and Memes"
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
@@ -43,7 +43,7 @@ export default function Blog({ posts }) {
           Blog
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          {`I've been programming for almost 6 years now. Throughout this year, I've worked with various technologies. I'm here to share just that.
+          {`I've been programming for almost 2 years now. Throughout this year, I've worked with various technologies. I'm here to share just that.
             
             Use the search below to filter by title.`}
         </p>
@@ -81,9 +81,9 @@ export default function Blog({ posts }) {
               slug="top-5-nextjs-resources"
             />
             <BlogPost
-              title="How I built a blogging platform like Medium with Next.js"
-              summary="Insights and structure of devmedium, A blogging platform built with Next.js with features like custom usernames, create blogs and various optimization techniques"
-              slug="blogging-platform-nextjs"
+              title="Ultimate Guide to React Server and Client Components"
+              summary="Insights of React new features of server and client components and how to use them in your projects "
+              slug="react-server-vs-client-components"
             />
             {/* <BlogPost
               title="How to design a minimal and beautiful website which actually converts"

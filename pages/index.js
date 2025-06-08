@@ -33,8 +33,8 @@ export default function Home() {
 
   return (
     <Container
-      title="Manu Arora - Developer, Writer, Creator"
-      description="Full-Stack developer, JavaScript enthusiast, Freelancer, Tech Blogger and a Learner. I love building products and web apps that impact millions of lives."
+      title="Muhammad Yaqoob -Full Stack Developer, "
+      description="Full-Stack developer, JavaScript enthusiast, Freelancer, I love building products and web apps that impact millions of lives."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <Header />
@@ -47,9 +47,9 @@ export default function Home() {
           slug="ace-the-javascript-interview"
         />
         <BlogPost
-          title="Free portfolio website template that gets you hired in 2021"
-          summary="Build a modern, minimal portfolio website with Next.js and tailwindcss for developers that gets you hired for Full Stack Developer roles in 2021."
-          slug="developer-portfolio-website"
+          title="Mastering React Query – Fetching, Caching, and Syncing Data Like a Pro"
+          summary="React Query makes handling server state easy and powerful. Learn how to use it for fetching, caching, synchronizing, and updating data in your apps"
+          slug="react-qurey"
         />
         <Link href="/blog">
           <a
@@ -80,54 +80,48 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ProjectCard
-            title="Moonbeam"
-            description="Never write from scratch again. Kickstart your next great writing piece with Moonbeam. Your long-form writing AI assistant."
-            href="https://gomoonbeam.com"
-            icon="moonbeam"
+            title="Zhurnuty - AI PDF Summarizer"
+            description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
+            href="https://zhurnuty.vercel.app"
+            icon="zhurnuty"
             tags={[
-              "Front-end",
-              "GPT-3",
-              "Next.js",
-              "React",
+              "Next.js 15",
+              "TypeScript",
+              "Gemini AI",
+              "Clerk",
               "TailwindCSS",
               "Chrome Extension",
             ]}
           />
           <ProjectCard
-            title="Aceternity"
-            description="Building modern applications that scale well and are easy to maintain. Cutting edge websites with a pinch of magic, and a lot of love."
-            href="https://aceternity.com"
-            icon="aceternity"
-            tags={["Next.js", "React", "TailwindCSS", "Full-Stack"]}
+            title="TellMe - Anonymous Feedback"
+            description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
+            href="https://tellme-app.vercel.app"
+            icon="tellme"
+            tags={["Next.js", "TypeScript", "NextAuth", "SSR", "Production"]}
           />
           <ProjectCard
-            title="Algochurn"
-            description="Practice the most popular algorithmic questions and Front-end interview questions with an interactive IDE and learning environment."
-            href="https://algochurn.com"
-            icon="algochurn"
-            tags={["Next.js", "React", "TailwindCSS", "Monaco", "Algorithms"]}
+            title="CampusHub - Resource Sharing"
+            description="Award-winning hackathon project (17th/1000+ teams). Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
+            href="https://campushub-frontend.vercel.app"
+            icon="campushub"
+            tags={["React", "React Query", "Shadcn UI", "Framer Motion", "JWT"]}
           />
 
           <ProjectCard
-            title="Tailwind Master Kit"
-            description="Beautiful, Handcrafted, ready-to-use components and templates for your next Tailwind web app project."
-            href="https://tailwindmasterkit.com/"
-            icon="tailwindmasterkit"
-            tags={["Tailwind", "Next.js", "Freemium"]}
+            title="Master REST APIs"
+            description="A comprehensive REST API project demonstrating CRUD operations, authentication, middleware, and best practices for building scalable backend services."
+            href="https://github.com/muhammadyaqoobmuet/Master-REST-APIs"
+            icon="masterrestapis"
+            tags={["Node.js", "Express.js", "MongoDB", "REST API", "Authentication"]}
           />
+
           <ProjectCard
-            title="PlaceholderTech"
-            description="We build modern, blazing-fast web applications which helps your business grow and increase sales."
-            href="https://placeholdertech.in/"
-            icon="placeholdertech"
-            tags={["Web Dev Agency", "Products", "Freemium"]}
-          />
-          <ProjectCard
-            title="Feedmeback"
-            description="The easiest way to add comments or reviews to your static site. Built as part of React 2025."
-            href="https://feedmeback-beta.vercel.app/"
-            icon="fastfeedback"
-            tags={["Next.js", "Stripe", "TailwindCSS"]}
+            title="ShopSphere API"
+            description="E-commerce backend API with user authentication, product management, cart functionality, and order processing. Built with modern Node.js practices."
+            href="https://github.com/muhammadyaqoobmuet/shopsphere-api"
+            icon="shopsphereapi"
+            tags={["Node.js", "Express.js", "MongoDB", "E-commerce", "JWT"]}
           />
         </div>
         <Link href="/projects">
@@ -159,11 +153,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ProjectCard
-            title="Motion Components"
-            description="Professional, modern and beautiful framer motion components built with Next.js and TailwindCSS"
-            href="https://aceternity.com/components"
-            icon="vscode"
-            tags={["NextJS", "Tailwind", "framer-motion"]}
+            title="Furstation Dumb"
+            description="A website where users can freely write down their negative thoughts or feelings. Using AI, the site reads their message and responds with a personalized, positive affirmation to help them feel better. It's a supportive space to release negativity and receive kindness in return—like a small, comforting boost whenever someone needs it."
+            href="#"
+            icon="furstationdumb"
+            tags={["NextJS", "Tailwind", "Langchain", "Clerk", "Gemini AI"]}
           />
 
           <ProjectCard
@@ -179,64 +173,7 @@ export default function Home() {
             icon="more"
           />
         </div>
-        <div className=" my-6 md:my-10">
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-8 mt-8 text-black dark:text-white">
-            Tech Talks and Videos
-          </h3>
-          <Talks
-            title={`Components Of A Great Portfolio Website`}
-            description={`I talk about how to create a targeted website to land more job interviews and freelance clients with all the other things that matter. Hosted on codementor.`}
-            company={`codementor.io`}
-            image={`/talks/codementor.jpg`}
-            url={`https://www.youtube.com/watch?v=viXpJ5Xwtfs`}
-          />
-          <Talks
-            title={`Crafting The Perfect Portfolio Website For Developers`}
-            description={` Talked about how to effectively utilise a portfolio website to
-          put yourself in the best position to win.`}
-            company={`roc8.careers`}
-            image={`/talks/roc8.png`}
-            url={`https://www.youtube.com/watch?v=yKVCl1jFkQQ`}
-          />
-          <Talks
-            title={`How To Use Algochurn To Clear Technical Interviews With Ease.`}
-            description={`Algochurn is a free resource that helps front-end developers practice machine coding questions. Here I talk about how to effectively make use of Algochurn.`}
-            company={`Youtube`}
-            image={`/talks/algochurn-youtube.png`}
-            url={`https://www.youtube.com/watch?v=sZA-WrS39KI&t=19s`}
-          />
-          <Talks
-            title={`How To Implement Debouncing In React.`}
-            description={`Debouncing is a method of preventing a function from being invoked too often. In this video, I talk about how to create a custom debounce function from scratch.`}
-            company={`Youtube`}
-            image={`/talks/debouncing.png`}
-            url={`https://www.youtube.com/watch?v=uncrKqVtgrc`}
-          />
-          <div className="flex w-full justify-center">
-            <a
-              type="button"
-              href="https://www.youtube.com/channel/UC7MQDjVfjEPkHMe1lZGkDRA"
-              target="__blank"
-              className="flex items-center text-sm  mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100 self-center "
-            >
-              See All Videos
-              <svg
-                className="h-4 w-4 ml-1"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+
 
         <Timeline />
         <Contact />

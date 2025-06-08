@@ -1,0 +1,112 @@
+---
+title: "Ultimate Guide to React Server and Client Components"
+publishedAt: "2025-06-08"
+summary: "A complete, no-fluff guide to understanding and using React Server Components and Client Components — when to use what, how they work, and best practices."
+image: "/static/images/react-components/cover.png"
+---
+
+React 18 and Next.js 13+ introduced a powerful concept: **Server Components** and **Client Components**. If you’ve ever wondered when to use which, or why your button stops working when moved to the server, this guide is for you 🧠
+
+In this post, I’ll break down what these components are, their differences, when to use them, and how they improve performance. Whether you're building a SaaS, a personal blog, or an e-commerce app, this will level up your React game 🚀
+
+<StepCheck title="Understand how Server & Client Components differ ⚔️" />
+<StepCheck title="Know when to use each component type 📌" />
+<StepCheck title="Use dynamic UI with full performance 🔥" />
+<StepCheck title="Handle loading states and suspense with ease ⏳" />
+<StepCheck title="Learn how Next.js makes this even better 🧩" />
+
+## 🔍 What Are Server Components?
+
+Server Components are rendered on the server. They never reach the client — which means they don’t include JavaScript in the browser. That’s a big performance win!
+
+Use them when:
+
+- You don’t need interactivity
+- You want to fetch data directly on the server
+- You want to reduce bundle size
+
+Example:
+
+```js
+// app/page.js
+export default async function HomePage() {
+  const data = await getData();
+  return <ArticleList data={data} />;
+}
+```
+
+## ⚙️ What Are Client Components?
+
+Client Components are interactive and rendered in the browser. Use them for anything dynamic like:
+
+- Buttons
+- Forms
+- Event handlers
+
+You declare them by adding `'use client'` at the top:
+
+```js
+"use client";
+
+export default function LikeButton() {
+  const [liked, setLiked] = useState(false);
+  return (
+    <button onClick={() => setLiked(!liked)}>{liked ? "❤️" : "🤍"}</button>
+  );
+}
+```
+
+## 🧠 When to Use Which?
+
+| Use Case                     | Server Component | Client Component |
+| ---------------------------- | ---------------- | ---------------- |
+| Static content               | ✅               | ❌               |
+| Data fetching on server      | ✅               | ❌               |
+| Interactivity (buttons etc.) | ❌               | ✅               |
+| Forms or animations          | ❌               | ✅               |
+
+## 🧪 Combining Both
+
+You can combine both to create powerful apps. Nest a Client Component inside a Server Component:
+
+```js
+// Server Component
+import LikeButton from "./LikeButton";
+
+export default function Post({ post }) {
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+      <LikeButton />
+    </div>
+  );
+}
+```
+
+This way, your static content is lightweight, and dynamic features still work!
+
+## 🪄 Next.js 13+ App Directory Magic
+
+Next.js 13+ introduces the **App Router** that uses Server Components by default. You just drop files in `/app/` and you're using RSCs! Here’s what you get:
+
+- Built-in layout system
+- Suspense for async UI
+- Automatic streaming
+
+## 🧱 Best Practices
+
+- Always start with Server Components. Add Client ones only when needed.
+- Keep `'use client'` at the top!
+- Avoid unnecessary interactivity
+- Use Suspense to handle loading states
+
+## 💡 Final Thoughts
+
+Understanding the boundary between server and client is a **superpower**. It helps you build faster, smarter, and cleaner React apps.
+
+This guide is just the start. If you liked it, check out my GitHub for more real-world examples:
+
+👉 [My GitHub](https://github.com/muhammadyaqoobmuet)
+
+Now go build something epic with React Server & Client Components! 💪

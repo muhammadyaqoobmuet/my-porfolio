@@ -1,0 +1,140 @@
+---
+
+title: "Mastering React Query – Fetching, Caching, and Syncing Data Like a Pro"
+publishedAt: "2025-06-08"
+summary: "React Query makes handling server state easy and powerful. Learn how to use it for fetching, caching, synchronizing, and updating data in your apps."
+image: "/static/images/react-query-guide/banner.png"
+---
+
+<Image
+src="/static/images/react-query-guide/banner.png"
+width={1000}
+height={600}
+/>
+
+Managing server state in modern React apps can be challenging — loading spinners, error states, cache updates… it gets messy fast.
+
+That’s where **React Query** comes in — it handles all of that for you.
+
+If you’re building anything that fetches data from an API, this guide will help you get started with React Query and build apps that are fast, clean, and delightful to use. ⚡
+
+<StepCheck title="Understand the difference between server and client state" />
+<StepCheck title="Set up React Query in your project quickly" />
+<StepCheck title="Use queries and mutations effectively" />
+<StepCheck title="Handle caching and background refetching" />
+<StepCheck title="Build apps that feel real-time without over-fetching" />
+
+## 🚀 Why React Query?
+
+Because managing API calls with `useEffect` and `useState` is a pain 😵‍💫
+
+React Query lets you:
+
+* Fetch, cache, and update data with just a few lines of code
+* Handle background updates, retries, and loading states easily
+* Reduce boilerplate and improve UX
+
+## 🔧 Setting Up React Query
+
+Install it:
+
+```bash
+npm install @tanstack/react-query
+```
+
+Wrap your app with the provider:
+
+```js
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+<QueryClientProvider client={queryClient}>
+  <App />
+</QueryClientProvider>
+```
+
+## 📡 Fetching Data (Queries)
+
+```js
+import { useQuery } from '@tanstack/react-query';
+
+function Users() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['users'],
+    queryFn: () => fetch('/api/users').then(res => res.json())
+  });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+
+  return data.map(user => <p key={user.id}>{user.name}</p>);
+}
+```
+
+## ✍️ Sending Data (Mutations)
+
+```js
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+const queryClient = useQueryClient();
+
+const mutation = useMutation({
+  mutationFn: (newUser) => fetch('/api/users', {
+    method: 'POST',
+    body: JSON.stringify(newUser),
+  }),
+  onSuccess: () => queryClient.invalidateQueries(['users'])
+});
+```
+
+## 🧠 Caching & Refetching
+
+React Query automatically caches your data and decides when to refetch based on:
+
+* Window focus
+* Network status
+* Time-based staleness (staleTime)
+
+You can configure it like this:
+
+```js
+useQuery({
+  queryKey: ['posts'],
+  queryFn: fetchPosts,
+  staleTime: 1000 * 60 * 5, // 5 minutes
+});
+```
+
+## 🧪 DevTools = Your Best Friend
+
+React Query comes with built-in devtools:
+
+```bash
+npm install @tanstack/react-query-devtools
+```
+
+```js
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+<QueryClientProvider client={queryClient}>
+  <App />
+  <ReactQueryDevtools initialIsOpen={false} />
+</QueryClientProvider>
+```
+
+## 🔁 TL;DR Summary
+
+* Stop using `useEffect` for fetching data
+* Use `useQuery` for reads, `useMutation` for writes
+* Cache data smartly and refetch only when needed
+* Wrap everything in the `QueryClientProvider`
+* Use DevTools to debug like a pro
+
+React Query simplifies a LOT of the pain in building dynamic apps. You’ll wonder how you lived without it 😄
+
+👉 [GitHub](https://github.com/muhammadyaqoobmuet) – Check out my projects
+
+👉 [LinkedIn](https://linkedin.com/in/muhammadyaqoobmuet) – Let’s connect!
+
+Try it in your next project — your future self (and users) will love you!

@@ -12,7 +12,7 @@ export const FreelanceCard = ({
       <a href={href} target="__blank" className="max-w-sm mb-4 inline-block">
         <img
           src={image}
-          className="max-w-sm rounded-xl shadow-xl w-80 object-contain"
+          className="max-w-sm rounded-xl shadow-xl w-80 object-cover"
         />
       </a>
       <div>

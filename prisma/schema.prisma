@@ -1,12 +1,12 @@
 generator client {
-    provider        = "prisma-client-js"
-    previewFeatures = ["referentialIntegrity"]
+    provider = "prisma-client-js"
+    // Remove deprecated previewFeatures
 }
 
 datasource db {
-    provider             = "postgresql"
-    url                  = env("DATABASE_URL")
-    referentialIntegrity = "prisma"
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+    // Remove deprecated referentialIntegrity
 }
 
 model words {
@@ -16,12 +16,12 @@ model words {
     image      String   @db.VarChar(500)
     created_by String   @db.VarChar(256)
     created_at DateTime @default(now())
-    updated_at DateTime @default(now())
+    updated_at DateTime @default(now()) @updatedAt
 }
 
 model tweets {
     id         BigInt   @id @default(autoincrement())
     tweetId    String   @db.VarChar(256)
     created_at DateTime @default(now())
-    updated_at DateTime @default(now())
+    updated_at DateTime @default(now()) @updatedAt
 }

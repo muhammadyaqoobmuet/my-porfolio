@@ -1,7 +1,7 @@
 ---
 title: "Ace the Javascript Interview"
 publishedAt: "2021-07-03"
-summary: "Ace your next Javascript Interview - Practice these topics in depth with examples."
+summary: "Ace your next Javascript Interview - By Yaqoob"
 image: "/static/images/crack-the-javascript-interview/banner.png"
 ---
 
@@ -199,12 +199,12 @@ var text; // valid
 <StepCheck title="let is block scoped. A block is a chunk of code covered by {}. Variables defined by let are only accessible within a block of code." />
 
 ```js
-let text = "Hi Manu!";
+let text = "Hi Yaqoob!";
 
 let length = 10;
 
 if (length > 5) {
-  let welcome = "Hi Manu, welcome to block scope";
+  let welcome = "Hi Yaqoob, welcome to block scope";
   console.log(welcome);
 }
 
@@ -214,7 +214,7 @@ console.log(welcome); // Error
 <StepCheck title="let can be updated, but it cannot be re-declared within the same scope" />
 
 ```js
-let text = "Hi Manu!";
+let text = "Hi Yaqoob!";
 
 text = "Please redeclare me!"; // error: text has already been declared
 ```
@@ -222,12 +222,12 @@ text = "Please redeclare me!"; // error: text has already been declared
 But here is a catch, <HighlightBox>If the variable is defined in different scopes, there will be no error.</HighlightBox>
 
 ```js
-let text = "Hi Manu";
+let text = "Hi Yaqoob";
 if (true) {
   let text = "Hello Paaji!";
   console.log(text); // "Hello Paaji!"
 }
-console.log(text); // "Hi Manu"
+console.log(text); // "Hi Yaqoob"
 ```
 
 ### <HighlightBox>const</HighlightBox>
@@ -478,7 +478,7 @@ level.
 <StepCheck title="Data is not lost even after the browser is closed, or even after the OS is rebooted." />
 
 ```js
-localStorage.setItem("name", "Manu"); // set an item
+localStorage.setItem("name", "Yaqoob"); // set an item
 localStorage.getItem("name"); // retrieve the data
 localStorage.removeItem("key"); // remove data
 ```
@@ -489,7 +489,7 @@ localStorage.removeItem("key"); // remove data
 
 ```js
 sessionStorage.user = {
-  name: "Manu",
+  name: "Yaqoob",
 };
 ```
 
@@ -506,11 +506,11 @@ The method calls a function after a specified duration of time has passed.
 
 ```js
 setTimeout(function () {
-  console.log("Manu");
+  console.log("Yaqoob");
 }, 2000);
 ```
 
-Here, "Manu" is logged after 2 seconds.
+Here, "Yaqoob" is logged after 2 seconds.
 
 ### setInterval()
 
@@ -518,11 +518,11 @@ This method calls a function over and over again within a specific interval of t
 
 ```js
 setInterval(function () {
-  console.log("Manu");
+  console.log("Yaqoob");
 }, 2000);
 ```
 
-Here, "Manu" is printed every 2 seconds.
+Here, "Yaqoob" is printed every 2 seconds.
 `clearInterval()` is used to stop the setInterval() method.
 
 <HighlightBox>
@@ -850,14 +850,14 @@ Before undersanding closures, lets understand <HighlightBox>Lexical Scope</Highl
 
 ```js
 function start() {
-  var name = "Manu"; // name is a local variable created by start()
+  var name = "Yaqoob"; // name is a local variable created by start()
   function displayName() {
     // displayName() is the inner function, a `closure`
     alert(name); // use variable declared in the parent function
   }
   displayName();
 }
-start(); // "Manu" alert box is displayed
+start(); // "Yaqoob" alert box is displayed
 ```
 
 Here:
@@ -869,7 +869,7 @@ Coming back to <HighlightBox><strong>Closures</strong></HighlightBox>
 
 ```js
 function startClosure() {
-  var name = "Manu";
+  var name = "Yaqoob";
   function displayName() {
     alert(name);
   }
@@ -877,14 +877,14 @@ function startClosure() {
 }
 
 var fun = startClosure();
-fun(); // "Manu" is alerted
+fun(); // "Yaqoob" is alerted
 ```
 
 Precisely, A closure is the combination of a function and the lexical environment within which that function was declared.
 Which means, That an inner function will know the it's surroundings, i.e. the parent scope and the collective `thing` is called a closure.
 
 Here,
-The instance of displayName maintains a reference to its lexical environment, within which the variable name exists. For this reason, when fun() is invoked, the variable name remains available for use, and "Manu" is passed to alert.
+The instance of displayName maintains a reference to its lexical environment, within which the variable name exists. For this reason, when fun() is invoked, the variable name remains available for use, and "Yaqoob" is passed to alert.
 
 <StepCheck title="Closures are good for data encapsulation - which is if you want to hide the implementation of some functions." />
 <StepCheck title="Currying is one use of closures." />
@@ -906,7 +906,7 @@ In Javascript, we achieve OOPs inheritance through Prototypes.
 
 ```js
 let firstObject = {
-  name: "Manu",
+  name: "Yaqoob",
   programming: "Next.js",
   age: 21,
 
@@ -937,7 +937,7 @@ Lets take an example:
 
 <HighlightBox>Codesandbox:</HighlightBox>{" "}
 
-[Manu Arora's create username debounce
+[Yaqoob create username debounce
 example](https://codesandbox.io/s/proud-surf-uiu2v?file=/src/index.js)
 
 ```js
@@ -990,6 +990,6 @@ Phew! That was one long article.
 
 That's it for this blog, if you liked it please share it on Twitter or any other social media platforms.
 
-Don't forget to look at the [Resources](https://manuarora.in/resources) and [Snippets](https://manuarora.in/snippets) page where I regularly update cool stuff for developers to make their lives easier.
+Don't forget to look at the [Resources](https://yaqoobhalepoto.engineer/resources) and [Snippets](https://yaqoobhalepoto.engineer/snippets) page where I regularly update cool stuff for developers to make their lives easier.
 
 ✌️ Thanks!
