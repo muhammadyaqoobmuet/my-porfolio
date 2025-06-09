@@ -18,13 +18,25 @@ export default function Container(props) {
 
   const { children, ...customMeta } = props;
   const router = useRouter();
-  const meta = {
-    title: "Manu Arora – Developer, writer, creator.",
-    description: `Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.`,
 
+  // Enhanced meta configuration
+  const meta = {
+    title: "Muhammad Yaqoob",
+    description: `Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.`,
+    image: "https://yaqoobhalepoto.engineer/og-image.jpg", // Default OG image
     type: "website",
-    ...customMeta,
+    siteName: "Muhammad Yaqoob",
+    twitterHandle: "@jackub_halepoto", // Replace with your actual handle
+    author: "Muhammad Yaqoob",
+    keywords: "Full-Stack Developer, JavaScript, React, Next.js, Freelancer, Web Development",
+    ...customMeta, // Custom meta will override defaults
   };
+
+  // Construct full URL
+  const url = `https://yaqoobhalepoto.engineer${router.asPath}`;
+
+  // Construct full title
+  const fullTitle = meta.title === "Muhammad Yaqoob" ? meta.title : `${meta.title} | Muhammad Yaqoob`;
 
   const links = [
     {
@@ -35,7 +47,6 @@ export default function Container(props) {
       name: "Blog",
       link: "/blog",
     },
-
     {
       name: "Snippets",
       link: "/snippets",
@@ -44,12 +55,12 @@ export default function Container(props) {
       name: "Resources",
       link: "/resources",
     },
-
     {
       name: "Projects",
       link: "/projects",
     },
   ];
+
   const mobileLinks = [
     {
       name: "Home",
@@ -63,7 +74,6 @@ export default function Container(props) {
       name: "Blog",
       link: "/blog",
     },
-
     {
       name: "Snippets",
       link: "/snippets",
@@ -89,28 +99,73 @@ export default function Container(props) {
   return (
     <div className="bg-white dark:bg-zinc-900">
       <Head>
-        <title>{meta.title}</title>
+        {/* Basic Meta Tags */}
+        <title>{fullTitle}</title>
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
+        <meta name="author" content={meta.author} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="follow, index" />
-        <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://manuarora.in${router.asPath}`}
-        />
-        <link rel="canonical" href={`https://manuarora.in${router.asPath}`} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={url} />
+
+        {/* Open Graph Tags */}
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Manu Arora" />
-        <meta property="og:description" content={meta.description} />
+        <meta property="og:site_name" content={meta.siteName} />
         <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={url} />
         <meta property="og:image" content={meta.image} />
+        <meta property="og:image:alt" content={meta.description} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mannupaaji" />
+        <meta name="twitter:site" content={meta.twitterHandle} />
+        <meta name="twitter:creator" content={meta.twitterHandle} />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
+        <meta name="twitter:image:alt" content={meta.description} />
+
+        {/* Article specific meta (for blog posts) */}
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
         )}
+        {meta.tags && (
+          <meta property="article:tag" content={meta.tags} />
+        )}
+
+        {/* Additional SEO Tags */}
+        <meta name="theme-color" content="#0d9488" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Muhammad Yaqoob",
+              "url": "https://yaqoobhalepoto.engineer",
+              "description": meta.description,
+              "jobTitle": "Full-Stack Developer",
+              "sameAs": [
+                // Add your social media profiles here
+                "https://twitter.com/your_handle",
+                "https://linkedin.com/in/your-profile",
+                "https://github.com/your-username"
+              ]
+            })
+          }}
+        />
       </Head>
+
       <nav className="sticky-nav flex justify-between items-center max-w-4xl w-full p-8 mt-0 mb-0 md:mt-4 md:mb-10  mx-auto bg-white dark:bg-zinc-900 bg-opacity-60">
         <a href="#skip" className="sr-only focus:not-sr-only">
           Skip to content
@@ -171,6 +226,7 @@ export default function Container(props) {
   );
 }
 
+// Mobile and Desktop components remain the same
 export const Mobile = ({ links }) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -228,7 +284,7 @@ export const Mobile = ({ links }) => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          class="w-6 h-6 text-black dark:text-white"
+          className="w-6 h-6 text-black dark:text-white"
         >
           <path
             strokeLinecap="round"
