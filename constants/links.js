@@ -28,7 +28,7 @@ export const links = [
   {
     id: 4,
     name: "Website",
-    href: "https://manuarora.in",
+    href: "https://yaqoobhalepoto.engineer",
     icon: SiNextdotjs,
   },
 

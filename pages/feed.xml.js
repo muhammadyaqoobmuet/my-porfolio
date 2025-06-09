@@ -4,8 +4,8 @@ import RSS from "rss";
 export async function getServerSideProps({ res }) {
   const feed = new RSS({
     title: "Manu Arora",
-    site_url: "https://manuarora.in",
-    feed_url: "https://manuarora.in/feed.xml",
+    site_url: "https://yaqoobhalepoto.engineer",
+    feed_url: "https://yaqoobhalepoto.engineer/feed.xml",
   });
 
   const posts = await getAllFilesFrontMatter("blog");
@@ -15,7 +15,7 @@ export async function getServerSideProps({ res }) {
   filteredBlogPosts.map((post) => {
     feed.item({
       title: post.title,
-      url: `https://manuarora.in/blog/${post.slug}`,
+      url: `https://yaqoobhalepoto.engineer/blog/${post.slug}`,
       date: post.publishedAt,
       description: post.summary,
     });

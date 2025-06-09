@@ -98,8 +98,8 @@ export default function Snippets({ snippets }) {
           />
           <ResourcesCard
             title="Tailwind Box Shadows"
-            link="https://manuarora.in/boxshadows"
-            websiteLink="manuarora.in/boxshadows"
+            link="https://yaqoobhalepoto.engineer/boxshadows"
+            websiteLink="yaqoobhalepoto.engineer/boxshadows"
             description="Beautiful box shadows for TailwindCSS"
           />
           <ResourcesCard
