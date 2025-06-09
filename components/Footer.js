@@ -35,11 +35,7 @@ export default function Footer() {
               Projects
             </a>
           </Link>
-          <Link href="/links">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Links
-            </a>
-          </Link>
+
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://github.com/muhammadyaqoobmuet">
