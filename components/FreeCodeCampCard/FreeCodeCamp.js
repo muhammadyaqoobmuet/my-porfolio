@@ -8,17 +8,18 @@ export default function FreeCodeCamp({ showDesc = true }) {
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 text-black dark:text-white">
         Free Code Camp
       </h1>
+      <span className="lowercase max-w-7xl mx-auto text-lg bg-pink-300 px-4 text-center text-black font-medium">ADDING THIS SOON ACCOUNT GOT SUSPENDED 🥲</span>
       {showDesc && (
         <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
           I’ve been writing articles for{" "}
-          <a href="https://www.freecodecamp.org/news/author/manu/">
+          <a href="https://www.freecodecamp.org/news/">
             freeCodeCamp
           </a>{" "}
           where I generally write about projects and technical learnings. Some
           of the articles that I wrote are down below.
         </h2>
       )}
-      <div className=" grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-10 w-full">
+      {/* <div className=" grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-10 w-full">
         <ProjectFCC
           link="https://www.freecodecamp.org/news/prepare-for-react-technical-interviews/"
           title="How to Prepare for React Interviews – Front-End Technical Interview Guide"
@@ -57,7 +58,7 @@ export default function FreeCodeCamp({ showDesc = true }) {
           image="freecodecamp/portfolio.png"
           date="September 21, 2021"
         />
-      </div>
+      </div> */}
     </div>
   );
 }
