@@ -6,6 +6,14 @@ import { BlurImage } from "./BlurImage";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+
+  // Blur reveal animation variants - made faster and smoother
+  const blurTransition = { duration: 0.3, ease: [0.4, 0, 0.2, 1] };
+  const blurVariants = {
+    hidden: { filter: "blur(8px)", transform: "translateY(10%)", opacity: 0 },
+    visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
+  };
+
   const variants = {
     hidden: { opacity: 0, y: "1vh" },
     show: {
@@ -31,11 +39,27 @@ const Header = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between items-start md:space-x-14  w-full mb-10">
       <div className="flex md:w-3/4 flex-col mt-6">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-2 text-black dark:text-white">
-          Muhammad Yaqoob
-        </h1>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.02 }}
+        >
+          <motion.h1
+            className="font-bold text-3xl md:text-5xl tracking-tight mb-2 text-black dark:text-white"
+            transition={blurTransition}
+            variants={blurVariants}
+          >
+            Muhammad Yaqoob
+          </motion.h1>
+        </motion.div>
 
-        <div className="relative leading-7 items-center flex-wrap text-zinc-700 dark:text-zinc-400 mb-5">
+        <motion.div
+          className="relative leading-7 items-center flex-wrap text-zinc-700 dark:text-zinc-400 mb-5"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ ...blurTransition, delay: 0.1 }}
+          variants={blurVariants}
+        >
           Building
           <a
             className={
@@ -110,8 +134,14 @@ const Header = () => {
               )}
             </AnimatePresence>
           </span>
-        </div>
-        <p className="text-zinc-600 dark:text-zinc-500">
+        </motion.div>
+        <motion.p
+          className="text-zinc-600 dark:text-zinc-500"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ ...blurTransition, delay: 0.2 }}
+          variants={blurVariants}
+        >
           Full Stack Developer building SaaS products and web apps. Find me
           on{" "}
           <a
@@ -122,7 +152,7 @@ const Header = () => {
             <span className="relative">twitter</span>
           </a>{" "}
           for tech updates and memes.
-        </p>
+        </motion.p>
       </div>
 
       <div className=" relative flex-shrink-1 p-4 md:p-4 md:order-last order-first">

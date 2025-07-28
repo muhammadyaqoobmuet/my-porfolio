@@ -18,7 +18,7 @@ module.exports = {
     return [
       {
         source: "/boxshadows",
-        destination: "https://ui.aceternity.com/tools/box-shadows",
+        destination: "#boxshadows",
         permanent: true,
       },
     ];

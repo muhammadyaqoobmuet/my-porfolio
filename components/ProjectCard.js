@@ -1,5 +1,5 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { FileTextIcon, ServerIcon } from "lucide-react";
+import { Code2, Code2Icon, CodeSquare, CodeSquareIcon, FileTextIcon, ServerIcon, X } from "lucide-react";
 import { MdNetworkWifi2Bar } from "react-icons/md";
 
 export default function ProjectCard({ title, description, href, icon, tags }) {
@@ -31,6 +31,27 @@ export default function ProjectCard({ title, description, href, icon, tags }) {
           {/* */}
 
           <div className="my-4">
+            {icon === "code" && (
+              <CodeSquareIcon className="w-8 h-8" />
+            )}
+            {icon === "dsdigitals" && (
+              <div className="h-8 w-8 ml-2 mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 min-w-lg text-gray-900 dark:text-gray-100"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9V3"
+                  />
+                </svg>
+              </div>
+            )}
             {icon === "zhurnuty" && (
               <FileTextIcon className="w-8 h-8" />
             )}
@@ -83,30 +104,47 @@ export default function ProjectCard({ title, description, href, icon, tags }) {
               </div>
             )}
             {icon === "shopsphereapi" && (
-              // <svg
-              //   width="204"
-              //   height="20"
-              //   viewBox="0 0 204 99"
-              //   fill="none"
-              //   className="h-10 w-10 mr-4  min-w-lg flex-shrink-0"
-              //   xmlns="http://www.w3.org/2000/svg"
-              // >
-              //   <rect width="204" height="99" rx="21" fill="none" />
-              //   <path
-              //     d="M15.2109 55.7564L44.2109 68.5263V60.1847L24.6236 52.3168V51.946L44.2109 44.0781V35.7365L15.2109 48.5064V55.7564ZM156.313 24.8409H148.754L135.16 75.3438H142.719L156.313 24.8409ZM191.25 55.7564V48.5064L162.25 35.7365V44.0781L181.837 51.946V52.3168L162.25 60.1847V68.5263L191.25 55.7564Z"
-              //     fill="#007EF3"
-              //   />
-              //   <path
-              //     d="M60.3587 69L63.4893 59.3814H78.7102L81.8409 69H91.3977L76.8565 26.8182H65.3636L50.8018 69H60.3587ZM65.755 52.4197L70.9453 36.4574H71.2749L76.4652 52.4197H65.755ZM131.71 41.5859C130.536 31.8438 123.163 26.2415 113.4 26.2415C102.257 26.2415 93.7509 34.1094 93.7509 47.9091C93.7509 61.6676 102.113 69.5767 113.4 69.5767C124.213 69.5767 130.742 62.3885 131.71 54.6236L122.689 54.5824C121.845 59.093 118.302 61.6882 113.544 61.6882C107.139 61.6882 102.793 56.9304 102.793 47.9091C102.793 39.1349 107.077 34.13 113.606 34.13C118.487 34.13 122.009 36.9517 122.689 41.5859H131.71Z"
-              //     fill="#000000"
-              //   />
-              // </svg>
-
               <ServerIcon className="w-8 h-8" />
             )}
             {icon === "masterrestapis" && (
               <div className="h-8 w-8 ml-2 mr-4">
                 <MdNetworkWifi2Bar className="w-8 h-8" />
+              </div>
+            )}
+            {icon === "furstationdumb" && (
+              <div className="h-8 w-8 ml-2 mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 min-w-lg text-gray-900 dark:text-gray-100"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+            )}
+            {icon === "vscode" && (
+              <div className="h-8 w-8 ml-2 mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 min-w-lg text-gray-900 dark:text-gray-100"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
+                </svg>
               </div>
             )}
             {icon === "gba" && (
@@ -257,38 +295,6 @@ export default function ProjectCard({ title, description, href, icon, tags }) {
               </div>
             )}
 
-            {icon == "vscode" && (
-              <div className="h-8 w-8 ml-2 mr-4">
-                <span className="sr-only">Vscode Resume</span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 min-w-sm text-gray-900 dark:text-gray-100"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
-                </svg>
-              </div>
-            )}
-            {icon === "code" && (
-              <div className="h-8 w-8 ml-2 mr-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 min-w-sm text-gray-900 dark:text-gray-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-            )}
             {icon == "more" && (
               <div className="h-8 w-8 ml-2 mr-4">
                 <span className="sr-only">Vscode Resume</span>

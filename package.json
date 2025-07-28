@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manuarora700/personal-portfolio.git"
+    "url": "git+https://github.com/muhammadyaqoobmuet/my-porfolio.git"
   },
   "dependencies": {
     "@headlessui/react": "^1.2.0",
