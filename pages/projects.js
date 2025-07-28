@@ -91,6 +91,24 @@ export default function projects() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <ProjectCard
+              title="CodeFlow"
+              description="A Live Code Collab Platform with features like sync code, live calls, audio call, voice chats, messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency."
+              href="https://code-flow-production-791a.up.railway.app/"
+              icon={Code}
+              tags={["React", "JavaScript", "SocketsIo", "App Router", "WebRtc", "Custom Stun Servers"]}
+              isLive={true}
+            />
+
+            <ProjectCard
+              title="DS Digitals - German Based Software Agency"
+              description="Created a german based software agency its website and help them to land clients and build their brand with a modern website and a blog section to help them rank on google."
+              href="https://dsdigitals.de/"
+              icon={Globe}
+              tags={["Next.js", "TypeScript", "App Router", "Resend", "Cal.com"]}
+              isLive={true}
+            />
+
+            <ProjectCard
               title="Zhurnuty - AI PDF Summarizer"
               description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
               href="https://zhrnuty.vercel.app/"

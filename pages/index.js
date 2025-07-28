@@ -4,7 +4,7 @@ import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
-
+import { motion } from "framer-motion";
 import { LIGHT_COLORS } from "@/lib/constants";
 
 import { shuffleArray } from "@/lib/shuffleArray";
@@ -31,11 +31,19 @@ export default function Home() {
     setColors(shuffleArray(LIGHT_COLORS));
   }, []);
 
+  const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
+  const variants = {
+    hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
+    visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
+  };
+
+
   return (
     <Container
       title="Muhammad Yaqoob -Full Stack Developer, "
       description="Full-Stack developer, JavaScript enthusiast, Freelancer, I love building products and web apps that impact millions of lives."
     >
+      
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <Header />
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
@@ -79,6 +87,33 @@ export default function Home() {
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ProjectCard
+            title="CodeFlow"
+            description="A Live Code Collab Platform with features like sync code , live calls , audio call , voice chats , messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency "
+            href="https://code-flow-production-791a.up.railway.app/"
+            icon="code"
+            tags={[
+              "React",
+              "JavaScript",
+              "SocketsIo",
+              "App Router",
+              "WebRtc",
+              "Custom Stun Servers",
+            ]}
+          />
+          <ProjectCard
+            title="DS Digitals - german based software agency"
+            description=" created a german based software agency its website and help them to land clients and build their brand with a modern website and a blog section to help them rank on google"
+            href="https://dsdigitals.de/"
+            icon="dsdigitals"
+            tags={[
+              "Next.js",
+              "TypeScript",
+              "App Router",
+              "Resend",
+              "Cal.com",
+            ]}
+          />
           <ProjectCard
             title="Zhurnuty - AI PDF Summarizer"
             description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
@@ -178,6 +213,6 @@ export default function Home() {
         <Timeline />
         <Contact />
       </div>
-    </Container>
+    </Container >
   );
 }

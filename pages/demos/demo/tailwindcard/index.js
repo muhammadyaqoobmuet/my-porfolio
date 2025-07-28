@@ -9,11 +9,7 @@ export default function CardBasic() {
           <Link href="https://yaqoobhalepoto.engineer/snippets/tailwind-card">
             <a>
               <div className="mx-auto lg:w-3/5 lg:flex lg:flex-row lg:h-auto ">
-                <img
-                  src="https://picsum.photos/id/237/200/300"
-                  alt="image-text"
-                  className="rounded-tr-md rounded-tl-md h-48 w-full lg:h-auto lg:w-2/5 lg:rounded-bl-md lg:rounded-tr-none"
-                />
+
                 <div className="bg-white p-8 rounded-bl-md rounded-br-md lg:rouned-bl-none lg:rounded-tr-md">
                   <h2 className="text-gray-700 font-semibold">
                     Tailwind Ui Card
@@ -25,14 +21,12 @@ export default function CardBasic() {
                   </p>
                   <div className="flex items-center mt-8">
                     <div className="flex items-center">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src="https://yaqoobhalepoto.engineer/avatar.jpg"
-                        alt="avatar"
-                      />
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-center flex items-center justify-center text-md font-bold">
+                        YH
+                      </div>
                       <div className="ml-4">
                         <p className="text-gray-800 text-sm font-semibold">
-                          Manu Arora
+                          yaqoob halepoto
                         </p>
                         <p className="text-gray-400 text-sm">Next JS</p>
                       </div>

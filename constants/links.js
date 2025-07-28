@@ -68,7 +68,7 @@ export const links = [
   {
     id: 5,
     name: "GitHub",
-    href: "https://github.com/manuarora700",
+    href: "https://github.com/muhammadyaqoobmuet",
     icon: AiFillGithub,
   },
   {
