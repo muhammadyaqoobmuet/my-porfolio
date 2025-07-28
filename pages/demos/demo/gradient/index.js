@@ -7,7 +7,7 @@ export default function index() {
       <h1
         className={`text-8xl font-extrabold gradient-text ${Styles.gradientText}`}
       >
-        TEXT UI GRADIENT
+        yaqoob halepoto
       </h1>
     </div>
   );

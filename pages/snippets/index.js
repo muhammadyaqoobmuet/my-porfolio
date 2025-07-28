@@ -5,7 +5,7 @@ import { getAllFilesFrontMatter } from "@/lib/mdx";
 export default function Snippets({ snippets }) {
   return (
     <Container
-      title="Snippets – Manu Arora"
+      title="Snippets – Muhammad Yaqoob"
       description="Reusable code snippets that contains API integrations, custom CSS or something I find cool."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">

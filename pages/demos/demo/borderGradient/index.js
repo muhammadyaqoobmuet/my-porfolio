@@ -25,7 +25,7 @@ export default function GradientBorder() {
         role="button"
       >
         <div className="flex items-center justify-center flex-grow text-white bg-black rounded">
-          <p>Gradient Border</p>
+          <p>yaqoob halepoto</p>
         </div>
       </div>
       <div className="flex mt-10 space-x-4 rounded">

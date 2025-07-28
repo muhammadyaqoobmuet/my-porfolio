@@ -20,7 +20,7 @@ export default function MovingCard() {
             </svg>
           </div>
           <div className="container-text max-w-lg">
-            <p className="font-semibold text-gray-900 text-xl py-8">
+            <p className="font-semibold text-gray-100 text-xl py-8">
               As seen on the tailwild <a href="tailwindcss.com">website</a>,
               this moving testimonial slider is an excellent example of modern
               UI that looks clean.
@@ -30,20 +30,17 @@ export default function MovingCard() {
         <div className="footer-container flex flex-row flex-nowrap justify-between min-w-lg max-w-lg bg-gradient-to-r from-green-400 to-blue-500 py-4 px-8 rounded-b-lg">
           <div className="avatar-container">
             <div className="footer-img flex flex-row flex-nowrap">
-              <Image
-                src="/avatar.jpg"
-                height={60}
-                width={60}
-                className="border-2 rounded-full border-gray-200"
-              />
+              <div className="w-[48px] h-[48px] rounded-full bg-gradient-to-r from-green-400 to-blue-500 text-center flex items-center justify-center text-md font-bold">
+                YH
+              </div>
               <div className="footer-text flex flex-col flex-nowrap">
-                <p className="text-gray-100 font-bold ml-6">Manu Arora</p>
+                <p className="text-gray-100 font-bold ml-6">Yaqoob halepoto</p>
                 <p className="text-gray-200 ml-6">Software Developer</p>
               </div>
             </div>
           </div>
           <div className="twitter-icon my-auto">
-            <a href="https://twitter.com/mannupaaji">
+            <a href="https://twitter.com/jackub_halepoto" target="_blank" rel="noopener noreferrer">
               <svg
                 width="33"
                 height="32"
