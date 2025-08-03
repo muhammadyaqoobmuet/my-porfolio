@@ -6,7 +6,7 @@ export default function Demos() {
   // TODO: Make sections for each type, ex: Javascript, HTML CSS etc
   return (
     <Container
-      title="Live Demos – Manu Arora"
+      title="Live Demos – Muhammad Yaqoob"
       description="Live Demo pages for all the code snippets and blogs I've written."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">

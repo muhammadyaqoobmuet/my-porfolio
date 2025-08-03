@@ -45,7 +45,7 @@ const Header = () => {
           transition={{ staggerChildren: 0.02 }}
         >
           <motion.h1
-            className="font-bold text-3xl md:text-5xl tracking-tight mb-2 text-black dark:text-white"
+            className="font-bold text-3xl md:text-5xl tracking-tight mb-2 text-custom-black dark:text-white font-geist"
             transition={blurTransition}
             variants={blurVariants}
           >
@@ -74,7 +74,7 @@ const Header = () => {
 
           other
           <span
-            className="font-bold cursor-pointer text-zinc-800 dark:text-zinc-200"
+            className="font-bold cursor-zoom-out z-100 text-zinc-800 dark:text-zinc-200"
             style={{ cursor: "🤩" }}
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
@@ -89,11 +89,11 @@ const Header = () => {
                   initial="hidden"
                   animate="show"
                   exit="exit"
-                  className="z-20 p-4 rounded-xl bg-white dark:bg-zinc-800 shadow-2xl absolute inset-x-0 w-full min-h-96 text-xs md:text-sm"
+                  className="z-100 p-4 rounded-xl bg-white dark:bg-zinc-900 shadow-2xl absolute inset-x-0 w-full min-h-96 text-xs md:text-sm"
                 >
-                  <div className="bg-grid-slate-50 dark:bg-grid-zinc-700/30 absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"></div>
+                  <div className="bg-grid-slate-100  z-100 dark:bg-grid-zinc-700/30 absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"></div>
 
-                  <motion.p variants={itemA} className="font-normal py-3">
+                  <motion.p variants={itemA} className="font-normal z-100  py-3">
                     👋 Hey, I’m Muhammad Yaqoob – a{" "}
                     <span className="font-semibold text-sky-500">Full Stack Developer</span> specializing in{" "}
                     <Hyperlink text="MERN & Next.js" link="https://github.com/muhammadyaqoobmuet" /> with a love for clean architecture, auth systems, and AI tools.
@@ -136,7 +136,7 @@ const Header = () => {
           </span>
         </motion.div>
         <motion.p
-          className="text-zinc-600 dark:text-zinc-500"
+          className="text-zinc-600 -z-1 dark:text-zinc-500"
           initial="hidden"
           whileInView="visible"
           transition={{ ...blurTransition, delay: 0.2 }}

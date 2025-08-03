@@ -43,10 +43,10 @@ export default function Home() {
       title="Muhammad Yaqoob -Full Stack Developer, "
       description="Full-Stack developer, JavaScript enthusiast, Freelancer, I love building products and web apps that impact millions of lives."
     >
-      
+
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <Header />
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-custom-black dark:text-white font-geist">
           Recent Blogs
         </h3>
         <BlogPost
@@ -82,7 +82,7 @@ export default function Home() {
           </a>
         </Link>
 
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-custom-black dark:text-white font-geist">
           Projects
         </h3>
 
@@ -90,7 +90,7 @@ export default function Home() {
           <ProjectCard
             title="CodeFlow"
             description="A Live Code Collab Platform with features like sync code , live calls , audio call , voice chats , messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency "
-            href="https://code-flow-production-791a.up.railway.app/"
+            href="https://code-flow-a7559b152722.herokuapp.com/"
             icon="code"
             tags={[
               "React",
@@ -182,7 +182,7 @@ export default function Home() {
           </a>
         </Link>
 
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-custom-black dark:text-white font-geist">
           Upcoming Projects
         </h3>
 

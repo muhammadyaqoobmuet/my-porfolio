@@ -93,7 +93,7 @@ export default function projects() {
             <ProjectCard
               title="CodeFlow"
               description="A Live Code Collab Platform with features like sync code, live calls, audio call, voice chats, messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency."
-              href="https://code-flow-production-791a.up.railway.app/"
+              href="https://code-flow-a7559b152722.herokuapp.com/"
               icon={Code}
               tags={["React", "JavaScript", "SocketsIo", "App Router", "WebRtc", "Custom Stun Servers"]}
               isLive={true}
