@@ -19,7 +19,7 @@ const Friday = () => {
 
   return (
     <Container
-      title="FRIDAY AAAAAAAA! KARAAAR HOJO | Manu Arora"
+      title="FRIDAY AAAAAAAA! KARAAAR HOJO | Yaqoob Halepoto"
       description="Keda kaabu ni husan te paave, Dil seene to nikalda jaave, batti bor billo do nain kaale, PENCHO FRIDAY AAA, KARAAR HOJO KOKAIN HOOKARAN NAAL SAX SUX PHUDDIYAN PAADOOOOO!"
       image="/sardarji.jpeg"
     >

@@ -6,7 +6,7 @@ import clsx from "clsx";
 export default function Links() {
   return (
     <Container
-      title="Links – Manu Arora"
+      title="Links – Yaqoob Halepoto"
       description="Links to all my socials, projects, source codes and memes."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">

@@ -64,7 +64,7 @@ export default function DesignInspiration({ snippets }) {
   ];
   return (
     <Container
-      title="Design Inspiration - Manu Arora"
+      title="Design Inspiration - Yaqoob Halepoto"
       description="Designers and design engineers I follow and look up to."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">

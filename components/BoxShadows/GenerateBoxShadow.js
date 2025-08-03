@@ -259,7 +259,7 @@ export const GenerateBoxShadow = React.forwardRef((props, ref) => {
               <div class="mx-auto max-w-md">
                 <img
                   src="/avatar-new.png"
-                  alt="Manu Arora"
+                  alt="Yaqoob Halepoto"
                   className="h-8 rounded-full"
                 />
                 <div class="divide-y divide-gray-300/50">

@@ -3,7 +3,7 @@ import RSS from "rss";
 
 export async function getServerSideProps({ res }) {
   const feed = new RSS({
-    title: "Manu Arora",
+    title: "Yaqoob Halepoto",
     site_url: "https://yaqoobhalepoto.engineer",
     feed_url: "https://yaqoobhalepoto.engineer/feed.xml",
   });

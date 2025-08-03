@@ -5,7 +5,7 @@ export default function Snippets({ snippets }) {
   // TODO: Make sections for each type, ex: Javascript, HTML CSS etc
   return (
     <Container
-      title="Resources – Manu Arora"
+      title="Resources –  Muhammad Yaqoob"
       description="Helpful websites that I've been using for years that have helped me in developing
       applications and much more"
     >

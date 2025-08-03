@@ -8,7 +8,7 @@ import FreeCodeCamp from "@/components/FreeCodeCampCard/FreeCodeCamp";
 export default function FreeCodeCampPage() {
   return (
     <Container
-      title="Blogs at FreeCodeCamp – Manu Arora"
+      title="Blogs at FreeCodeCamp – Yaqoob Halepoto"
       description="I've been writing articles for freeCodeCamp - Check out my latest articles here."
       image="/avatar.jpg"
     >
