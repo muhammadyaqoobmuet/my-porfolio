@@ -64,12 +64,14 @@ module.exports = {
       colors: {
         "blue-opaque": "rgb(13 42 148 / 18%)",
         cyan: colors.cyan,
+        "custom-black": "#0A0A0A",
       },
       boxShadow: {
         custom: "3px 3px 0px 0px rgba(33,33,33)",
       },
       fontFamily: {
-        sans: ["Inter", ...fontFamily.sans],
+        sans: ["Geist", "Inter", ...fontFamily.sans],
+        geist: ["Geist", "Inter", ...fontFamily.sans],
       },
       typography: (theme) => ({
         DEFAULT: {
