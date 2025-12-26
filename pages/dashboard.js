@@ -6,6 +6,7 @@ import Followers from "@/components/metrics/Followers";
 import Following from "@/components/metrics/Following";
 import Repositories from "@/components/metrics/Repositories";
 import TopTracks from "@/components/TopTracks";
+import CatToggle from "@/components/CatToggle";
 
 import Analytics from "@/components/metrics/Analytics";
 // import NowPlaying from "@/components/NowPlaying";
@@ -42,6 +43,7 @@ export default function Dashboard() {
           <Following />
           <Repositories />
           <Analytics />
+          <CatToggle />
         </div>{" "}
         <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Top Tracks

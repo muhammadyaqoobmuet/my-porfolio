@@ -6,6 +6,7 @@ import JourneyList from "@/components/JourneyList";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -39,11 +40,13 @@ export default function Home() {
 
         {/* Profile Photo */}
         <div className="relative w-[170px] h-[150px] mb-8 md:mb-0 md:ml-8">
-            <a href="https://twitter.com/jackub_halepoto" target="_blank" rel="noopener noreferrer">
-                <img
+            <a href="https://twitter.com/jackub_halepoto" target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
+                <Image
                 src="/devimage.png"
                 alt="Muhammad Yaqoob"
-                className="rounded-sm object-cover w-full h-full border-2 border-gray-100 dark:border-zinc-800 shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-sm border-2 border-gray-100 dark:border-zinc-800 shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
                 />
             </a>
         </div>

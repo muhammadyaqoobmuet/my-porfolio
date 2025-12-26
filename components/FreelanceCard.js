@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const FreelanceCard = ({
   href,
@@ -9,10 +10,13 @@ export const FreelanceCard = ({
 }) => {
   return (
     <div className="grid md:grid-cols-2 gap-4 mx-auto mb-12">
-      <a href={href} target="__blank" className="max-w-sm mb-4 inline-block">
-        <img
+      <a href={href} target="__blank" className="relative w-full h-64 md:w-80 md:h-52 mb-4 inline-block">
+        <Image
           src={image}
-          className="max-w-sm rounded-xl shadow-xl w-80 object-cover"
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl shadow-xl hover:opacity-90 transition-opacity"
         />
       </a>
       <div>

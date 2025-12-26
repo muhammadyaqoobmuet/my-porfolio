@@ -144,7 +144,7 @@ const TimelineCard = ({ data, index }) => {
 
 export default function Timeline() {
   return (
-    <div className="max-w-3xl mx-auto w-full py-16 px-4 md:px-0 relative">
+    <div className="max-w-3xl mx-auto w-full py-16 relative">
         {/* Vertical Line for Desktop */}
         <div className="hidden md:block absolute left-[3px] top-6 bottom-0 w-0.5 bg-gray-200 dark:bg-zinc-800"></div>
 

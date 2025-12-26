@@ -1,43 +1,55 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function ProjectCard({ title, description, href, tags, imgUrl }) {
 
   if (imgUrl) {
     return (
         <a
-          className="group relative flex flex-col justify-end p-8 md:p-10 h-[28rem] w-full overflow-hidden rounded-3xl border border-gray-200 dark:border-zinc-800 transition-all duration-700 hover:shadow-2xl"
+          className="group relative flex flex-col h-96 md:h-[28rem] w-full overflow-hidden rounded-3xl border border-gray-200 dark:border-zinc-800 transition-all duration-500 hover:shadow-xl hover:border-zinc-700"
           href={href}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* Background Image with Parallax-like feel */}
-          <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 opacity-100 transition-opacity duration-500" />
-             <img
+          {/* Image Section - Top Half on Desktop */}
+          <div className="absolute inset-0 z-0 md:relative md:h-[55%] md:w-full md:z-auto overflow-hidden">
+             {/* Gradient for Mobile Only */}
+             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10 md:hidden" />
+
+             <Image
                src={imgUrl}
                alt={title}
-               className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105 will-change-transform"
+               layout="fill"
+               objectFit="cover"
+               className="transform transition-transform duration-700 ease-out group-hover:scale-105"
              />
           </div>
 
-          <div className="relative z-20 flex flex-col gap-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-             <div className="flex justify-between items-end border-b border-white/10 pb-4 mb-2">
-                <h4 className="text-3xl md:text-4xl font-serif font-bold text-white tracking-wide shadow-black drop-shadow-lg">
+          {/* Content Section - Bottom Half on Desktop */}
+          <div className="relative z-20 flex flex-col justify-end md:justify-start h-full md:h-[45%] p-6 md:p-8 md:bg-[#111111] md:w-full md:border-t md:border-zinc-800 transition-colors">
+
+             {/* Title Row */}
+             <div className="flex justify-between items-start mb-4">
+                <h4 className="text-3xl md:text-2xl font-serif font-bold text-white tracking-tight drop-shadow-md md:drop-shadow-none">
                     {title}
                 </h4>
-                <div className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-75 transition-all duration-500 ease-out border border-white/20">
-                    <ArrowUpRight className="w-5 h-5" />
+
+                {/* Arrow Icon */}
+                <div className="hidden md:flex p-2 rounded-full border border-zinc-700/50 bg-zinc-800/50 text-zinc-400 group-hover:text-white group-hover:border-zinc-600 transition-colors">
+                    <ArrowUpRight className="w-4 h-4" />
                 </div>
              </div>
 
-             <p className="text-gray-200 text-sm md:text-base leading-relaxed max-w-xl font-medium drop-shadow-md pr-4">
+             {/* Description */}
+             <p className="text-gray-300 md:text-zinc-400 text-sm md:text-sm leading-relaxed font-medium md:font-normal drop-shadow-sm md:drop-shadow-none md:line-clamp-3 mb-6">
                {description}
              </p>
 
+             {/* Tags */}
              {tags && (
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 text-[10px] uppercase tracking-widest font-bold rounded-full bg-white/5 backdrop-blur-xl text-white border border-white/10 shadow-[0_4px_10px_rgba(0,0,0,0.2)] hover:bg-white/20 transition-colors">
+                    <span key={tag} className="px-2.5 py-1 text-[10px] uppercase tracking-wider font-semibold rounded-md bg-white/10 md:bg-zinc-800/80 text-white md:text-zinc-300 border border-white/10 md:border-zinc-700/50 shadow-sm backdrop-blur-sm">
                       {tag}
                     </span>
                   ))}
