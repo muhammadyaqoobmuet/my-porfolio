@@ -1,115 +1,86 @@
 import Link from "next/link";
-import NowPlaying from "@/components/NowPlaying";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
-const ExternalLink = ({ href, children }) => (
+const SocialLink = ({ href, icon: Icon, label, color }) => (
   <a
-    className="text-gray-500 hover:text-gray-600 transition"
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
-    href={href}
+    className="flex items-center gap-3 px-5 py-3 rounded-full bg-zinc-50 dark:bg-zinc-900/50 hover:bg-white dark:hover:bg-zinc-800 transition-all duration-300 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-sm group"
   >
-    {children}
+    <Icon className={`w-5 h-5 ${color} transition-transform group-hover:scale-110`} />
+    <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100">{label}</span>
   </a>
+);
+
+const FooterLink = ({ href, label }) => (
+    <Link href={href}>
+        <a className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors text-[15px] font-medium tracking-tight hover:underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700">
+            {label}
+        </a>
+    </Link>
 );
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
-      <NowPlaying />
-      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
-      <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
-        <div className="flex flex-col space-y-4">
-          <Link href="/">
-            <a className="text-gray-500 hover:text-gray-600 transition">Home</a>
-          </Link>
-          <Link href="/blog">
-            <a className="text-gray-500 hover:text-gray-600 transition">Blog</a>
-          </Link>
-          <Link href="/dashboard">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Dashboard
-            </a>
-          </Link>
-          <Link href="/projects">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Projects
-            </a>
-          </Link>
+    <footer className="w-full max-w-6xl mx-auto pt-24 pb-16 px-6 md:px-0 mt-8">
+
+        {/* Top: Connect with Me (Horizontal Row) */}
+        <div className="w-full mb-20 flex flex-col items-start">
+            <h3 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+                Connect with Me
+            </h3>
+            <div className="flex flex-wrap gap-4">
+                <SocialLink href="https://github.com/muhammadyaqoobmuet" icon={FaGithub} label="GitHub" color="text-zinc-900 dark:text-white" />
+                <SocialLink href="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/" icon={FaLinkedin} label="LinkedIn" color="text-blue-600" />
+                <SocialLink href="https://twitter.com/jackub_halepoto" icon={FaTwitter} label="Twitter" color="text-sky-500" />
+                <SocialLink href="https://wa.me/923483314202" icon={FaWhatsapp} label="WhatsApp" color="text-green-500" />
+                <SocialLink href="mailto:yaqoobahmed45700@gmail.com" icon={FaEnvelope} label="Email" color="text-red-500" />
+            </div>
+        </div>
+
+        <div className="border-t border-zinc-100 dark:border-zinc-800 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-0">
+
+            {/* Column 1: Resources */}
+            <div className="flex flex-col gap-8">
+                 <div>
+                     <h4 className="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
+                        Resources
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-12 max-w-2xl">
+                        <FooterLink href="/snippets" label="Snippets" />
+                        <FooterLink href="/resources" label="Resources" />
+                        <FooterLink href="/demos" label="Live Demos" />
+                        <FooterLink href="/freecodecamp" label="freeCodeCamp" />
+                        <FooterLink href="/boxshadows" label="Box Shadows" />
+                        <FooterLink href="/design-inspiration" label="Inspiration" />
+                    </div>
+                 </div>
+            </div>
+
+            {/* Column 2: Copyright & Quick Links */}
+            <div className="flex flex-col md:items-end justify-between gap-8 h-full">
+                 <div className="flex flex-col md:text-right">
+                    <h3 className="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
+                        Muhammad Yaqoob
+                    </h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2 font-medium">
+                        Full-Stack Developer
+                    </p>
+                 </div>
+
+                 <div className="flex flex-wrap md:justify-end gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                    <Link href="/"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</a></Link>
+                    <Link href="/projects"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Projects</a></Link>
+                    <Link href="/blog"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Blog</a></Link>
+                 </div>
+
+                 <p className="text-zinc-400 dark:text-zinc-600 text-xs md:text-right mt-auto tracking-wide uppercase font-semibold">
+                    © {new Date().getFullYear()} Muhammad Yaqoob
+                </p>
+            </div>
 
         </div>
-        <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://github.com/muhammadyaqoobmuet">
-            GitHub
-          </ExternalLink>
-          <ExternalLink href="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/">
-            LinkedIn
-          </ExternalLink>
-          <ExternalLink href="https://twitter.com/jackub_halepoto">
-            Twitter
-          </ExternalLink>
-          <ExternalLink href="https://www.instagram.com/yaqoob_halepoto">
-            Instagram
-          </ExternalLink>
-          <Link href="/freelance">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Freelancing
-            </a>
-          </Link>
-          {/* <ExternalLink href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw">
-            YouTube
-          </ExternalLink> */}
-        </div>
-        <div className="flex flex-col space-y-4">
-          <Link href="/snippets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Snippets
-            </a>
-          </Link>
-
-          <Link href="/resources">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Resources
-            </a>
-          </Link>
-          <Link href="/demos">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Live Demos
-            </a>
-          </Link>
-          <Link href="/freecodecamp">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              freeCodeCamp
-            </a>
-          </Link>
-          <Link href="/boxshadows">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Box Shadows
-            </a>
-          </Link>
-          <Link href="/design-inspiration">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Design Inspiration
-            </a>
-          </Link>
-        </div>
-      </div>
-      <p className="flex flex-row text-gray-400 items-center">
-        Find me on
-        <a href="https://twitter.com/jackub_halepoto" target="__blank">
-          {/* <img src="/logos/tailwind.svg" className="h-6 w-6 mx-1" /> */}
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 mx-1">
-            <g>
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-            </g>
-          </svg>
-        </a>{" "}
-      </p>
-      <p className="flex flex-row text-gray-400 items-center mt-2">
-        Portfolio inspired by OG{" "}
-        <a href="https://leerob.io" className="ml-1" target="__blank">
-          Lee Robk👑
-        </a>
-      </p>
     </footer>
   );
 }

@@ -1,133 +1,56 @@
-const { spacing, fontFamily, scale } = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
-const svgToDataUri = require("mini-svg-data-uri");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  purge: [
-    "./pages/**/*.js",
-    "./components/**/*.js",
-    "./layouts/**/*.js",
-    "./safelist.txt",
-  ],
-  safelist: [
-    {
-      pattern: /shadow-/,
-    },
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
-  mode: "jit",
   theme: {
     extend: {
-      animation: {
-        blog: "blob 7s infinite",
-        border: "border 4s ease infinite",
-        "text-shimmer": "text-shimmer 2.5s ease-out infinite alternate",
-        "meteor-effect": "meteor 5s linear infinite",
-      },
-      keyframes: {
-        blob: {
-          "0%": {
-            transform: "translate(0px, 0px) ",
-          },
-          "33%": {
-            transform: "translate(4px, -4px) ",
-          },
-          "66%": {
-            transform: "translate(-8px, 8px) ",
-          },
-          "100%": {
-            transform: "translate(0px, 0px) ",
-          },
-        },
-
-        "text-shimmer": {
-          from: { backgroundPosition: "0 0" },
-          to: { backgroundPosition: "-200% 0" },
-        },
-
-        border: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
-          "70%": { opacity: 1 },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: 0,
-          },
-        },
+      fontFamily: {
+        serif: ["Outfit", ...fontFamily.sans],
+        sans: ["Inter", ...fontFamily.sans],
       },
       colors: {
-        "blue-opaque": "rgb(13 42 148 / 18%)",
-        cyan: colors.cyan,
-        "custom-black": "#0A0A0A",
-      },
-      boxShadow: {
-        custom: "3px 3px 0px 0px rgba(33,33,33)",
-      },
-      fontFamily: {
-        sans: ["Geist", "Inter", ...fontFamily.sans],
-        geist: ["Geist", "Inter", ...fontFamily.sans],
+        "custom-dark": "#111111",     // Deep charcoal/black
+        "custom-light": "#FBFBFB",    // Off-white
+        "custom-gray": "#444444",     // Elegant gray for accent
+        "custom-border": "#E5E5E5",   // Light border
+        "custom-border-dark": "#333333", // Dark border
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme("colors.gray.700"),
+            "h1,h2,h3,h4": {
+              "font-family": theme("fontFamily.serif"),
+              "font-weight": "400", // Elegant, not too bold
+              color: theme("colors.gray.900"),
+            },
             a: {
-              color: theme("colors.blue.500"),
+              color: theme("colors.gray.900"),
+              "text-decoration": "underline",
+              "text-decoration-color": theme("colors.gray.300"),
+              "text-underline-offset": "4px",
               "&:hover": {
-                color: theme("colors.blue.700"),
+                "text-decoration-color": theme("colors.gray.600"),
               },
-              code: { color: theme("colors.blue.400") },
             },
-            "h2,h3,h4": {
-              "scroll-margin-top": spacing[32],
-            },
-            code: { color: theme("colors.pink.500") },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
           },
         },
         dark: {
           css: {
             color: theme("colors.gray.300"),
+            "h1,h2,h3,h4": {
+              color: theme("colors.gray.100"),
+            },
             a: {
-              color: theme("colors.blue.400"),
+              color: theme("colors.gray.100"),
+              "text-decoration-color": theme("colors.gray.700"),
               "&:hover": {
-                color: theme("colors.blue.600"),
-              },
-              code: { color: theme("colors.blue.400") },
-            },
-            blockquote: {
-              borderLeftColor: theme("colors.gray.700"),
-              color: theme("colors.gray.300"),
-            },
-            "h2,h3,h4": {
-              color: theme("colors.gray.100"),
-              "scroll-margin-top": spacing[32],
-            },
-            hr: { borderColor: theme("colors.gray.700") },
-            ol: {
-              li: {
-                "&:before": { color: theme("colors.gray.500") },
-              },
-            },
-            ul: {
-              li: {
-                "&:before": { backgroundColor: theme("colors.gray.500") },
-              },
-            },
-            strong: { color: theme("colors.gray.300") },
-            thead: {
-              color: theme("colors.gray.100"),
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme("colors.gray.700"),
+                "text-decoration-color": theme("colors.gray.400"),
               },
             },
           },
@@ -135,30 +58,5 @@ module.exports = {
       }),
     },
   },
-  variants: {
-    typography: ["dark"],
-  },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
-    function ({ matchUtilities, theme }) {
-      matchUtilities(
-        {
-          "bg-grid": (value) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-            )}")`,
-          }),
-        },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
-
-      matchUtilities(
-        {
-          highlight: (value) => ({ boxShadow: `inset 0 1px 0 0 ${value}` }),
-        },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
-    },
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };

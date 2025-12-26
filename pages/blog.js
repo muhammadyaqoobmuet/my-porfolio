@@ -1,26 +1,13 @@
 import { useState } from "react";
-
 import Container from "@/components/Container";
 import BlogPost from "@/components/BlogPost";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
-import FreeCodeCamp from "@/components/FreeCodeCampCard/FreeCodeCamp";
+import { Search } from "lucide-react";
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter("blog");
-
   return { props: { posts } };
 }
-
-// Ghost CMS Way
-// async function getPosts() {
-//   const res = await fetch(
-//     `${process.env.BLOG_URL}/ghost/api/v3/content/posts/?key=${process.env.CONTENT_API_KEY}&fields=title,slug,custom_excerpt,reading_time,published_at`
-//   ).then((res) => res.json());
-
-//   const frontMatter = res.posts;
-
-//   return frontMatter;
-// }
 
 export default function Blog({ posts }) {
   const [searchValue, setSearchValue] = useState("");
@@ -35,81 +22,39 @@ export default function Blog({ posts }) {
 
   return (
     <Container
-      title="Blog – Muhammad Yaqoob"
-      description="Thoughts on the Software Development, Programming, Tech, Freelancing, Open Source and Memes"
+      title="Writing – Muhammad Yaqoob"
+      description="Thoughts on Software Development, Programming, and Tech."
     >
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          Blog
+      <div className="flex flex-col justify-center items-start pt-24 pb-16">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">
+          Writing
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          {`I've been programming for almost 2 years now. Throughout this year, I've worked with various technologies. I'm here to share just that.
-            
-            Use the search below to filter by title.`}
+        <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-xl text-lg leading-relaxed">
+           Thoughts on software development, programming, and technology. I write about what I learn and build.
         </p>
-        <div className="relative w-full mb-4">
+
+        <div className="relative w-full max-w-xl mb-16">
           <input
             aria-label="Search articles"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder="Search articles"
-            className="px-4 py-2 border border-gray-300 dark:border-zinc-800 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-zinc-800 text-gray-900 dark:text-gray-100"
+            className="px-4 py-3 pl-12 border border-gray-200 dark:border-zinc-800 rounded-md bg-white dark:bg-zinc-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-zinc-700 w-full transition-all"
           />
-          <svg
-            className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
+          <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400 dark:text-gray-500" />
         </div>
-        {!searchValue && (
-          <>
-            <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-              Most Popular
-            </h3>
-            <BlogPost
-              title="Top 5 courses and resources to learn Next JS in 2021"
-              summary="Get the top 5 resources to learn Next JS in 2021 and take your React skills to the next level."
-              slug="top-5-nextjs-resources"
-            />
-            <BlogPost
-              title="Ultimate Guide to React Server and Client Components"
-              summary="Insights of React new features of server and client components and how to use them in your projects "
-              slug="react-server-vs-client-components"
-            />
-            {/* <BlogPost
-              title="How to design a minimal and beautiful website which actually converts"
-              summary="Examining the tips and tricks used to make a website design a notch above the rest."
-              slug="css-with-react"
-            />
-            <BlogPost
-              title="Using real world projects to build better learning habits"
-              summary="In this guide, you will learn how to take an idea and convert it into a real world application, while learning on the go."
-              slug="css-with-react"
-            /> */}
-          </>
-        )}
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-          All Posts
-        </h3>
-        {!filteredBlogPosts.length && (
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            No posts found.
-          </p>
-        )}
-        {filteredBlogPosts.map((frontMatter) => (
-          <BlogPost key={frontMatter.title} {...frontMatter} />
-        ))}
 
-        <FreeCodeCamp showDesc={false} />
+        <div className="flex flex-col w-full">
+            {!filteredBlogPosts.length && (
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
+                No posts found.
+            </p>
+            )}
+            {filteredBlogPosts.map((frontMatter) => (
+            <BlogPost key={frontMatter.title} {...frontMatter} />
+            ))}
+        </div>
+
       </div>
     </Container>
   );

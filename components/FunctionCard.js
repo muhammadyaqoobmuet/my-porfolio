@@ -23,6 +23,7 @@ export default function FunctionCard({
           width={32}
           src={`/logos/${logo}`}
           className="rounded-xl"
+          unoptimized={true}
         />
         <h3 className="text-lg font-bold text-left mt-2 text-gray-900 dark:text-gray-100">
           {title}

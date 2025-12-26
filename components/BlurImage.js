@@ -16,6 +16,7 @@ export const BlurImage = ({ src, className, ...rest }) => {
       loading="lazy"
       decoding="async"
       blurDataURL={src}
+      unoptimized={true}
       {...rest}
     />
   );

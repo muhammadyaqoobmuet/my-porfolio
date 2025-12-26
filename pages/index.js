@@ -2,217 +2,125 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
-import Timeline from "@/components/Timeline";
+import JourneyList from "@/components/JourneyList";
+import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
-import { motion } from "framer-motion";
-import { LIGHT_COLORS } from "@/lib/constants";
-
-import { shuffleArray } from "@/lib/shuffleArray";
-import { useEffect, useState } from "react";
-import { useIsFontReady } from "@/lib/useIsFontReady";
-
-import { useTheme } from "next-themes";
-import Talks from "@/components/Talks";
-import Header from "@/components/Header";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
-  const [colors, setColors] = useState([]);
-
-  let tempInterval;
-
-  const isFontReady = useIsFontReady();
-  const { theme, setTheme } = useTheme();
-
-  const play = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  useEffect(() => {
-    setColors(shuffleArray(LIGHT_COLORS));
-  }, []);
-
-  const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
-  const variants = {
-    hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
-    visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
-  };
-
-
   return (
-    <Container
-      title="Muhammad Yaqoob -Full Stack Developer, "
-      description="Full-Stack developer, JavaScript enthusiast, Freelancer, I love building products and web apps that impact millions of lives."
-    >
+    <Container>
+      {/* Hero Section */}
+      <div className="flex flex-col-reverse md:flex-row justify-between items-start pt-20 pb-16">
+        <div className="flex flex-col items-start max-w-xl text-left">
+            <h1 className="font-serif text-5xl md:text-6xl font-bold tracking-tight mb-4 text-gray-900 dark:text-gray-100">
+            Muhammad Yaqoob
+            </h1>
+            <h2 className="text-gray-700 dark:text-gray-200 text-xl font-semibold mb-6">
+                Full-Stack Developer
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg leading-relaxed">
+            I build scalable, high-performance web applications using Next.js and Node.js, I use Redis where caching and performance really matter, and design systems that stay fast and reliable as they grow.
+            </p>
 
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <Header />
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-custom-black dark:text-white font-geist">
-          Recent Blogs
-        </h3>
-        <BlogPost
-          title="Ace the Javascript Interview - Practical questions to help you clear your next interview"
-          summary="Ace your next Javascript Interview - Practice these topics in depth with examples and code snippets."
-          slug="ace-the-javascript-interview"
-        />
-        <BlogPost
-          title="Mastering React Query – Fetching, Caching, and Syncing Data Like a Pro"
-          summary="React Query makes handling server state easy and powerful. Learn how to use it for fetching, caching, synchronizing, and updating data in your apps"
-          slug="react-qurey"
-        />
-        <Link href="/blog">
-          <a
-            type="button"
-            className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100"
-          >
-            See All Blogs
-            <svg
-              className="h-4 w-4 ml-1"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </a>
-        </Link>
-
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-custom-black dark:text-white font-geist">
-          Projects
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ProjectCard
-            title="CodeFlow"
-            description="A Live Code Collab Platform with features like sync code , live calls , audio call , voice chats , messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency "
-            href="https://code-flow-a7559b152722.herokuapp.com/"
-            icon="code"
-            tags={[
-              "React",
-              "JavaScript",
-              "SocketsIo",
-              "App Router",
-              "WebRtc",
-              "Custom Stun Servers",
-            ]}
-          />
-          <ProjectCard
-            title="DS Digitals - german based software agency"
-            description=" created a german based software agency its website and help them to land clients and build their brand with a modern website and a blog section to help them rank on google"
-            href="https://dsdigitals.de/"
-            icon="dsdigitals"
-            tags={[
-              "Next.js",
-              "TypeScript",
-              "App Router",
-              "Resend",
-              "Cal.com",
-            ]}
-          />
-          <ProjectCard
-            title="Zhurnuty - AI PDF Summarizer"
-            description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
-            href="https://zhrnuty.vercel.app/"
-            icon="zhurnuty"
-            tags={[
-              "Next.js 15",
-              "TypeScript",
-              "Gemini AI",
-              "Clerk",
-              "TailwindCSS",
-              "Chrome Extension",
-            ]}
-          />
-          <ProjectCard
-            title="TellMe - Anonymous Feedback"
-            description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
-            href="https://tellme-eta.vercel.app/"
-            icon="tellme"
-            tags={["Next.js", "TypeScript", "NextAuth", "SSR", "Production"]}
-          />
-          <ProjectCard
-            title="CampusHub - Resource Sharing"
-            description="Award-winning hackathon project (17th/1000+ teams). Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
-            href="https://myapp-campushub.vercel.app/"
-            icon="campushub"
-            tags={["React", "React Query", "Shadcn UI", "Framer Motion", "JWT"]}
-          />
-
-          <ProjectCard
-            title="Master REST APIs"
-            description="A comprehensive REST API project demonstrating CRUD operations, authentication, middleware, and best practices for building scalable backend services."
-            href="https://github.com/muhammadyaqoobmuet/Master-REST-APIs"
-            icon="masterrestapis"
-            tags={["Node.js", "Express.js", "MongoDB", "REST API", "Authentication"]}
-          />
-
-          <ProjectCard
-            title="ShopSphere API"
-            description="E-commerce backend API with user authentication, product management, cart functionality, and order processing. Built with modern Node.js practices."
-            href="https://github.com/muhammadyaqoobmuet/shopsphere-api"
-            icon="shopsphereapi"
-            tags={["Node.js", "Express.js", "MongoDB", "E-commerce", "JWT"]}
-          />
-        </div>
-        <Link href="/projects">
-          <a
-            type="button"
-            className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100"
-          >
-            See More
-            <svg
-              className="h-4 w-4 ml-1"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </a>
-        </Link>
-
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-custom-black dark:text-white font-geist">
-          Upcoming Projects
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ProjectCard
-            title="Furstation Dumb"
-            description="A website where users can freely write down their negative thoughts or feelings. Using AI, the site reads their message and responds with a personalized, positive affirmation to help them feel better. It's a supportive space to release negativity and receive kindness in return—like a small, comforting boost whenever someone needs it."
-            href="#"
-            icon="furstationdumb"
-            tags={["NextJS", "Tailwind", "Langchain", "Clerk", "Gemini AI"]}
-          />
-
-          <ProjectCard
-            title="VSCode Resume"
-            description="A VSCode themed resume for all the web developers out there. A UI which looks exactly like a React file-system based VSCode window with create and update operations."
-            href="#"
-            icon="vscode"
-          />
-          <ProjectCard
-            title="More projects coming soon.."
-            description="I get ideas all day 🙄, All of them are updated here as soon as I start working on them."
-            href="#"
-            icon="more"
-          />
+            <div className="flex gap-4">
+                <Link href="/projects">
+                    <a className="inline-flex items-center text-gray-900 dark:text-gray-100 font-medium hover:underline underline-offset-4 decoration-gray-400">
+                        View Work <ArrowRight className="ml-2 w-4 h-4"/>
+                    </a>
+                </Link>
+                <Link href="mailto:yaqoobahmed45700@gmail.com">
+                    <a className="inline-flex items-center text-gray-600 dark:text-gray-400 font-medium hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                        Contact Me
+                    </a>
+                </Link>
+            </div>
         </div>
 
-
-        <Timeline />
-        <Contact />
+        {/* Profile Photo */}
+        <div className="relative w-[170px] h-[150px] mb-8 md:mb-0 md:ml-8">
+            <a href="https://twitter.com/jackub_halepoto" target="_blank" rel="noopener noreferrer">
+                <img
+                src="/devimage.png"
+                alt="Muhammad Yaqoob"
+                className="rounded-sm object-cover w-full h-full border-2 border-gray-100 dark:border-zinc-800 shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
+                />
+            </a>
+        </div>
       </div>
-    </Container >
+
+      <div className="flex flex-col gap-24 my-16">
+
+          {/* Recent Blogs (Moved up) */}
+          <section>
+              <h2 className="font-serif text-3xl font-semibold mb-8 text-gray-900 dark:text-gray-100">
+                Recent Blogs
+              </h2>
+              <div className="flex flex-col gap-2">
+                <BlogPost
+                    title="Ace the Javascript Interview"
+                    summary="Practical questions and patterns to help you master your next technical interview."
+                    slug="ace-the-javascript-interview"
+                />
+                <BlogPost
+                    title="Mastering React Query"
+                    summary="A deep dive into fetching, caching, and syncing server state in React applications."
+                    slug="react-qurey"
+                />
+                <Link href="/blog">
+                    <a className="inline-flex items-center mt-4 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                        See All Blogs <ArrowRight className="ml-1 w-4 h-4"/>
+                    </a>
+                </Link>
+              </div>
+          </section>
+
+          {/* Selected Work */}
+          <section id="projects">
+              <h2 className="font-serif text-3xl font-semibold mb-8 text-gray-900 dark:text-gray-100">
+                Selected Work
+              </h2>
+              <div className="flex flex-col gap-6">
+                <ProjectCard
+                  title="CodeFlow"
+                  description="A real-time collaborative coding platform featuring live video/audio calls, code synchronization, and chat using WebRTC and Socket.io."
+                  href="https://code-flow-a7559b152722.herokuapp.com/"
+                  tags={["React", "WebRTC", "Socket.io"]}
+                  imgUrl="/project-photos/codeflow.png"
+                />
+                <ProjectCard
+                  title="Zhurnuty"
+                  description="AI-powered PDF summarization tool built with Next.js 15, Langchain, and Gemini AI. Features secure auth via Clerk."
+                  href="https://zhrnuty.vercel.app/"
+                  tags={["Next.js 15", "Gemini AI", "Langchain"]}
+                  imgUrl="/project-photos/zhrnuty.png"
+                />
+                <ProjectCard
+                  title="DS Digitals"
+                  description="Built and deployed a high-performance website for a German software agency. Handled production setup, SEO optimization, and Google Search Console integration for organic growth."
+                  href="https://dsdigitals.de/"
+                  tags={["Next.js", "TypeScript", "Resend"]}
+                  imgUrl="/project-photos/dsdigitals.png"
+                />
+              </div>
+               <Link href="/projects">
+                <a className="inline-flex items-center mt-8 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    See all projects <ArrowRight className="ml-1 w-4 h-4"/>
+                </a>
+               </Link>
+          </section>
+
+          {/* About Me / Journey (Moved to bottom) + TechStack */}
+          <section>
+             <JourneyList />
+          </section>
+
+          <section>
+             <TechStack />
+          </section>
+
+
+      </div>
+    </Container>
   );
 }

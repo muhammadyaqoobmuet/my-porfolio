@@ -1,204 +1,133 @@
 import React from "react";
-import { ExternalLink, Github, Database, ShoppingCart, FileText, Code, Globe } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import Container from "@/components/Container";
 
-const ProjectCard = ({ title, description, href, githubUrl, icon: Icon, tags, isLive }) => {
+const ProjectCard = ({ title, description, href, githubUrl, tags }) => {
   return (
+    <div className="group flex flex-col justify-between p-6 -mx-6 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-all duration-300">
+      <div className="flex flex-col">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="font-serif text-xl font-medium text-gray-900 dark:text-gray-100 group-hover:text-custom-gray dark:group-hover:text-gray-300 transition-colors">
+            {title}
+          </h3>
+          <div className="flex gap-4">
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                aria-label="View Source"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+            )}
+            {href && href !== "#" && (
+                <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                    aria-label="View Project"
+                >
+                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
+                </a>
+            )}
+          </div>
+        </div>
 
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
-      <div className="flex items-center mb-3">
-        <Icon className="w-8 h-8 text-blue-500 mr-3" />
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm md:text-base leading-relaxed">
+          {description}
+        </p>
       </div>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-        {description}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mt-auto">
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full"
+            className="text-xs font-medium text-gray-500 dark:text-gray-500 font-mono"
           >
-            {tag}
+            #{tag}
           </span>
         ))}
-      </div>
-
-      <div className="flex gap-3">
-        {githubUrl && (
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-          >
-            <Github className="w-4 h-4 mr-1" />
-            Code
-          </a>
-        )}
-
-        {href && href !== "#" && (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-          >
-            <ExternalLink className="w-4 h-4 mr-1" />
-            {isLive ? "Live Demo" : "View"}
-          </a>
-        )}
       </div>
     </div>
   );
 };
 
-const Contact = () => (
-  <div className="mt-16 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-    <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-      Let's work together
-    </h3>
-    <p className="text-gray-600 dark:text-gray-400 mb-4">
-      I'm always interested in new opportunities and collaborations.
-    </p>
-    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-      Get in Touch
-    </button>
-  </div>
-);
-
-export default function projects() {
+export default function Projects() {
   return (
     <Container
       title="Projects – Muhammad Yaqoob"
       description="Projects that I've built from scratch, upcoming projects, learned from courses and projects that I'm proud of.">
 
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="mb-16">
-          <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-            Projects
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">
-            A collection of projects I've built while learning and exploring full-stack development.
-            Each project represents a step in my journey from frontend basics to MERN stack applications.
-          </p>
+      <div className="flex flex-col justify-center items-start pt-24 pb-16">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">
+          Projects
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400 mb-16 max-w-2xl text-lg leading-relaxed">
+           A collection of projects I've built while learning and exploring full-stack development. Each project represents a milestone in my journey.
+        </p>
 
-          <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">
-            Featured Projects
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <section className="w-full mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             <ProjectCard
               title="CodeFlow"
               description="A Live Code Collab Platform with features like sync code, live calls, audio call, voice chats, messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency."
               href="https://code-flow-a7559b152722.herokuapp.com/"
-              icon={Code}
-              tags={["React", "JavaScript", "SocketsIo", "App Router", "WebRtc", "Custom Stun Servers"]}
-              isLive={true}
+              tags={["React", "JavaScript", "SocketsIo", "App Router", "WebRtc"]}
             />
 
             <ProjectCard
-              title="DS Digitals - German Based Software Agency"
-              description="Created a german based software agency its website and help them to land clients and build their brand with a modern website and a blog section to help them rank on google."
+              title="DS Digitals"
+              description="Built and deployed the website for a Germany-based software agency, handling domain configuration, production setup, and search engine integration. Implemented core service pages and a blog system optimized for SEO, and configured Google Search Console to support indexing, performance tracking, and organic traffic growth."
               href="https://dsdigitals.de/"
-              icon={Globe}
-              tags={["Next.js", "TypeScript", "App Router", "Resend", "Cal.com"]}
-              isLive={true}
+              tags={["Next.js", "TypeScript", "App Router", "Resend"]}
             />
 
             <ProjectCard
-              title="Zhurnuty - AI PDF Summarizer"
+              title="Zhurnuty - AI Summarizer"
               description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
               href="https://zhrnuty.vercel.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/Zhrnuty"
-              icon={FileText}
-              tags={["Next.js 15", "TypeScript", "Gemini AI", "Clerk", "Langchain"]}
-              isLive={true}
+              tags={["Next.js 15", "TypeScript", "Gemini AI", "Clerk"]}
             />
 
             <ProjectCard
-              title="TellMe - Anonymous Feedback"
+              title="TellMe"
               description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
               href="https://tellme-eta.vercel.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/tellme-"
-              icon={Globe}
-              tags={["Next.js", "TypeScript", "NextAuth", "SSR", "Production"]}
-              isLive={true}
+              tags={["Next.js", "TypeScript", "NextAuth", "SSR"]}
             />
 
             <ProjectCard
-              title="CampusHub - Resource Sharing"
-              description="Award-winning hackathon project (17th/1000+ teams). Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
+              title="CampusHub"
+              description="Award-winning hackathon project. Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
               href="https://myapp-campushub.vercel.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/resource-share-platform"
-              icon={ShoppingCart}
-              tags={["React", "React Query", "Shadcn UI", "Framer Motion", "JWT"]}
-              isLive={true}
+              tags={["React", "React Query", "Shadcn UI", "Framer Motion"]}
             />
 
-          </div>
-
-          <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">
-            Backend & API Projects
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <ProjectCard
-              title="Master REST APIs"
-              description="A comprehensive REST API project demonstrating CRUD operations, authentication, middleware, and best practices for building scalable backend services."
-              githubUrl="https://github.com/muhammadyaqoobmuet/Master-REST-APIs"
-              icon={Database}
-              tags={["Node.js", "Express.js", "MongoDB", "REST API", "Authentication"]}
-            />
-
-            <ProjectCard
+             <ProjectCard
               title="ShopSphere API"
               description="E-commerce backend API with user authentication, product management, cart functionality, and order processing. Built with modern Node.js practices."
               githubUrl="https://github.com/muhammadyaqoobmuet/shopsphere-api"
-              icon={ShoppingCart}
-              tags={["Node.js", "Express.js", "MongoDB", "E-commerce", "JWT"]}
+              tags={["Node.js", "Express.js", "MongoDB", "E-commerce"]}
             />
           </div>
+        </section>
 
-
-
-          <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">
-            Upcoming Projects
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <ProjectCard
-              title="Furstation Dumb"
-              description="a website where users can dump their negative thoughts and get a positive affirmation using AI"
-              href="#"
-              icon={Code}
-              tags={["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Clerk", "Langchain"]}
-            />
-
-            <ProjectCard
-              title="Manifest ME"
-              description="a website where users manifest with ai and ai will give them reminders to manifest their goals"
-              href="#"
-              icon={Code}
-              tags={["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Clerk", "Gemini AI", "Langchain", "PostgresSQL"]}
-            />
-          </div>
-
-          <div className="text-center mb-12">
+        <div className="text-center w-full">
             <a
               href="https://github.com/muhammadyaqoobmuet"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium"
             >
-              <Github className="w-5 h-5 mr-2" />
-              View All Projects on GitHub
+              <Github className="w-5 h-5 mr-3" />
+              View more on GitHub
             </a>
-          </div>
-
-          <Contact />
         </div>
       </div>
     </Container>

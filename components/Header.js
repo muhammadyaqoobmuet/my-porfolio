@@ -70,9 +70,7 @@ const Header = () => {
           >
             Zhrnuty
           </a>
-          ,
-
-          other
+          , other
           <span
             className="font-bold cursor-zoom-out z-100 text-zinc-800 dark:text-zinc-200"
             style={{ cursor: "🤩" }}
@@ -93,44 +91,81 @@ const Header = () => {
                 >
                   <div className="bg-grid-slate-100  z-100 dark:bg-grid-zinc-700/30 absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"></div>
 
-                  <motion.p variants={itemA} className="font-normal z-100  py-3">
+                  <motion.p
+                    variants={itemA}
+                    className="font-normal z-100  py-3"
+                  >
                     👋 Hey, I’m Muhammad Yaqoob – a{" "}
-                    <span className="font-semibold text-sky-500">Full Stack Developer</span> specializing in{" "}
-                    <Hyperlink text="MERN & Next.js" link="https://github.com/muhammadyaqoobmuet" /> with a love for clean architecture, auth systems, and AI tools.
+                    <span className="font-semibold text-sky-500">
+                      Full Stack Developer
+                    </span>{" "}
+                    specializing in{" "}
+                    <Hyperlink
+                      text="MERN & Next.js"
+                      link="https://github.com/muhammadyaqoobmuet"
+                    />{" "}
+                    with a love for clean architecture, auth systems, and AI
+                    tools.
                   </motion.p>
 
                   <motion.p variants={itemA} className="font-normal py-3">
                     💡 Projects like{" "}
-                    <Hyperlink text="Zhurnuty" link="https://zhrnuty.vercel.app/" /> (AI PDF Summarizer),
-                    <Hyperlink text="TellMe" link="https://tellme-eta.vercel.app/" />, and{" "}
-                    <Hyperlink text="CampusHub" link="https://myapp-campushub.vercel.app/" /> have helped 200+ users and won hackathons!
+                    <Hyperlink
+                      text="Zhurnuty"
+                      link="https://zhrnuty.vercel.app/"
+                    />{" "}
+                    (AI PDF Summarizer),
+                    <Hyperlink
+                      text="TellMe"
+                      link="https://tellme-eta.vercel.app/"
+                    />
+                    , and{" "}
+                    <Hyperlink
+                      text="CampusHub"
+                      link="https://myapp-campushub.vercel.app/"
+                    />{" "}
+                    have helped 200+ users and won hackathons!
                   </motion.p>
 
                   <motion.p variants={itemA} className="font-normal py-3">
-                    🔒 I’ve worked with <strong>Clerk</strong>, <strong>NextAuth</strong>, and <strong>JWT</strong> to build secure and smooth authentication.
+                    🔒 I’ve worked with <strong>Clerk</strong>,{" "}
+                    <strong>NextAuth</strong>, and <strong>JWT</strong> to build
+                    secure and smooth authentication.
                   </motion.p>
 
                   <motion.p variants={itemA} className="font-normal py-3">
-                    🎯 Tech Stack: React, Next.js 15, TypeScript, Node.js, Express, MongoDB, Framer Motion, Tailwind CSS, Langchain, Gemini AI.
+                    🎯 Tech Stack: React, Next.js 15, TypeScript, Node.js,
+                    Express, MongoDB, Framer Motion, Tailwind CSS, Langchain,
+                    Gemini AI.
                   </motion.p>
 
                   <motion.p variants={itemA} className="font-normal py-3">
                     🛠 I’ve contributed to projects featured on{" "}
-                    <Hyperlink text="Devpost" link="https://devpost.com/software/campushub-bjqhvu" /> and ranked{" "}
-                    <strong>17th out of 1000+</strong> teams at Hack for Humanity 2025!
+                    <Hyperlink
+                      text="Devpost"
+                      link="https://devpost.com/software/campushub-bjqhvu"
+                    />{" "}
+                    and ranked <strong>17th out of 1000+</strong> teams at Hack
+                    for Humanity 2025!
                   </motion.p>
 
                   <motion.p variants={itemA} className="font-normal py-3">
                     📫 Let’s connect:{" "}
-                    <Hyperlink text="@GitHub" link="https://github.com/muhammadyaqoobmuet" />,{" "}
-                    <Hyperlink text="@LinkedIn" link="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/" />
+                    <Hyperlink
+                      text="@GitHub"
+                      link="https://github.com/muhammadyaqoobmuet"
+                    />
+                    ,{" "}
+                    <Hyperlink
+                      text="@LinkedIn"
+                      link="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/"
+                    />
                   </motion.p>
 
                   <div className="absolute inset-x-0 -bottom-px h-px bg-slate-900/[0.1] [mask-image:linear-gradient(to_right,transparent,white_4rem,white_calc(100%-4rem),transparent)]">
                     <div className="w-full flex-none blur-[1px] h-px [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]"></div>
                   </div>
                 </motion.div>
-
               )}
             </AnimatePresence>
           </span>
@@ -142,8 +177,7 @@ const Header = () => {
           transition={{ ...blurTransition, delay: 0.2 }}
           variants={blurVariants}
         >
-          Full Stack Developer building SaaS products and web apps. Find me
-          on{" "}
+          Full Stack Developer building SaaS products and web apps. Find me on{" "}
           <a
             href="https://x.com/jackub_halepoto"
             className="font-bold group dark:text-zinc-400 font-inter relative inline-flex  overflow-hidden"
@@ -166,6 +200,7 @@ const Header = () => {
             layout="fill"
             className="bg-gray-100 object-contain"
             src="/devimage.png"
+            unoptimized={true}
           />
         </a>
         <div className="z-0">
