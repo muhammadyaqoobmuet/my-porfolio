@@ -1,5 +1,6 @@
 module.exports = {
   images: {
+    unoptimized: true, // Disable image optimization for Netlify
     domains: [
       "i.scdn.co", // Spotify Album Art
       "pbs.twimg.com", // Twitter Profile Picture

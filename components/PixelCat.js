@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 
 const PixelCat = () => {
   const [position, setPosition] = useState({ top: "80%", left: "10%" });
@@ -80,15 +79,19 @@ const PixelCat = () => {
         zIndex: 50,
         pointerEvents: "none",
         transform: `scaleX(${direction})`,
+        width: "48px",
+        height: "48px",
       }}
-      className="w-8 h-8 md:w-12 md:h-12"
     >
-      <Image
+      <img
         src="/cat.png"
         alt="Stray Cat"
-        layout="fill"
-        objectFit="contain"
-        className="drop-shadow-lg"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
+          filter: "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
+        }}
       />
     </div>
   );

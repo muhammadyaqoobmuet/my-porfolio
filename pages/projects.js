@@ -74,7 +74,7 @@ export default function Projects() {
             <ProjectCard
               title="CodeFlow"
               description="A Live Code Collab Platform with features like sync code, live calls, audio call, voice chats, messages and with help of sockets io and webrtc a deep dive in sockets and webrtc creating stun servers and reducing latency."
-              href="https://code-flow-a7559b152722.herokuapp.com/"
+              href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
               tags={["React", "JavaScript", "SocketsIo", "App Router", "WebRtc"]}
             />
 
@@ -88,7 +88,7 @@ export default function Projects() {
             <ProjectCard
               title="Zhurnuty - AI Summarizer"
               description="Next.js 15 app for PDF summarization with TypeScript. Features Clerk authentication (Passkey, GitHub, Google), Langchain for smart PDF parsing & chunking (up to 8MB), and Gemini AI for accurate summaries."
-              href="https://zhrnuty.vercel.app/"
+              href="https://zhrnuty.netlify.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/Zhrnuty"
               tags={["Next.js 15", "TypeScript", "Gemini AI", "Clerk"]}
             />
@@ -104,7 +104,7 @@ export default function Projects() {
             <ProjectCard
               title="CampusHub"
               description="Award-winning hackathon project. Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
-              href="https://myapp-campushub.vercel.app/"
+              href="https://spectacular-basbousa-69c83b.netlify.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/resource-share-platform"
               tags={["React", "React Query", "Shadcn UI", "Framer Motion"]}
             />
