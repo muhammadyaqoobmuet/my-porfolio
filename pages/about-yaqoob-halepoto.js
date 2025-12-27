@@ -169,7 +169,7 @@ export default function AboutYaqoobHalepoto() {
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <a
-                                    href="https://zhrnuty.vercel.app/"
+                                    href="https://zhrnuty.netlify.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View Zhrnuty live demo"
@@ -202,7 +202,7 @@ export default function AboutYaqoobHalepoto() {
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <a
-                                    href="https://myapp-campushub.vercel.app/"
+                                    href="https://spectacular-basbousa-69c83b.netlify.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View CampusHub live demo"
@@ -220,7 +220,7 @@ export default function AboutYaqoobHalepoto() {
                                     🏆 Devpost
                                 </a>
                                 <a
-                                    href="https://github.com/muhammadyaqoobmuet/CampusHub"
+                                    href="https://github.com/muhammadyaqoobmuet/resource-share-platform"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View CampusHub source code on GitHub"
@@ -244,7 +244,7 @@ export default function AboutYaqoobHalepoto() {
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <a
-                                    href="https://code-flow-a7559b152722.herokuapp.com/"
+                                    href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View CodeFlow live demo"
