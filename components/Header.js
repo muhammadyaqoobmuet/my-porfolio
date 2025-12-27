@@ -117,7 +117,7 @@ const Header = () => {
                     (AI PDF Summarizer),
                     <Hyperlink
                       text="TellMe"
-                      link="https://tellme-eta.vercel.app/"
+                      link="https://tellfeedback.netlify.app/"
                     />
                     , and{" "}
                     <Hyperlink

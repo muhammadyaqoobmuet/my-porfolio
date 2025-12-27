@@ -96,7 +96,7 @@ export default function Projects() {
             <ProjectCard
               title="TellMe"
               description="Anonymous messaging app with 200+ active users. Features NextAuth with email verification, server-side rendering, and prioritizes privacy with smooth UX. Production-ready application."
-              href="https://tellme-eta.vercel.app/"
+              href="https://tellfeedback.netlify.app/"
               githubUrl="https://github.com/muhammadyaqoobmuet/tellme-"
               tags={["Next.js", "TypeScript", "NextAuth", "SSR"]}
             />

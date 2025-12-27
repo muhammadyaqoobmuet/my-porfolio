@@ -30,7 +30,7 @@ export default function Freelance() {
         </h2>
 
         <FreelanceCard
-          href={`https://tellme-eta.vercel.app/`}
+          href={`https://tellfeedback.netlify.app/`}
           techStack={["Next.js", "TailwindCSS", "React", , "Vercel"]}
           title="TellMe"
           image={`/freelance/tellme.png`}

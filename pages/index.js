@@ -7,10 +7,29 @@ import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger the blur-to-focus animation after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Container>
+      <div
+        className="transition-all duration-[800ms] ease-out"
+        style={{
+          filter: isLoaded ? 'blur(0px)' : 'blur(40px)',
+          opacity: isLoaded ? 1 : 0.3,
+        }}
+      >
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row justify-between items-start pt-20 pb-16">
         <div className="flex flex-col items-start max-w-xl text-left">
@@ -87,14 +106,14 @@ export default function Home() {
                 <ProjectCard
                   title="CodeFlow"
                   description="A real-time collaborative coding platform featuring live video/audio calls, code synchronization, and chat using WebRTC and Socket.io."
-                  href="https://code-flow-a7559b152722.herokuapp.com/"
+                  href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
                   tags={["React", "WebRTC", "Socket.io"]}
                   imgUrl="/project-photos/codeflow.png"
                 />
                 <ProjectCard
                   title="Zhurnuty"
                   description="AI-powered PDF summarization tool built with Next.js 15, Langchain, and Gemini AI. Features secure auth via Clerk."
-                  href="https://zhrnuty.vercel.app/"
+                  href="https://zhrnuty.netlify.app/"
                   tags={["Next.js 15", "Gemini AI", "Langchain"]}
                   imgUrl="/project-photos/zhrnuty.png"
                 />
@@ -123,6 +142,7 @@ export default function Home() {
           </section>
 
 
+      </div>
       </div>
     </Container>
   );
