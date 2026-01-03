@@ -173,9 +173,6 @@ input[type="email"] {
 }
 
 @layer components {
-  .card-style-boxshadows {
-    @apply mx-auto text-black font-light text-sm h-56 w-56 rounded-md bg-white flex items-center justify-center;
-  }
 }
 
 .pattern {

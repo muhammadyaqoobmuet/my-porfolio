@@ -97,12 +97,6 @@ export default function Snippets({ snippets }) {
             description="Beautiful Components with Hooks and functions"
           />
           <ResourcesCard
-            title="Tailwind Box Shadows"
-            link="https://yaqoobhalepoto.engineer/boxshadows"
-            websiteLink="yaqoobhalepoto.engineer/boxshadows"
-            description="Beautiful box shadows for TailwindCSS"
-          />
-          <ResourcesCard
             title="Get Avaataars"
             link="https://getavataaars.com/"
             websiteLink="getavataaars.com"

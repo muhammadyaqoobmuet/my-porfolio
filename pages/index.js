@@ -102,27 +102,36 @@ export default function Home() {
               <h2 className="font-serif text-3xl font-semibold mb-8 text-gray-900 dark:text-gray-100">
                 Selected Work
               </h2>
-              <div className="flex flex-col gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <ProjectCard
                   title="CodeFlow"
                   description="A real-time collaborative coding platform featuring live video/audio calls, code synchronization, and chat using WebRTC and Socket.io."
                   href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
                   tags={["React", "WebRTC", "Socket.io"]}
-                  imgUrl="/project-photos/codeflow.png"
+                  imgUrl="/project-photos/codeFlowNew.png"
                 />
                 <ProjectCard
                   title="Zhurnuty"
                   description="AI-powered PDF summarization tool built with Next.js 15, Langchain, and Gemini AI. Features secure auth via Clerk."
                   href="https://zhrnuty.netlify.app/"
-                  tags={["Next.js 15", "Gemini AI", "Langchain"]}
-                  imgUrl="/project-photos/zhrnuty.png"
+                  githubUrl="https://github.com/muhammadyaqoobmuet/Zhrnuty"
+                  tags={["Next.js 15", "Gemini AI", "Langchain","PostgreSQL","Clerk"]}
+                  imgUrl="/project-photos/zhrnutynew.png"
                 />
                 <ProjectCard
                   title="DS Digitals"
                   description="Built and deployed a high-performance website for a German software agency. Handled production setup, SEO optimization, and Google Search Console integration for organic growth."
                   href="https://dsdigitals.de/"
                   tags={["Next.js", "TypeScript", "Resend"]}
-                  imgUrl="/project-photos/dsdigitals.png"
+                  imgUrl="/project-photos/dsdigitalsnew.png"
+                />
+                <ProjectCard
+                  title="CampusHub"
+                  description="Award-winning hackathon project. Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
+                  href="https://spectacular-basbousa-69c83b.netlify.app/"
+                  githubUrl="https://github.com/muhammadyaqoobmuet/resource-share-platform"
+                  tags={["React", "React Query", "Shadcn UI", "Framer Motion"]}
+                  imgUrl="/project-photos/campusHubNew.png"
                 />
               </div>
                <Link href="/projects">

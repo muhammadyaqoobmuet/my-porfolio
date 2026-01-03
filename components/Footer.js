@@ -23,10 +23,10 @@ const FooterLink = ({ href, label }) => (
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-6xl mx-auto pt-24 pb-16 px-6 md:px-0 mt-8">
+    <footer className="w-full max-w-6xl mx-auto pt-10 md:pt-24 pb-10 md:pb-16 px-6 md:px-0 mt-8">
 
-        {/* Top: Connect with Me (Horizontal Row) */}
-        <div className="w-full mb-20 flex flex-col items-start">
+        {/* Top: Connect w ith Me (Horizontal Row) */}
+        <div className="w-full mb-10 md:mb-20 flex flex-col items-start">
             <h3 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
                 Connect with Me
             </h3>
@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
         </div>
 
-        <div className="border-t border-zinc-100 dark:border-zinc-800 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-0">
+        <div className="border-t border-zinc-100 dark:border-zinc-800 pt-10 md:pt-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
 
             {/* Column 1: Resources */}
             <div className="flex flex-col gap-8">
@@ -47,12 +47,10 @@ export default function Footer() {
                      <h4 className="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
                         Resources
                     </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-12 max-w-2xl">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-3 gap-x-12 max-w-2xl">
                         <FooterLink href="/snippets" label="Snippets" />
                         <FooterLink href="/resources" label="Resources" />
-                        <FooterLink href="/demos" label="Live Demos" />
-                        <FooterLink href="/freecodecamp" label="freeCodeCamp" />
-                        <FooterLink href="/boxshadows" label="Box Shadows" />
+                        <FooterLink href="/demos" label="Demos" />
                         <FooterLink href="/design-inspiration" label="Inspiration" />
                     </div>
                  </div>
@@ -69,7 +67,7 @@ export default function Footer() {
                     </p>
                  </div>
 
-                 <div className="flex flex-wrap md:justify-end gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                 <div className="flex flex-wrap md:justify-end gap-x-8 gap-y-2 text-sm font-medium text-zinc-500 dark:text-zinc-400">
                     <Link href="/"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</a></Link>
                     <Link href="/projects"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Projects</a></Link>
                     <Link href="/blog"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Blog</a></Link>

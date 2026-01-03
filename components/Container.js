@@ -20,7 +20,7 @@ export default function Container(props) {
 
   const meta = {
     title: "Muhammad Yaqoob",
-    description: `Senior Full Stack Developer specializing in clean, scalable web applications.`,
+    description: ` Full Stack Developer likes to build clean, scalable web applications.`,
     image: "/static/opengraph.png",
     type: "website",
     siteName: "Muhammad Yaqoob",
