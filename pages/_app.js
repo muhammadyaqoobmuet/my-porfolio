@@ -53,11 +53,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <MDXProvider components={MDXComponents}>
           {/* <Banner /> */}
           <Component {...pageProps} />
-          <PixelCat />
+          {/* <PixelCat /> */}
           <Chat />
         </MDXProvider>
       </ThemeProvider>
