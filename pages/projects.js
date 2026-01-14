@@ -33,7 +33,7 @@ const fullStackProjects = [
     githubUrl: "https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous",
     tags: ["Next.js 14+", "Socket.IO", "MongoDB", "Redis"],
     imgUrl: "/project-photos/shadow.png",
-    fullDescription: \`SHADOW is a next-generation anonymous communication platform engineered for hyper-local interactions. It enables users to discover and join chat rooms within their immediate physical vicinity—without accounts, data tracking, or permanent records.
+    fullDescription: `SHADOW is a next-generation anonymous communication platform engineered for hyper-local interactions. It enables users to discover and join chat rooms within their immediate physical vicinity—without accounts, data tracking, or permanent records.
 
 🌍 App: Live Link Shadow Preview
 📡 Transmission Incoming...
@@ -78,7 +78,7 @@ Rooms are stored in MongoDB with 2dsphere geospatial indexes. This allows for li
 Every piece of data in the system has a Time-To-Live (TTL). MongoDB TTL indexes automatically purge messages and empty rooms after 24 hours. Redis keys for active user sessions expire automatically. The system cleans itself.
 
 3. Cryptographic Session Management
-Instead of traditional auth, we use a session-based approach where a user's "token" is a signed JWT containing only their non-identifiable display name and a random session ID.\`,
+Instead of traditional auth, we use a session-based approach where a user's "token" is a signed JWT containing only their non-identifiable display name and a random session ID.`,
   },
   {
     title: "DS Digitals",
