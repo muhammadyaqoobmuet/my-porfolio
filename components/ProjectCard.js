@@ -96,6 +96,7 @@ export default function ProjectCard({
               alt={title}
               layout="fill"
               objectFit="cover"
+
               className="group-hover:scale-105 transition-transform duration-500 ease-out"
             />
             {/* Overlay gradient */}

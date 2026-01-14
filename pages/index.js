@@ -108,7 +108,16 @@ export default function Home() {
                   description="A real-time collaborative coding platform featuring live video/audio calls, code synchronization, and chat using WebRTC and Socket.io."
                   href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
                   tags={["React", "WebRTC", "Socket.io"]}
+                  githubUrl="https://github.com/muhammadyaqoobmuet/CodeFlow"
                   imgUrl="/project-photos/codeFlowNew.png"
+                />
+                <ProjectCard
+                  title="SHADOW | Anonymous Proximity Chat"
+                  description="An anonymous, location-based chat app where real talk happens no BS. No accounts. No personal data. Just raw thoughts, dropped right where you are."
+                  href="https://shadow-proximatychat.netlify.app/"
+                  tags={["Next.js", "Socket.IO", "MongoDB", "Redis","Express"]}
+                  githubUrl="https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous"
+                  imgUrl="/project-photos/shadow.png"
                 />
                 <ProjectCard
                   title="Zhurnuty"
@@ -125,14 +134,7 @@ export default function Home() {
                   tags={["Next.js", "TypeScript", "Resend"]}
                   imgUrl="/project-photos/dsdigitalsnew.png"
                 />
-                <ProjectCard
-                  title="CampusHub"
-                  description="Award-winning hackathon project. Frontend built with React, React Query, Shadcn UI, Tailwind CSS, and Framer Motion. Features JWT auth integration and multi-filter search interface."
-                  href="https://spectacular-basbousa-69c83b.netlify.app/"
-                  githubUrl="https://github.com/muhammadyaqoobmuet/resource-share-platform"
-                  tags={["React", "React Query", "Shadcn UI", "Framer Motion"]}
-                  imgUrl="/project-photos/campusHubNew.png"
-                />
+
               </div>
                <Link href="/projects">
                 <a className="inline-flex items-center mt-8 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
