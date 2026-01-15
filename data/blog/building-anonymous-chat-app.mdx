@@ -1,0 +1,231 @@
+---
+title: "Building an Anonymous Location-Based Chat App with Auto-Deleting Data (Next.js + MongoDB)"
+publishedAt: "2026-01-15"
+summary: "Most chat apps collect everything. I wanted the opposite. So I built Shadow: An anonymous, location-based chat app where rooms and messages disappear automatically after 24 hours."
+image: "/static/images/building-anonymous-chat-app/banner.png"
+---
+
+Most chat apps collect everything — profiles, messages, history, location, soul, past life, etc.
+I wanted the opposite.
+
+So I built **Shadow**:
+An anonymous, location-based chat app where rooms and messages disappear automatically after 24 hours.
+
+No accounts.
+No personal data.
+Just raw thoughts tied to a place.
+
+Let’s break how this actually works — technically.
+
+## Core Idea
+
+The app is based on three simple rules:
+
+1. **Users are anonymous** (no signup, no auth)
+2. **Chats are tied to real locations**
+3. **Everything auto-deletes after 24 hours**
+
+That’s it. Everything else is just implementation.
+
+## Tech Stack
+
+- **Next.js** – frontend
+- **TypeScript** – sanity
+- **Express.js** – backend API
+- **MongoDB + Mongoose** – data storage
+- **MongoDB GeoJSON** – location queries
+- **TTL Indexes** – auto-delete data
+- **Redis** – rate limits & short-term data
+
+## Anonymous Users (No Accounts)
+
+When a user opens the app:
+
+1. The frontend generates a random anonymous ID
+2. This ID is not stored permanently
+3. No email, no username, no password
+
+Example idea:
+
+```javascript
+const anonymousId = crypto.randomUUID()
+```
+
+This ID is sent with every message.
+That’s the only thing identifying a user.
+
+Simple. Clean. No privacy headache.
+
+## Location-Based Rooms (MongoDB GeoJSON)
+
+Each chat room is tied to a location, not a user.
+
+### Room Schema
+
+```javascript
+const roomSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    location: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        required: true
+      },
+      coordinates: {
+        type: [Number], // [longitude, latitude]
+        required: true
+      }
+    }
+  },
+  { timestamps: true }
+)
+```
+
+### Geo Index
+
+```javascript
+roomSchema.index({ location: "2dsphere" })
+```
+
+This lets MongoDB answer questions like:
+
+> “Give me all rooms within 5km of this user”
+
+MongoDB does the math.
+We just ask nicely.
+
+### Finding Nearby Rooms
+
+Using `$near` queries:
+
+```javascript
+Room.find({
+  location: {
+    $near: {
+      $geometry: {
+        type: "Point",
+        coordinates: [lng, lat]
+      },
+      $maxDistance: 5000
+    }
+  }
+})
+```
+
+So users see only rooms around them
+(or they can jump to any location manually).
+
+## Auto-Deleting Rooms (TTL Index)
+
+This is the most important part.
+
+Rooms should die after 24 hours — automatically.
+
+### TTL Index on createdAt
+
+```javascript
+roomSchema.index(
+  { createdAt: 1 },
+  { expireAfterSeconds: 60 * 60 * 24 } // 24 hours
+)
+```
+
+What happens here?
+
+1. MongoDB watches `createdAt`
+2. After 24 hours → document is deleted
+3. No cron job
+4. No background worker
+5. No cleanup script
+
+MongoDB handles it silently 😌
+
+## Messages with Smart Indexing
+
+Messages belong to rooms and also expire.
+
+### Message Schema
+
+```javascript
+const messageSchema = new mongoose.Schema(
+  {
+    roomId: {
+      type: mongoose.Types.ObjectId,
+      ref: "Room"
+    },
+    userId: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    }
+  },
+  { timestamps: true }
+)
+```
+
+### Index for Fast Reads
+
+```javascript
+messageSchema.index({ roomId: 1, createdAt: -1 })
+```
+
+Why this matters:
+
+- Fetch latest messages fast
+- Sorted by newest first
+- Scales well when rooms grow
+
+## Why TTL Index Value Looked “Wrong”
+
+You might see MongoDB show TTL as something like `18000` instead of `86400`.
+
+That’s normal.
+
+MongoDB:
+
+- Stores TTL internally
+- Runs cleanup every ~60 seconds
+- The number you see isn’t always exact
+
+Nothing is broken. TTL still works.
+
+## Limiting Room Creation
+
+To avoid spam:
+
+- Each user can create max 3 rooms
+- Tracked using Redis or in-memory counters
+- Resets naturally when rooms expire
+
+This keeps the system clean without auth.
+
+## Why This Architecture Works
+
+- **Privacy-first** → nothing sensitive stored
+- **Low maintenance** → TTL does cleanup
+- **Scales well** → MongoDB handles geo + expiry
+- **Simple mental model** → rooms = locations
+
+No over-engineering.
+Just smart defaults.
+
+## Final Thoughts
+
+Shadow isn’t about features.
+It’s about constraints:
+
+- Time-limited
+- Location-limited
+- Identity-less
+
+Those constraints create honest conversations.
+
+And technically?
+MongoDB TTL + GeoJSON did most of the heavy lifting.
