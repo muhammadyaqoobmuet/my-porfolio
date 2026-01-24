@@ -105,7 +105,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <ProjectCard
                   title="CodeFlow"
-                  description="A real-time collaborative coding platform featuring live video/audio calls, code synchronization, and chat using WebRTC and Socket.io."
+                  description="A real-time collaborative coding platform featuring live audio calls, code synchronization, and chat using WebRTC and Socket.io."
                   href="https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/"
                   tags={["React", "WebRTC", "Socket.io"]}
                   githubUrl="https://github.com/muhammadyaqoobmuet/CodeFlow"
