@@ -8,331 +8,305 @@ import { motion, AnimatePresence } from "framer-motion";
 const fullStackProjects = [
   {
     title: "CodeFlow",
-    description: "Engineered a high-performance collaborative IDE for remote teams, integrating real-time WebRTC communication and low-latency code synchronization.",
+    description: "A collaborative code editor where multiple users can edit code together in real-time with voice calls",
     href: "https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/CodeFlow",
     tags: ["React", "JavaScript", "Socket.io", "WebRTC"],
     imgUrl: "/project-photos/codeFlowNew.png",
-    fullDescription: `CodeFlow is a production-grade collaborative coding environment designed to mirror the physical pair-programming experience in a digital space.
+    fullDescription: `CodeFlow is a collaborative coding environment where remote teammates can write code together.
 
-🚀 High-Impact Features:
-- Real-time Multi-user Code Editing with sub-100ms latency.
-- Integrated WebRTC Video & Audio calls for seamless communication.
-- Live Chat system with persistent message history.
-- Scalable signaling server architecture using Socket.io.
+Key Features:
+- Real-time code editing for multiple users
+-  audio calls built-in
+- Live chat for quick communication
+- Uses Socket.io to sync changes between users
 
-🛠 Technical Deep Dive:
-- Engineered with React and Node.js for a responsive, real-time frontend.
-- Leveraged WebRTC for peer-to-peer media streaming, reducing server load.
-- Implemented robust operational transformation (OT) concepts for code synchronization.`,
+Tech Stack:
+- React for the frontend
+- Node.js for the backend
+- WebRTC for video/audio calls
+- Socket.io for real-time communication`,
   },
   {
-    title: "SHADOW | Anonymous Proximity Chat",
-    description: "A next-generation anonymous communication platform engineered for hyper-local interactions. Discover and join chat rooms within their immediate physical vicinity.",
+    title: "SHADOW | Anonymous Chat",
+    description: "An anonymous chat app where users can find and join chat rooms based on their location without creating an account.",
     href: "https://shadow-proximatychat.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous",
-    tags: ["Next.js 14+", "Socket.IO", "MongoDB", "Redis"],
+    tags: ["Next.js", "Socket.IO", "MongoDB", "Redis"],
     imgUrl: "/project-photos/shadow.png",
-    fullDescription: `SHADOW is a next-generation anonymous communication platform engineered for hyper-local interactions. It enables users to discover and join chat rooms within their immediate physical vicinity—without accounts, data tracking, or permanent records.
+    fullDescription: `SHADOW is an anonymous chat platform focused on local conversations. Users can discover chat rooms near them without signing up.
 
-🌍 App: Live Link Shadow Preview
-📡 Transmission Incoming...
+Key Features:
+- No account needed - join with a random ID
+- Find chat rooms within your area
+- Messages disappear after 24 hours
+- No user data is stored permanently
 
-Built with meaningful privacy at its core, SHADOW leverages cryptographic identity generation and ephemeral data storage to ensure your conversations remain transient and secure.
-
-⚡ Core Capabilities
-- **Zero-Knowledge Identity**: No email, phone number, or sign-up required. Your identity is a cryptographically generated session key.
-- **Geospatial Discovery**: Real-time room discovery based on your physical location (5km - 25km radius). Connect with your actual neighbors.
-- **Ephemeral Architecture**: The entire system is transient. Messages and rooms self-destruct after 24 hours. No logs. No history.
-- **Privacy-First Design**: No user data is persisted. Location data is used strictly for proximity matching and never stored.
-- **Real-Time Sync**: Instant message delivery powered by optimized WebSocket connections.
-- **Cinematic UI**: A stunning, high-performance interface featuring dark mode, glassmorphism, and fluid animations.
-
-The Tech Stack (Insane Engineering)
-Built with a modern, scalable, and high-performance stack designed for speed and reliability.
-
-Frontend Client
-- Framework: Next.js 14+ (App Router, Server Actions)
-- Language: TypeScript (Strict Mode)
-- Styling: Tailwind CSS, Tailwind Merge
-- Animation: Framer Motion, Tw-animate-css
-- State Management: Zustand
-- Data Querying: TanStack Query (React Query)
-- UI Components: Radix UI, Lucide React, Sonner (Toast)
-- Forms: React Hook Form, Zod
-
-Backend Core Service
-- Runtime: Node.js
-- API Framework: Express.js
-- Real-Time Engine: Socket.IO (WebSockets)
-- Database: MongoDB with Mongoose (GeoJSON Indexing)
-- Caching & Pub/Sub: Redis (IOredis)
-- Security: Helmet, Rate-limit-redis, Cors
-- Validation: Zod
-
-Architecture Highlights
-1. Geospatial Indexing (2dsphere)
-Rooms are stored in MongoDB with 2dsphere geospatial indexes. This allows for lightning-fast queries like $near and $geoWithin to find active chat signals within a user's specific radius.
-
-2. Ephemeral Data Lifecycle (TTL)
-Every piece of data in the system has a Time-To-Live (TTL). MongoDB TTL indexes automatically purge messages and empty rooms after 24 hours. Redis keys for active user sessions expire automatically. The system cleans itself.
-
-3. Cryptographic Session Management
-Instead of traditional auth, we use a session-based approach where a user's "token" is a signed JWT containing only their non-identifiable display name and a random session ID.`,
+Tech Stack:
+- Next.js for frontend and backend
+- MongoDB to store rooms and messages
+- Redis to manage active users
+- Socket.IO for real-time chat`,
   },
   {
     title: "DS Digitals",
-    description: "Architected a premium digital presence for a German software agency, achieving perfect Lighthouse scores and strategic SEO growth.",
+    description: "A website for a software agency in Germany. Focused on clean design, fast loading, and good SEO.",
     href: "https://dsdigitals.de/",
-    tags: ["Next.js", "TypeScript", "App Router", "Resend"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
     imgUrl: "/project-photos/dsdigitalsnew.png",
-    fullDescription: `A high-performance, conversion-optimized corporate platform engineered for a leading software agency in Germany.
+    fullDescription: `A professional website for a German software agency | this was my freelance work and contract based job for that company.
 
-📈 Business & Tech Impact:
-- Achieved 100/100 Lighthouse performance scores.
-- Implemented Advanced SEO strategies leading to a 40% increase in organic reach.
-- Engineered a modular UI system using Next.js 14 App Router for rapid content updates.
-- Automated lead capture and client notification system using Resend.
+Key Features:
+- Clean, modern design
+- Fast page load times
+- Search engine optimized
+- Email contact system for leads
 
-🛠 Tech Stack:
-- Next.js 14 (App Router)
-- TypeScript for enterprise-grade type safety
-- Tailwind CSS for rapid, scalable styling
-- Resend for cloud-native email infrastructure`,
+Tech Stack:
+- Next.js for the website
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Resend for sending emails`,
   },
   {
     title: "Zhurnuty - AI Summarizer",
-    description: "Developed an advanced AI document intelligence platform using Gemini AI and Langchain, extracting actionable insights from complex PDFs in seconds.",
+    description: "An app that uses AI to summarize PDF documents. Upload a PDF and get a quick summary of its contents.",
     href: "https://zhrnuty.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Zhrnuty",
-    tags: ["Next.js 15", "TypeScript", "Gemini AI", "Clerk"],
+    tags: ["Next.js", "TypeScript", "Gemini AI", "Clerk"],
     imgUrl: "/project-photos/zhrnutynew.png",
-    fullDescription: `Zhurnuty leverages State-of-the-Art Large Language Models to transform how users interact with dense professional documents.
+    fullDescription: `Zhurnuty helps users understand documents faster by using AI to summarize them.
 
-🤖 AI capabilities:
-- Gemini AI integration for highly accurate document summarization.
-- LangChain orchestration for complex RAG (Retrieval-Augmented Generation) workflows.
-- Vector store integration for fast semantic search within documents.
-- Multi-PDF processing with context-aware analysis.
+Key Features:
+- Upload PDF files
+- Get AI-generated summaries
+- Search within documents
+- User authentication
 
-🛠 Technical Foundation:
-- Built on Next.js 15 for cutting-edge server-side performance.
-- Secured with Clerk for enterprise-level authentication.
-- Optimized for low-latency AI responses using serverless functions.`,
+Tech Stack:
+- Next.js for the app
+- Gemini AI for summarization
+- Clerk for user login
+- TypeScript for type safety`,
   },
   {
     title: "TellMe",
-    description: "Scaled an anonymous social platform to 200+ active users, implementing robust privacy protocols and high-engagement UX patterns.",
+    description: "An anonymous feedback platform where people can send and receive anonymous messages.",
     href: "https://tellfeedback.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/tellme-",
-    tags: ["Next.js", "TypeScript", "NextAuth", "SSR"],
+    tags: ["Next.js", "TypeScript", "NextAuth", "MongoDB"],
     imgUrl: "/project-photos/tellme.png",
-    fullDescription: `TellMe is a privacy-first messaging platform that successfully navigated the challenges of user anonymity and high-traffic interaction.
+    fullDescription: `TellMe is a simple platform for sharing anonymous feedback with friends.
 
-🛡️ Privacy & Engagement:
-- 200+ Active Users maintained through intuitive UX and privacy-focused design.
-- Implemented NextAuth for secure, session-based interaction without compromising identity.
-- Leveraged Server-Side Rendering (SSR) for instant perceived performance and SEO.
-- Real-time feedback loops to enhance community engagement.
+Key Features:
+- Create a profile with a unique link
+- Friends can send you anonymous messages
+- View all messages in one place
+- Easy to share your link
 
-🛠 Architecture:
-- Next.js framework for a unified full-stack experience.
-- TypeScript for predictable and scalable application logic.
-- Optimized database queries for high-concurrency user interactions.`,
+Tech Stack:
+- Next.js for full-stack development
+- TypeScript for safer code
+- NextAuth for user authentication
+- MongoDB for data storage`,
   },
   {
     title: "CampusHub",
-    description: "Secured 1st place in a regional hackathon by building a resource-sharing ecosystem, featuring advanced JWT auth and an optimized search engine.",
+    description: "A resource sharing platform for college students. Won 1st place at a regional hackathon.",
     href: "https://spectacular-basbousa-69c83b.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/resource-share-platform",
     tags: ["React", "React Query", "Shadcn UI", "Framer Motion"],
     imgUrl: "/project-photos/campusHubNew.png",
-    fullDescription: `Awarded 1st Place at a prestigious regional hackathon for solving educational resource fragmentation.
+    fullDescription: `CampusHub helps college students share and find resources like notes, books, and study materials.
 
-🏆 Success Metrics:
-- Engineered a complete resource sharing lifecycle from discovery to consumption.
-- Implemented high-performance multi-filter search using React Query for efficient data fetching.
-- Delivered a premium UI/UX experience using Shadcn UI and Framer Motion animations.
-- Enterprise-standard JWT authentication for secure resource access.
+Key Features:
+- Search for resources by subject or topic
+- Filter results to find what you need
+- Share your own study materials
+- User authentication for security
 
-🛠 Engineering Highlights:
-- React Query for sophisticated state management and caching.
-- Component-driven architecture for rapid scalability.
-- Mobile-first responsive design for accessibility across all campus devices.`,
+Tech Stack:
+- React for the interface
+- React Query for managing data
+- Shadcn UI for components
+- Framer Motion for animations`,
   },
 ];
 
 const backendProjects = [
   {
     title: "SocialMesh Architecture",
-    description: "Designed a production-grade, event-driven microservices ecosystem utilizing RabbitMQ for asynchronous messaging, Redis for distributed rate limiting, and Docker for seamless orchestration.",
+    description: "A backend system with multiple services that communicate with each other using message queues. Includes rate limiting and caching.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Microservices--SocialMesh-Architecture",
     tags: ["Microservices", "RabbitMQ", "Redis", "Docker", "Node.js"],
-    fullDescription: `A production-grade, event-driven microservices ecosystem built for extreme scalability and resilience. This project showcases advanced engineering patterns including distributed rate limiting, asynchronous message queuing, and automated container orchestration.
+    fullDescription: `SocialMesh is a practice project exploring how to build backend systems with multiple independent services.
 
-🔥 Key Engineering Showcases
-🛡️ Distributed Rate Limiting & Security
-- Redis-Backed Rate Limiting: Implemented across the API Gateway and Identity service.
-- Advanced Auth: Argon2 for password hashing and JWT for stateless session management.
-- Security Middleware: Centralized implementation of Helmet.js and CORS policies.
+Key Features:
+- Multiple services working together
+- RabbitMQ for services to send messages to each other
+- Redis to store frequently used data
+- Docker containers to run everything
 
-📨 Event-Driven Architecture (Queues)
-- Asynchronous Communication: Decoupled services using RabbitMQ.
-- Microservices Queues: Pub/Sub and Work Queues for media processing and search indexing.
-- Reliability: Ensures data consistency across services through eventual consistency patterns.
-
-🐳 Advanced Docker Orchestration
-- Full Infrastructure-as-Code: Complex docker-compose orchestrating 5 specialized microservices + MongoDB, Redis, RabbitMQ.
-- Optimized Builds: Multi-stage Docker builds targeting specialized environments.
-
-🛠️ Tech Stack
-- Backend: Node.js, TypeScript, Express.js
-- Databases: MongoDB (Mongoose), Redis (ioredis)
-- Messaging: RabbitMQ (amqplib)
-- DevOps: Docker, Docker Compose`,
+Tech Stack:
+- Node.js for each service
+- Express.js for APIs
+- RabbitMQ for messaging
+- Redis for caching
+- MongoDB for database
+- Docker for deployment`,
   },
   {
     title: "Product Catalog API",
-    description: "Engineered a production-ready API suite with strict Zod validation and a comprehensive test suite, ensuring 100% data integrity and scalability.",
+    description: "A REST API for managing products with validation, authentication, and testing.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/prisma-typescript-api-suite",
-    tags: ["Node.js", "TypeScript", "Prisma", "Express", "JWT", "Zod"],
-    fullDescription: `A high-performance product management system engineered to handle complex catalog architectures with sub-millisecond data processing.
+    tags: ["Node.js", "TypeScript", "Prisma", "Express", "JWT"],
+    fullDescription: `Product Catalog API provides endpoints for creating, reading, updating, and deleting products.
 
-🛡️ Engineering Highlights:
-- Production-ready REST API with comprehensive CRUD operations.
-- Zod-enforced schema validation for robust, safe data entry.
-- Prisma ORM integrated for high-speed database interactions and type safety.
-- Comprehensive test suite leveraging Vitest for continuous reliability.
+Key Features:
+- Create and manage products
+- User authentication with JWT
+- Input validation with Zod
+- Automated tests for reliability
 
-🛠 Technical Mastery:
-- TypeScript implementation for enterprise-grade scalability.
-- JWT-based strategic authentication and role-based access control.
-- Automated request logging and performance monitoring.`,
+Tech Stack:
+- Node.js and Express for the API
+- TypeScript for type safety
+- Prisma as the database layer
+- Zod for data validation
+- JWT for authentication`,
   },
   {
     title: "ProductivityPro",
-    description: "Reinvented personal workflow management with a high-performance GraphQL dashboard, leveraging Prisma ORM and Apollo Client for seamless data fetching.",
+    description: "A task management app with a GraphQL backend. Users can create projects, add tasks, and track progress.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/graphql-zod-nextjs",
-    tags: ["Next.js", "GraphQL", "Prisma", "Apollo", "Shadcn UI"],
-    fullDescription: `ProductivityPro sets a new standard for modern productivity tools, focusing on speed, type safety, and real-time data synchronization.
+    tags: ["Next.js", "GraphQL", "Prisma", "Apollo"],
+    fullDescription: `ProductivityPro helps users organize their tasks and projects in one place.
 
-🚀 CORE FEATURES:
-- Enterprise-grade Authentication with JWT and session management.
-- Dynamic issue and project management with a sleek Shadcn-powered UI.
-- GraphQL-powered API for highly efficient, tailored data queries.
-- Prisma abstraction layer for cross-database compatibility.
+Key Features:
+- Create projects and add tasks
+- Mark tasks as complete
+- View all your work in a dashboard
+- User login and authentication
 
-🛠 ARCHITECTURAL EXCELLENCE:
-- Next.js App Router for optimized server-side rendering.
-- Apollo Client integration for sophisticated local and remote state management.
-- Reusable component library for rapid frontend iteration.`,
+Tech Stack:
+- Next.js for frontend and backend
+- GraphQL for flexible data queries
+- Prisma for database management
+- Apollo Client on frontend`,
   },
   {
     title: "ShopSphere API",
-    description: "Architected a secure, scalable e-commerce backend featuring complex inventory synchronization logic and Cloudinary-backed media management.",
+    description: "An e-commerce API with products, inventory tracking, user roles (admin, seller, customer), and image hosting.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/shopsphere-api",
     tags: ["Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
-    fullDescription: `ShopSphere API is a comprehensive digital commerce backbone designed for high-concurrency shopping environments.
+    fullDescription: `ShopSphere API provides the backend for an online store with multiple sellers and buyers.
 
-🧺 Commerce Features:
-- Multi-role RBAC (Admin, Seller, Customer) for secure marketplace management.
-- Automated inventory adjustment with stock validation and low-stock triggers.
-- Cloudinary integration for scalable, CDN-backed product media.
-- Secure payment flow preparation with robust data auditing.
+Key Features:
+- Product listings with images
+- Inventory management
+- Different user roles (admin, seller, customer)
+- User authentication
 
-🛠 Backend Engineering:
-- MongoDB with Mongoose ODM for flexible, high-performance data storage.
-- Zod-powered schema validation to eliminate operational data errors.
-- Rate-limiting and security middleware to prevent common API vulnerabilities.`,
+Tech Stack:
+- Node.js and Express
+- MongoDB for product and order data
+- Cloudinary for storing product images
+- JWT for user authentication`,
   },
   {
     title: "Books Management API",
-    description: "Developed a robust library management API with secure JWT authorization and optimized multi-part file uploads for high-volume content handling.",
+    description: "An API for a library system. Users can upload books, search, and manage a collection.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/shopsphere-api",
     tags: ["Node.js", "REST API", "JWT", "Multer", "Cloudinary"],
-    fullDescription: `A specialized API system engineered to manage dense digital libraries and complex document lifecycles.
+    fullDescription: `Books Management API handles storing and retrieving books for a digital library.
 
-📚 Document Management:
-- Developed sophisticated multi-part file upload handlers for PDFs and high-res covers.
-- Implemented JWT-secured authorization paths for multi-tier user access.
-- Engineered efficient pagination systems to handle thousands of records with minimal latency.
+Key Features:
+- Upload book PDFs and cover images
+- Search and filter books
+- User authentication
+- Organize books by categories
 
-🛠 Optimization & Safety:
-- Multer configuration tuned for high-volume storage efficiency.
-- Strict file type and size validation to ensure repository integrity.
-- Optimized RESTful endpoints for seamless integration with mobile and web clients.`,
+Tech Stack:
+- Node.js and Express
+- Multer for file uploads
+- Cloudinary for storing files
+- JWT for authentication`,
   },
   {
-    title: "Redis API Layer",
-    description: "Optimized restaurant data retrieval by 75% using a high-performance Redis caching layer with real-time analytics and Zod-enforced schema validation.",
+    title: "Redis Caching Layer",
+    description: "A caching system using Redis to make database queries faster for a restaurant data app.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Zod-Powered-Redis-API-Layer",
     tags: ["Redis", "Node.js", "Zod", "TypeScript"],
-    fullDescription: `An advanced performance layer designed to accelerate mission-critical data retrieval in high-traffic hospitality environments.
+    fullDescription: `This project demonstrates how to use Redis to improve app performance by caching frequently accessed data.
 
-⚡ PERFORMANCE ENGINE:
-- Achieved a 75% reduction in data retrieval latency using Redis caching.
-- Developed real-time analytics for tracking menu popularities and restaurant traffic.
-- Implemented Zod for sub-millisecond runtime schema validation and error prevention.
+Key Features:
+- Cache popular menu items
+- Track what's being ordered
+- Faster data retrieval
+- Automatic data validation
 
-🛠 TECHNICAL SHOWCASE:
-- Sophisticated Redis HSET/GET patterns for optimized memory usage.
-- High-concurrency data retrieval using optimized Promise.all patterns.
-- TypeScript codebase for enterprise-grade maintainability.`,
+Tech Stack:
+- Node.js with Express
+- Redis for caching
+- Zod for validation
+- TypeScript for type safety`,
   },
   {
     title: "RelateWise API",
-    description: "Bridging AI and empathy by engineering a context-aware relationship advisor powered by LLMs, focusing on Natural Language Understanding (NLU).",
+    description: "An API that uses AI to give relationship advice. Built to explore how to work with AI models in a backend.",
     tags: ["Express", "Gemini AI", "Node.js"],
-    fullDescription: `RelateWise API explores the intersection of empathetic interaction and generative artificial intelligence.
+    fullDescription: `RelateWise API is a practice project for using Google's Gemini AI in a Node.js backend.
 
-🤖 INTELLIGENT ADVISOR:
-- Leveraged Google Gemini AI for nuanced, context-aware relationship guidance.
-- Engineered tone-analysis algorithms to provide empathetic and situationally appropriate responses.
-- Implemented strict safety and sanitization filters for ethical AI interactions.
+Key Features:
+- Chat with an AI advisor
+- Get relationship suggestions
+- Filter unsafe responses
+- Simple REST API
 
-🛠 API ENGINEERING:
-- RESTful service architecture for cross-platform integration.
-- Fast, secure API endpoints with minimal AI processing overhead.
-- Environmentally managed configuration for secure LLM credential handling.`,
+Tech Stack:
+- Node.js and Express
+- Google Gemini AI API
+- TypeScript for better code quality`,
   },
   {
     title: "Pizza Palace API",
-    description: "Engineered a real-time fulfillment system for food services, featuring custom builders, complex state tracking, and automated inventory alerting.",
+    description: "A backend for a pizza delivery app with order management, inventory tracking, and email alerts.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/pizza-palace",
-    tags: ["Node.js", "Express", "MongoDB", "Inventory"],
-    fullDescription: `Pizza Palace API is an enterprise-ready fulfillment engine designed to manage complex order lifecycles and real-time inventory.
+    tags: ["Node.js", "Express", "MongoDB"],
+    fullDescription: `Pizza Palace API handles orders, ingredients, and customer management for a pizza shop.
 
-🍕 FULFILLMENT FEATURES:
-- Dynamic Custom Builder for intricate, multi-component order structures.
-- Real-time inventory synchronization with automated low-stock email alerts.
-- Sophisticated RBAC for managing multi-tier staff and customer interactions.
-- Statistical dashboard integration for high-level business performance tracking.
+Key Features:
+- Create and track orders
+- Manage pizza ingredients
+- Send email alerts when stock is low
+- Different user roles (admin, employee, customer)
 
-🛠 ARCHITECTURAL DEPTH:
-- JWT-based secure session management and email verification flows.
-- Automated scheduled tasks for inventory auditing and business report generation.
-- Scalable MongoDB schema design for high-variety product management.`,
+Tech Stack:
+- Node.js and Express
+- MongoDB for data storage
+- JWT for user authentication
+- Nodemailer for sending emails`,
   },
 ];
 
 const goProjects = [
   {
     title: "Basics GO",
-    description: "Architecting performant Go services, focusing on idiomatic patterns, goroutine orchestration, and high-concurrency distributed systems logic.",
+    description: "Learning Go by building small projects. Focused on understanding Go basics and how to write concurrent programs.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/GO",
     tags: ["Go", "Golang", "Concurrency"],
-    fullDescription: `A specialized repository tracking the mastery of Go for high-performance systems engineering.
+    fullDescription: `A collection of Go projects while learning the language and its patterns.
 
-📍 ENGINEERING FOCUS:
-- Mastering Go Fundamentals (Interfaces, Structs, Type System).
-- Sophisticated Concurrency Patterns using Goroutines and Channels.
-- Idiomatic Go design patterns for scalable service architectures.
-- Standard Library deep-dives for performance-critical applications.
+Topics Covered:
+- Go fundamentals (variables, functions, structs)
+- Interfaces and type system
+- Goroutines and channels for concurrent programming
+- Working with packages and modules
 
-🚀 FUTURE ROADMAP:
-- Building distributed key-value stores.
-- Engineering high-frequency trading simulation backends.
-- Developing custom network protocols in Go.`,
+Future Goals:
+- Build a simple web service
+- Create a command-line tool
+- Explore Go's standard library more`,
   },
 ];
 
