@@ -2,77 +2,9 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Globe, Github, X } from "lucide-react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiNodedotjs,
-  SiMongodb,
-  SiExpress,
-  SiTailwindcss,
-  SiPostgresql,
-  SiPrisma,
-  SiGit,
-  SiDocker,
-  SiPython,
-  SiJavascript,
-  SiRedis,
-  SiPostman,
-  SiSocketdotio,
-  SiGithubactions,
-  SiGoogle,
-  SiOpenai,
-  SiReactquery,
-  SiShadcnui,
-  SiFramer,
-  SiClerk,
-  SiRabbitmq,
-  SiCloudinary,
-  SiJsonwebtokens,
-} from "react-icons/si";
+import { getTechDetails } from "@/lib/tech-icons";
+import { clsx } from "clsx";
 
-// Helper to map string tags to icon data
-const getTechDetails = (tag) => {
-  const normalizedTag = tag.toLowerCase().replace(/[\s\.]/g, "");
-  const techMap = {
-    react: { icon: SiReact, color: "text-blue-500", name: "React" },
-    nextjs: { icon: SiNextdotjs, color: "text-white", name: "Next.js" },
-    nextjs15: { icon: SiNextdotjs, color: "text-white", name: "Next.js 15" },
-    typescript: { icon: SiTypescript, color: "text-blue-600", name: "TypeScript" },
-    node: { icon: SiNodedotjs, color: "text-green-500", name: "Node.js" },
-    nodejs: { icon: SiNodedotjs, color: "text-green-500", name: "Node.js" },
-    mongodb: { icon: SiMongodb, color: "text-green-600", name: "MongoDB" },
-    express: { icon: SiExpress, color: "text-white", name: "Express.js" },
-    expressjs: { icon: SiExpress, color: "text-white", name: "Express.js" },
-    tailwind: { icon: SiTailwindcss, color: "text-cyan-400", name: "Tailwind CSS" },
-    tailwindcss: { icon: SiTailwindcss, color: "text-cyan-400", name: "Tailwind CSS" },
-    postgresql: { icon: SiPostgresql, color: "text-blue-400", name: "PostgreSQL" },
-    prisma: { icon: SiPrisma, color: "text-white", name: "Prisma" },
-    git: { icon: SiGit, color: "text-orange-500", name: "Git" },
-    docker: { icon: SiDocker, color: "text-blue-500", name: "Docker" },
-    python: { icon: SiPython, color: "text-yellow-400", name: "Python" },
-    javascript: { icon: SiJavascript, color: "text-yellow-400", name: "JavaScript" },
-    redis: { icon: SiRedis, color: "text-red-500", name: "Redis" },
-    socket: { icon: SiSocketdotio, color: "text-white", name: "Socket.io" },
-    socketio: { icon: SiSocketdotio, color: "text-white", name: "Socket.io" },
-    geminiai: { icon: SiGoogle, color: "text-blue-400", name: "Gemini AI" },
-    langchain: { image: "/logos/langchain-color.svg", name: "LangChain" },
-    resend: { icon: SiJavascript, color: "text-white", name: "Resend" },
-    webrtc: { image: "/logos/webrtc-svgrepo-com.svg", name: "WebRTC" },
-    reactquery: { icon: SiReactquery, color: "text-red-400", name: "React Query" },
-    shadcnui: { icon: SiShadcnui, color: "text-white", name: "Shadcn UI" },
-    framermotion: { icon: SiFramer, color: "text-purple-500", name: "Framer Motion" },
-    clerk: { image: "/logos/idC1jR8p-G_logos.jpeg", name: "Clerk" },
-    graphql: { icon: SiJavascript, color: "text-pink-500", name: "GraphQL" }, // Placeholder for GraphQL
-    rabbitmq: { icon: SiRabbitmq, color: "text-orange-600", name: "RabbitMQ" },
-    microservices: { icon: SiDocker, color: "text-blue-400", name: "Microservices" },
-    cloudinary: { icon: SiCloudinary, color: "text-blue-400", name: "Cloudinary" },
-    jwt: { icon: SiJsonwebtokens, color: "text-pink-500", name: "JWT" },
-    multer: { icon: SiNodedotjs, color: "text-green-500", name: "Multer" },
-  };
-
-  return techMap[normalizedTag] || { icon: null, color: "text-gray-400", name: tag };
-};
 
 export default function ProjectCard({
   title,
@@ -82,22 +14,30 @@ export default function ProjectCard({
   tags,
   imgUrl,
   fullDescription,
+  priority = false,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
       <div className="group flex flex-col bg-[#111111] dark:bg-[#111111] rounded-3xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl">
         {/* Image Section */}
         {imgUrl && (
-          <div className="relative h-64 w-full overflow-hidden">
+          <div className="relative h-64 w-full overflow-hidden bg-zinc-800">
             <Image
               src={imgUrl}
               alt={title}
               layout="fill"
               objectFit="cover"
-
-              className="group-hover:scale-105 transition-transform duration-500 ease-out"
+              className={clsx(
+                "transition-all duration-700 ease-in-out",
+                isLoading ? "scale-110 blur-xl grayscale" : "scale-100 blur-0 grayscale-0 group-hover:scale-105"
+              )}
+              onLoadingComplete={() => setIsLoading(false)}
+              priority={priority}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={85}
             />
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-80" />

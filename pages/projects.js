@@ -12,7 +12,8 @@ const fullStackProjects = [
     href: "https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/CodeFlow",
     tags: ["React", "JavaScript", "Socket.io", "WebRTC"],
-    imgUrl: "/project-photos/codeFlowNew.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1HswGvf3ECvweUK4GzTJYF9ylkoQIfxBr6uLO",
+    priority: true,
     fullDescription: `CodeFlow is a collaborative coding environment where remote teammates can write code together.
 
 Key Features:
@@ -33,7 +34,8 @@ Tech Stack:
     href: "https://shadow-proximatychat.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous",
     tags: ["Next.js", "Socket.IO", "MongoDB", "Redis"],
-    imgUrl: "/project-photos/shadow.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh16T4xDtMdECGfumLFH8xkj0DrPnhSeO9BIXga",
+    priority: true,
     fullDescription: `SHADOW is an anonymous chat platform focused on local conversations. Users can discover chat rooms near them without signing up.
 
 Key Features:
@@ -53,7 +55,7 @@ Tech Stack:
     description: "A website for a software agency in Germany. Focused on clean design, fast loading, and good SEO.",
     href: "https://dsdigitals.de/",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
-    imgUrl: "/project-photos/dsdigitalsnew.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh11hVXUCqDU69zwmuHEBQOV8cZdbqK7CspLXgJ",
     fullDescription: `A professional website for a German software agency | this was my freelance work and contract based job for that company.
 
 Key Features:
@@ -74,7 +76,7 @@ Tech Stack:
     href: "https://zhrnuty.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Zhrnuty",
     tags: ["Next.js", "TypeScript", "Gemini AI", "Clerk"],
-    imgUrl: "/project-photos/zhrnutynew.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1W1LrsJkkqKg2HXxS9ZFW5pdb0lRJCmINueyz",
     fullDescription: `Zhurnuty helps users understand documents faster by using AI to summarize them.
 
 Key Features:
@@ -95,7 +97,7 @@ Tech Stack:
     href: "https://tellfeedback.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/tellme-",
     tags: ["Next.js", "TypeScript", "NextAuth", "MongoDB"],
-    imgUrl: "/project-photos/tellme.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1fjHdL6IWrS4nCqzHXymxThY12ROQwI9dEjgZ",
     fullDescription: `TellMe is a simple platform for sharing anonymous feedback with friends.
 
 Key Features:
@@ -116,7 +118,7 @@ Tech Stack:
     href: "https://spectacular-basbousa-69c83b.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/resource-share-platform",
     tags: ["React", "React Query", "Shadcn UI", "Framer Motion"],
-    imgUrl: "/project-photos/campusHubNew.png",
+    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh15sypfdb31TCOL7KIlyAh0VkNGf6UucRzjrwB",
     fullDescription: `CampusHub helps college students share and find resources like notes, books, and study materials.
 
 Key Features:
@@ -139,6 +141,7 @@ const backendProjects = [
     description: "A backend system with multiple services that communicate with each other using message queues. Includes rate limiting and caching.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Microservices--SocialMesh-Architecture",
     tags: ["Microservices", "RabbitMQ", "Redis", "Docker", "Node.js"],
+    priority: true,
     fullDescription: `SocialMesh is a practice project exploring how to build backend systems with multiple independent services.
 
 Key Features:
@@ -295,6 +298,7 @@ const goProjects = [
     description: "Learning Go by building small projects. Focused on understanding Go basics and how to write concurrent programs.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/GO",
     tags: ["Go", "Golang", "Concurrency"],
+    priority: true,
     fullDescription: `A collection of Go projects while learning the language and its patterns.
 
 Topics Covered:
