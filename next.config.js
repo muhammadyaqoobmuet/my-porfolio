@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    unoptimized: false, // Re-enabling optimization for faster loading
+    unoptimized: true, // Required for Netlify compatibility to avoid _ipx HTTP 500 errors
     domains: [
       "i.scdn.co", // Spotify Album Art
       "pbs.twimg.com", // Twitter Profile Picture
