@@ -95,7 +95,7 @@ export default function Home() {
                 </motion.a>
 
                 <motion.a
-                  href="/resume/final_resume_full_stack_latest.pdf"
+                  href="/resume/myaqoob_resume.pdf"
                   download
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
