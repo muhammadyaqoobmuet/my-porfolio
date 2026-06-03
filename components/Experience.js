@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, MapPin, Calendar, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  Briefcase,
+  MapPin,
+  Calendar,
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 
 const ExperienceItem = ({ experience }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -47,6 +54,34 @@ const ExperienceItem = ({ experience }) => {
                 </div>
               </>
             )}
+            {experience.certificateUrl && (
+              <>
+                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
+                <a
+                  href={experience.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-emerald-600 hover:text-emerald-500 transition-colors flex items-center gap-1"
+                >
+                  View Certificate
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </>
+            )}
+            {experience.projectUrl && (
+              <>
+                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
+                <a
+                  href={experience.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-purple-600 hover:text-purple-500 transition-colors flex items-center gap-1"
+                >
+                  View Project
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </>
+            )}
           </div>
         </div>
 
@@ -75,32 +110,34 @@ const ExperienceItem = ({ experience }) => {
       )}
 
       <AnimatePresence>
-        {showDetails && experience.highlights && experience.highlights.length > 0 && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-              <ul className="space-y-3">
-                {experience.highlights.map((highlight, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ x: -10, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex gap-3 text-sm text-zinc-700 dark:text-zinc-300"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                    <span className="leading-relaxed">{highlight}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        )}
+        {showDetails &&
+          experience.highlights &&
+          experience.highlights.length > 0 && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+                <ul className="space-y-3">
+                  {experience.highlights.map((highlight, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ x: -10, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex gap-3 text-sm text-zinc-700 dark:text-zinc-300"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                      <span className="leading-relaxed">{highlight}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
       </AnimatePresence>
     </motion.div>
   );
@@ -109,16 +146,22 @@ const ExperienceItem = ({ experience }) => {
 const Experience = () => {
   const experiences = [
     {
-      role: "MERN Stack Intern",
+      role: "Software Engineer Intern",
       company: "10Pearls",
       companyUrl: "https://10pearls.com/",
       location: "Remote",
-      period: "current", // No dates stuff
-      description: "getting hands on with real industry workflows and team work .",
+      period: "Apr 2026 – Jun 2026",
+      description:
+        "Developed '10P Note Management System', a full-stack MERN application equipped with semantic search and AI insights.",
+      certificateUrl:
+        "https://drive.google.com/file/d/1NopBQu6UwQfZBq-tg39dcMCVPuWNr40I/view?usp=sharing",
+      projectUrl:
+        "https://github.com/muhammadyaqoobmuet/myaqoob-mern-10pshine/tree/develop",
       highlights: [
-        "Developing scalable web applications using MongoDB, Express.js, React, and Node.js.",
-        "Collaborating with cross-functional teams to design, build, and deploy new features.",
-        "Participating in code reviews and adhering to best practices for maintainability and performance.",
+        "Built a full-stack MERN + TypeScript note management system in a monorepo covering 10+ REST API endpoints with JWT authentication, Zod validation, and role-based session management.",
+        "Developed an AI-powered RAG pipeline using LangChain, Google Gemini, and MongoDB Atlas Vector Search, enabling semantic querying across user notes with context-aware responses.",
+        "Achieved 80%+ test coverage writing unit and integration tests with Vitest; reduced code smells.",
+        "Implemented structured backend logging with Winston and centralized error handling; integrated TipTap rich text editor and TanStack Query for a responsive React 19 frontend.",
       ],
     },
     {
@@ -127,7 +170,8 @@ const Experience = () => {
       companyUrl: "https://dsdigitals.de/",
       location: "Remote",
       period: "Aug 2025 – Dec",
-      description: "German Digital Agency specializing in high-performance web solutions.",
+      description:
+        "German Digital Agency specializing in high-performance web solutions.",
       highlights: [
         "Developed and maintained full-stack web applications for international business clients using React, Node.js, and PostgreSQL, ensuring robust error handling.",
         "Built multilingual, responsive UIs with Tailwind CSS that improved client engagement through better UX and faster page load times.",
