@@ -25,3 +25,8 @@ model tweets {
     created_at DateTime @default(now())
     updated_at DateTime @default(now()) @updatedAt
 }
+
+model views {
+    slug  String @id @db.VarChar(128)
+    count BigInt @default(1)
+}

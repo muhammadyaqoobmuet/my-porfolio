@@ -1,95 +1,44 @@
 import React, { useState } from "react";
-import { Github } from "lucide-react";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/ProjectCard";
-import { clsx } from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Github } from "lucide-react";
 
 const fullStackProjects = [
   {
     title: "CodeFlow",
-    description: "A collaborative code editor where multiple users can edit code together in real-time with voice calls",
+    description: "A real-time collaborative coding platform featuring live audio calls, code synchronization, and chat using WebRTC and Socket.io.",
     href: "https://codeflow-roastfriends-argfg2a0fwgygeh4.eastasia-01.azurewebsites.net/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/CodeFlow",
-    tags: ["React", "JavaScript", "Socket.io", "WebRTC"],
+    tags: ["React", "WebRTC", "Socket.io"],
     imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1HswGvf3ECvweUK4GzTJYF9ylkoQIfxBr6uLO",
-    priority: true,
-    fullDescription: `CodeFlow is a collaborative coding environment where remote teammates can write code together.
-
-Key Features:
-- Real-time code editing for multiple users
--  audio calls built-in
-- Live chat for quick communication
-- Uses Socket.io to sync changes between users
-
-Tech Stack:
-- React for the frontend
-- Node.js for the backend
-- WebRTC for video/audio calls
-- Socket.io for real-time communication`,
+    date: "02.2026",
   },
   {
     title: "SHADOW | Anonymous Chat",
-    description: "An anonymous chat app where users can find and join chat rooms based on their location without creating an account.",
+    description: "An anonymous, location-based chat app where real talk happens. No accounts. No personal data. Just raw thoughts, dropped where you are.",
     href: "https://shadow-proximatychat.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous",
-    tags: ["Next.js", "Socket.IO", "MongoDB", "Redis"],
+    tags: ["Next.js", "Socket.IO", "MongoDB", "Redis", "Express"],
     imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh16T4xDtMdECGfumLFH8xkj0DrPnhSeO9BIXga",
-    priority: true,
-    fullDescription: `SHADOW is an anonymous chat platform focused on local conversations. Users can discover chat rooms near them without signing up.
-
-Key Features:
-- No account needed - join with a random ID
-- Find chat rooms within your area
-- Messages disappear after 24 hours
-- No user data is stored permanently
-
-Tech Stack:
-- Next.js for frontend and backend
-- MongoDB to store rooms and messages
-- Redis to manage active users
-- Socket.IO for real-time chat`,
-  },
-  {
-    title: "DS Digitals",
-    description: "A website for a software agency in Germany. Focused on clean design, fast loading, and good SEO.",
-    href: "https://dsdigitals.de/",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
-    imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh11hVXUCqDU69zwmuHEBQOV8cZdbqK7CspLXgJ",
-    fullDescription: `A professional website for a German software agency | this was my freelance work and contract based job for that company.
-
-Key Features:
-- Clean, modern design
-- Fast page load times
-- Search engine optimized
-- Email contact system for leads
-
-Tech Stack:
-- Next.js for the website
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Resend for sending emails`,
+    date: "12.2025",
   },
   {
     title: "Zhurnuty - AI Summarizer",
-    description: "An app that uses AI to summarize PDF documents. Upload a PDF and get a quick summary of its contents.",
+    description: "AI-powered PDF summarization tool built with Next.js 15, Langchain, and Gemini AI. Features secure auth via Clerk.",
     href: "https://zhrnuty.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Zhrnuty",
-    tags: ["Next.js", "TypeScript", "Gemini AI", "Clerk"],
+    tags: ["Next.js 15", "Gemini AI", "Langchain", "PostgreSQL", "Clerk"],
     imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1W1LrsJkkqKg2HXxS9ZFW5pdb0lRJCmINueyz",
-    fullDescription: `Zhurnuty helps users understand documents faster by using AI to summarize them.
-
-Key Features:
-- Upload PDF files
-- Get AI-generated summaries
-- Search within documents
-- User authentication
-
-Tech Stack:
-- Next.js for the app
-- Gemini AI for summarization
-- Clerk for user login
-- TypeScript for type safety`,
+    date: "01.2026",
+  },
+  {
+      title: "DS Digitals",
+      description: "Built and deployed a high-performance website for a German software agency. Handled production setup, SEO optimization.",
+      href: "https://dsdigitals.de/",
+      tags: ["Next.js", "TypeScript", "Resend"],
+      imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh11hVXUCqDU69zwmuHEBQOV8cZdbqK7CspLXgJ",
+      date: "08.2025",
   },
   {
     title: "TellMe",
@@ -98,197 +47,74 @@ Tech Stack:
     githubUrl: "https://github.com/muhammadyaqoobmuet/tellme-",
     tags: ["Next.js", "TypeScript", "NextAuth", "MongoDB"],
     imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1fjHdL6IWrS4nCqzHXymxThY12ROQwI9dEjgZ",
-    fullDescription: `TellMe is a simple platform for sharing anonymous feedback with friends.
-
-Key Features:
-- Create a profile with a unique link
-- Friends can send you anonymous messages
-- View all messages in one place
-- Easy to share your link
-
-Tech Stack:
-- Next.js for full-stack development
-- TypeScript for safer code
-- NextAuth for user authentication
-- MongoDB for data storage`,
+    date: "05.2025",
   },
   {
     title: "CampusHub",
-    description: "A resource sharing platform for college students. Won 1st place at a regional hackathon.",
+    description: "A resource sharing platform for college students. Won 17th place at Hack for Humanity 2025.",
     href: "https://spectacular-basbousa-69c83b.netlify.app/",
     githubUrl: "https://github.com/muhammadyaqoobmuet/resource-share-platform",
     tags: ["React", "React Query", "Shadcn UI", "Framer Motion"],
     imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh15sypfdb31TCOL7KIlyAh0VkNGf6UucRzjrwB",
-    fullDescription: `CampusHub helps college students share and find resources like notes, books, and study materials.
-
-Key Features:
-- Search for resources by subject or topic
-- Filter results to find what you need
-- Share your own study materials
-- User authentication for security
-
-Tech Stack:
-- React for the interface
-- React Query for managing data
-- Shadcn UI for components
-- Framer Motion for animations`,
+    date: "02.2025",
   },
 ];
 
 const backendProjects = [
   {
     title: "SocialMesh Architecture",
-    description: "A backend system with multiple services that communicate with each other using message queues. Includes rate limiting and caching.",
+    description: "A backend system with multiple services that communicate with each other using message queues (RabbitMQ).",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Microservices--SocialMesh-Architecture",
     tags: ["Microservices", "RabbitMQ", "Redis", "Docker", "Node.js"],
-    priority: true,
-    fullDescription: `SocialMesh is a practice project exploring how to build backend systems with multiple independent services.
-
-Key Features:
-- Multiple services working together
-- RabbitMQ for services to send messages to each other
-- Redis to store frequently used data
-- Docker containers to run everything
-
-Tech Stack:
-- Node.js for each service
-- Express.js for APIs
-- RabbitMQ for messaging
-- Redis for caching
-- MongoDB for database
-- Docker for deployment`,
+    date: "11.2025",
   },
   {
     title: "Product Catalog API",
-    description: "A REST API for managing products with validation, authentication, and testing.",
+    description: "A REST API for managing products with validation, authentication, and testing using Prisma and Zod.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/prisma-typescript-api-suite",
     tags: ["Node.js", "TypeScript", "Prisma", "Express", "JWT"],
-    fullDescription: `Product Catalog API provides endpoints for creating, reading, updating, and deleting products.
-
-Key Features:
-- Create and manage products
-- User authentication with JWT
-- Input validation with Zod
-- Automated tests for reliability
-
-Tech Stack:
-- Node.js and Express for the API
-- TypeScript for type safety
-- Prisma as the database layer
-- Zod for data validation
-- JWT for authentication`,
+    date: "10.2025",
   },
   {
     title: "ProductivityPro",
     description: "A task management app with a GraphQL backend. Users can create projects, add tasks, and track progress.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/graphql-zod-nextjs",
     tags: ["Next.js", "GraphQL", "Prisma", "Apollo"],
-    fullDescription: `ProductivityPro helps users organize their tasks and projects in one place.
-
-Key Features:
-- Create projects and add tasks
-- Mark tasks as complete
-- View all your work in a dashboard
-- User login and authentication
-
-Tech Stack:
-- Next.js for frontend and backend
-- GraphQL for flexible data queries
-- Prisma for database management
-- Apollo Client on frontend`,
+    date: "09.2025",
   },
   {
     title: "ShopSphere API",
-    description: "An e-commerce API with products, inventory tracking, user roles (admin, seller, customer), and image hosting.",
+    description: "An e-commerce API with products, inventory tracking, user roles, and image hosting.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/shopsphere-api",
     tags: ["Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
-    fullDescription: `ShopSphere API provides the backend for an online store with multiple sellers and buyers.
-
-Key Features:
-- Product listings with images
-- Inventory management
-- Different user roles (admin, seller, customer)
-- User authentication
-
-Tech Stack:
-- Node.js and Express
-- MongoDB for product and order data
-- Cloudinary for storing product images
-- JWT for user authentication`,
+    date: "07.2025",
   },
   {
     title: "Books Management API",
     description: "An API for a library system. Users can upload books, search, and manage a collection.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/shopsphere-api",
     tags: ["Node.js", "REST API", "JWT", "Multer", "Cloudinary"],
-    fullDescription: `Books Management API handles storing and retrieving books for a digital library.
-
-Key Features:
-- Upload book PDFs and cover images
-- Search and filter books
-- User authentication
-- Organize books by categories
-
-Tech Stack:
-- Node.js and Express
-- Multer for file uploads
-- Cloudinary for storing files
-- JWT for authentication`,
+    date: "06.2025",
   },
   {
     title: "Redis Caching Layer",
     description: "A caching system using Redis to make database queries faster for a restaurant data app.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/Zod-Powered-Redis-API-Layer",
     tags: ["Redis", "Node.js", "Zod", "TypeScript"],
-    fullDescription: `This project demonstrates how to use Redis to improve app performance by caching frequently accessed data.
-
-Key Features:
-- Cache popular menu items
-- Track what's being ordered
-- Faster data retrieval
-- Automatic data validation
-
-Tech Stack:
-- Node.js with Express
-- Redis for caching
-- Zod for validation
-- TypeScript for type safety`,
+    date: "05.2025",
   },
   {
     title: "RelateWise API",
-    description: "An API that uses AI to give relationship advice. Built to explore how to work with AI models in a backend.",
+    description: "An API that uses AI to give relationship advice. Built to explore AI integration in backends.",
     tags: ["Express", "Gemini AI", "Node.js"],
-    fullDescription: `RelateWise API is a practice project for using Google's Gemini AI in a Node.js backend.
-
-Key Features:
-- Chat with an AI advisor
-- Get relationship suggestions
-- Filter unsafe responses
-- Simple REST API
-
-Tech Stack:
-- Node.js and Express
-- Google Gemini AI API
-- TypeScript for better code quality`,
+    date: "04.2025",
   },
   {
     title: "Pizza Palace API",
     description: "A backend for a pizza delivery app with order management, inventory tracking, and email alerts.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/pizza-palace",
     tags: ["Node.js", "Express", "MongoDB"],
-    fullDescription: `Pizza Palace API handles orders, ingredients, and customer management for a pizza shop.
-
-Key Features:
-- Create and track orders
-- Manage pizza ingredients
-- Send email alerts when stock is low
-- Different user roles (admin, employee, customer)
-
-Tech Stack:
-- Node.js and Express
-- MongoDB for data storage
-- JWT for user authentication
-- Nodemailer for sending emails`,
+    date: "03.2025",
   },
 ];
 
@@ -298,19 +124,7 @@ const goProjects = [
     description: "Learning Go by building small projects. Focused on understanding Go basics and how to write concurrent programs.",
     githubUrl: "https://github.com/muhammadyaqoobmuet/GO",
     tags: ["Go", "Golang", "Concurrency"],
-    priority: true,
-    fullDescription: `A collection of Go projects while learning the language and its patterns.
-
-Topics Covered:
-- Go fundamentals (variables, functions, structs)
-- Interfaces and type system
-- Goroutines and channels for concurrent programming
-- Working with packages and modules
-
-Future Goals:
-- Build a simple web service
-- Create a command-line tool
-- Explore Go's standard library more`,
+    date: "2026",
   },
 ];
 
@@ -323,108 +137,93 @@ const tabs = [
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("fullstack");
 
+  const currentProjects = activeTab === "fullstack" 
+    ? fullStackProjects 
+    : activeTab === "backend" 
+    ? backendProjects 
+    : goProjects;
+
+  const hideImages = activeTab === "backend" || activeTab === "go";
+
   return (
     <Container
       title="Projects – Muhammad Yaqoob"
       description="A showcase of full-stack applications, backend systems, and ongoing learning experiences.">
 
-      <div className="flex flex-col justify-center items-start pt-24 pb-16">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">
-          Projects
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl text-lg leading-relaxed">
-           A collection of projects I've built while learning and exploring full-stack development. Each project represents a milestone in my journey.
-        </p>
+      <div className="mx-auto w-full max-w-3xl pt-24 pb-24">
+        {/* Header Panel */}
+        <section className="border-x border-gray-200 dark:border-zinc-800">
+           <header className="px-6 py-10 border-b border-gray-200 dark:border-zinc-800">
+              <h1 className="font-mono text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                The Archive
+              </h1>
+              <p className="mt-4 text-base text-gray-500 dark:text-zinc-500 leading-relaxed max-w-2xl font-mono">
+                A rigorous documentation of my software engineering projects, focusing on distributed systems, full-stack architecture, and learning-driven development.
+              </p>
+           </header>
 
-        {/* Tab Navigation */}
-        <div className="flex space-x-1 bg-gray-100 dark:bg-zinc-900 p-1 rounded-xl mb-12">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={clsx(
-                "px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
-                activeTab === tab.id
-                  ? "bg-white dark:bg-zinc-800 text-gray-900 dark:text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-700 dark:text-zinc-400 dark:hover:text-zinc-200"
-              )}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+           {/* Tabs */}
+           <div className="px-6 py-4 border-b border-gray-200 dark:border-zinc-800 flex flex-wrap gap-3 bg-gray-50/30 dark:bg-zinc-900/10">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-2 rounded-lg font-mono text-[10px] uppercase tracking-[0.15em] transition-all border ${
+                    activeTab === tab.id
+                      ? "bg-gray-900 text-white border-gray-900 dark:bg-zinc-100 dark:text-black dark:border-zinc-100 shadow-lg shadow-gray-200 dark:shadow-none"
+                      : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 dark:bg-zinc-950 dark:text-zinc-500 dark:border-zinc-800 dark:hover:border-zinc-700"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+           </div>
 
-        <div className="w-full min-h-[400px]">
-          <AnimatePresence mode="popLayout" initial={false}>
-            {/* Full Stack Section */}
-            {activeTab === "fullstack" && (
-              <motion.section
-                key="fullstack"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-                className="w-full"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {fullStackProjects.map((project, idx) => (
-                    <ProjectCard key={idx} {...project} />
+           {/* Projects Grid */}
+           <div className="p-5 min-h-[500px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
+                  {currentProjects.map((project, idx) => (
+                    <ProjectCard 
+                        key={project.title} 
+                        {...project} 
+                        hideImage={hideImages}
+                    />
                   ))}
-                </div>
-              </motion.section>
-            )}
+                </motion.div>
+              </AnimatePresence>
+           </div>
 
-            {/* Backend Section */}
-            {activeTab === "backend" && (
-              <motion.section
-                key="backend"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-                className="w-full"
+           {/* Footer Action */}
+           <footer className="px-5 py-4 border-t border-gray-200 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/20">
+              <a
+                href="https://github.com/muhammadyaqoobmuet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm font-mono text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {backendProjects.map((project, idx) => (
-                    <ProjectCard key={idx} {...project} />
-                  ))}
-                </div>
-              </motion.section>
-            )}
+                <Github className="size-4 mr-2" />
+                Explore more on GitHub <ArrowRight className="ml-1.5 size-3" />
+              </a>
+           </footer>
+        </section>
 
-            {/* Go (Golang) Section */}
-            {activeTab === "go" && (
-              <motion.section
-                key="go"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-                className="w-full"
-              >
-                <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl italic">
-                  "I am currently diving deep into the Go ecosystem, mastering its concurrency patterns and performance-oriented architecture. More projects coming soon as I build more complex systems with Go."
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  {goProjects.map((project, idx) => (
-                    <ProjectCard key={idx} {...project} />
-                  ))}
-                </div>
-              </motion.section>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div className="text-center w-full mt-24">
-            <a
-              href="https://github.com/muhammadyaqoobmuet"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors font-medium"
-            >
-              <Github className="w-5 h-5 mr-3" />
-              View more on GitHub
-            </a>
+        {/* corner ticks */}
+        <div className="relative border-x border-b border-gray-200 dark:border-zinc-800 h-6 flex items-center justify-center">
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "repeating-linear-gradient(315deg, rgba(161,161,170,0.2) 0, rgba(161,161,170,0.2) 1px, transparent 0, transparent 50%) 0 0 / 10px 10px",
+              }}
+            />
         </div>
       </div>
     </Container>

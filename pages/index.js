@@ -2,13 +2,11 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import BlogPost from "@/components/BlogPost";
 import ProjectCard from "@/components/ProjectCard";
-import JourneyList from "@/components/JourneyList";
-import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
 import ProfileHeader from "@/components/ProfileHeader";
+import EducationAndQuote from "@/components/EducationAndQuote";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,7 +24,7 @@ export default function Home() {
       tags: ["React", "WebRTC", "Socket.io"],
       githubUrl: "https://github.com/muhammadyaqoobmuet/CodeFlow",
       imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1HswGvf3ECvweUK4GzTJYF9ylkoQIfxBr6uLO",
-      priority: true,
+      date: "02.2026",
     },
     {
       title: "SHADOW | Anonymous Chat",
@@ -35,7 +33,7 @@ export default function Home() {
       tags: ["Next.js", "Socket.IO", "MongoDB", "Redis", "Express"],
       githubUrl: "https://github.com/muhammadyaqoobmuet/Shadow-StayAnonymous",
       imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh16T4xDtMdECGfumLFH8xkj0DrPnhSeO9BIXga",
-      priority: true,
+      date: "12.2025",
     },
     {
       title: "Zhurnuty",
@@ -44,6 +42,7 @@ export default function Home() {
       githubUrl: "https://github.com/muhammadyaqoobmuet/Zhrnuty",
       tags: ["Next.js 15", "Gemini AI", "Langchain", "PostgreSQL", "Clerk"],
       imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh1W1LrsJkkqKg2HXxS9ZFW5pdb0lRJCmINueyz",
+      date: "01.2026",
     },
     {
       title: "DS Digitals",
@@ -51,6 +50,7 @@ export default function Home() {
       href: "https://dsdigitals.de/",
       tags: ["Next.js", "TypeScript", "Resend"],
       imgUrl: "https://zgcfthkjlo.ufs.sh/f/mCFHu5O1Sdh11hVXUCqDU69zwmuHEBQOV8cZdbqK7CspLXgJ",
+      date: "08.2025",
     },
   ];
 
@@ -63,74 +63,98 @@ export default function Home() {
           opacity: isLoaded ? 1 : 0.3,
         }}
       >
-        {/* ── Profile card (jdhruv.dev-style) ── */}
-        <div className="pt-6 pb-2">
+        {/* 1. Header (Profile card contains Header, About, Connect) */}
+        <div className="pt-6">
           <ProfileHeader />
         </div>
 
-        {/* ── Rest of page sections ── */}
-        <div className="flex flex-col gap-24 my-16">
+        {/* 2. Experience (exp) */}
+        <div className="mt-8">
           <Experience />
+        </div>
 
-          {/* Recent Blogs */}
-          <section>
-            <h2 className="font-serif text-3xl font-semibold mb-8 text-gray-900 dark:text-gray-100">
+        <HatchDivider />
+
+        {/* 3. Recent Blogs (blog) */}
+        <section className="mx-auto w-full max-w-3xl border-x border-gray-200 dark:border-zinc-800">
+          <header className="px-5 py-3 border-b border-gray-200 dark:border-zinc-800">
+            <h2 className="font-mono text-2xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight">
               Recent Blogs
             </h2>
-            <div className="flex flex-col gap-2">
-              <BlogPost
-                title="Ace the Javascript Interview"
-                summary="Practical questions and patterns to help you master your next technical interview."
-                slug="ace-the-javascript-interview"
-              />
-              <BlogPost
-                title="Mastering React Query"
-                summary="A deep dive into fetching, caching, and syncing server state in React applications."
-                slug="react-qurey"
-              />
-              <Link href="/blog">
-                <a className="inline-flex items-center mt-4 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
-                  See All Blogs <ArrowRight className="ml-1 w-4 h-4" />
-                </a>
-              </Link>
-            </div>
-          </section>
+          </header>
+          
+          <div className="flex flex-col">
+            <BlogPost
+              title="Ace the Javascript Interview"
+              summary="Practical questions and patterns to help you master your next technical interview."
+              slug="ace-the-javascript-interview"
+            />
+            <BlogPost
+              title="Mastering React Query"
+              summary="A deep dive into fetching, caching, and syncing server state in React applications."
+              slug="react-qurey"
+            />
+          </div>
 
-          {/* Selected Work */}
-          <section id="projects" className="scroll-mt-24">
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="font-serif text-3xl font-semibold text-gray-900 dark:text-gray-100">
-                Selected Work
-              </h2>
-              <Link href="/projects">
-                <a className="px-4 py-2 text-sm font-medium bg-gray-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-700 transition-all border border-transparent active:scale-95">
-                  Show All Projects
-                </a>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {projects.map((project, idx) => (
-                <ProjectCard key={idx} {...project} />
-              ))}
-            </div>
-
-            <Link href="/projects">
-              <a className="inline-flex items-center mt-8 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
-                See all projects <ArrowRight className="ml-1 w-4 h-4" />
+          <div className="px-5 py-3 border-t border-gray-200 dark:border-zinc-800">
+            <Link href="/blog">
+              <a className="inline-flex items-center text-sm font-mono text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                View All Blogs <ArrowRight className="ml-1.5 size-3.5" />
               </a>
             </Link>
-          </section>
+          </div>
+        </section>
 
-          <section>
-            <JourneyList />
-          </section>
+        <HatchDivider />
 
-          <section>
-            <TechStack />
-          </section>
+        {/* 4. Selected Work (work) */}
+        <section id="projects" className="mx-auto w-full max-w-3xl border-x border-gray-200 dark:border-zinc-800 scroll-mt-24">
+          <header className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-zinc-800">
+            <h2 className="font-mono text-2xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight">
+              Selected Work
+            </h2>
+            <Link href="/projects">
+              <a className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 rounded border border-gray-200 dark:border-zinc-700 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors">
+                See All
+              </a>
+            </Link>
+          </header>
+
+          <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {projects.map((project, idx) => (
+              <ProjectCard key={idx} {...project} />
+            ))}
+          </div>
+
+          <div className="px-5 py-3 border-t border-gray-200 dark:border-zinc-800">
+             <Link href="/projects">
+              <a className="inline-flex items-center text-sm font-mono text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                Browse Archive <ArrowRight className="ml-1.5 size-3.5" />
+              </a>
+            </Link>
+          </div>
+        </section>
+
+        <HatchDivider />
+
+        {/* 5. Education & Quote (this section) */}
+        <div className="mb-16">
+          <EducationAndQuote />
         </div>
       </div>
     </Container>
+  );
+}
+
+/* ─── locally used divider ─── */
+function HatchDivider() {
+  return (
+    <div
+      className="mx-auto w-full max-w-3xl relative flex h-6 border-x border-gray-200 dark:border-zinc-800"
+      style={{
+        background:
+          "repeating-linear-gradient(315deg, rgba(161,161,170,0.25) 0, rgba(161,161,170,0.25) 1px, transparent 0, transparent 50%) 0 0 / 10px 10px",
+      }}
+    />
   );
 }

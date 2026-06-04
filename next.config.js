@@ -7,6 +7,7 @@ module.exports = {
       "api.microlink.io", // Microlink Image Preview
       "avatars.githubusercontent.com", // GitHub avatars
       "zgcfthkjlo.ufs.sh", // New optimized project images
+      "media.licdn.com", // LinkedIn profile pictures
     ],
   },
   webpack: (config, { dev, isServer }) => {

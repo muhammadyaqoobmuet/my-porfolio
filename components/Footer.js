@@ -1,84 +1,121 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
-const SocialLink = ({ href, icon: Icon, label, color }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-3 px-5 py-3 rounded-full bg-zinc-50 dark:bg-zinc-900/50 hover:bg-white dark:hover:bg-zinc-800 transition-all duration-300 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-sm group"
-  >
-    <Icon className={`w-5 h-5 ${color} transition-transform group-hover:scale-110`} />
-    <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100">{label}</span>
-  </a>
-);
+function CrossMark() {
+  return (
+    <div className="relative size-3 flex items-center justify-center">
+      <div className="absolute w-px h-full bg-gray-200 dark:bg-zinc-800" />
+      <div className="absolute h-px w-full bg-gray-200 dark:bg-zinc-800" />
+    </div>
+  );
+}
 
-const FooterLink = ({ href, label }) => (
-    <Link href={href}>
-        <a className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors text-[15px] font-medium tracking-tight hover:underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-700">
-            {label}
-        </a>
-    </Link>
-);
+function HatchDivider() {
+  return (
+    <div
+      className="h-6 w-full border-x border-gray-200 dark:border-zinc-800"
+      style={{
+        background:
+          "repeating-linear-gradient(315deg, rgba(161,161,170,0.15) 0, rgba(161,161,170,0.15) 1px, transparent 0, transparent 50%) 0 0 / 10px 10px",
+      }}
+    />
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-6xl mx-auto pt-10 md:pt-24 pb-10 md:pb-16 px-6 md:px-0 mt-8">
+    <footer className="mt-24 pb-12">
+      {/* ── Connect Panel ── */}
+      <section className="relative border-x border-t border-gray-100 dark:border-zinc-800 bg-gray-50/30 dark:bg-zinc-900/10">
+        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"><CrossMark /></div>
+        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2"><CrossMark /></div>
+        
+        <div className="px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h3 className="font-mono text-xl font-bold text-gray-900 dark:text-white tracking-tight uppercase">Connect</h3>
+            <p className="text-xs text-gray-500 font-mono mt-1">Found a bug or want to collaborate?</p>
+          </div>
+          
+          <div className="flex items-center gap-4">
+             <SocialIcon href="https://github.com/muhammadyaqoobmuet" icon={<Github size={18} />} />
+             <SocialIcon href="https://x.com/jackub_halepoto" icon={<Twitter size={18} />} />
+             <SocialIcon href="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/" icon={<Linkedin size={18} />} />
+             <SocialIcon href="mailto:yaqoobahmed45700@gmail.com" icon={<Mail size={18} />} />
+          </div>
+        </div>
+      </section>
 
-        {/* Top: Connect w ith Me (Horizontal Row) */}
-        <div className="w-full mb-10 md:mb-20 flex flex-col items-start">
-            <h3 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
-                Connect with Me
-            </h3>
-            <div className="flex flex-wrap gap-4">
-                <SocialLink href="https://github.com/muhammadyaqoobmuet" icon={FaGithub} label="GitHub" color="text-zinc-900 dark:text-white" />
-                <SocialLink href="https://www.linkedin.com/in/muhammad-yaqoob-59971625b/" icon={FaLinkedin} label="LinkedIn" color="text-blue-600" />
-                <SocialLink href="https://twitter.com/jackub_halepoto" icon={FaTwitter} label="Twitter" color="text-sky-500" />
-                <SocialLink href="https://wa.me/923483314202" icon={FaWhatsapp} label="WhatsApp" color="text-green-500" />
-                <SocialLink href="mailto:yaqoobahmed45700@gmail.com" icon={FaEnvelope} label="Email" color="text-red-500" />
-            </div>
+      <HatchDivider />
+
+      {/* ── Main Footer Info ── */}
+      <div className="relative border-x border-y border-gray-100 dark:border-zinc-800 py-12 px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"><CrossMark /></div>
+        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2"><CrossMark /></div>
+        <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"><CrossMark /></div>
+        <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2"><CrossMark /></div>
+
+        {/* Brand */}
+        <div className="flex flex-col gap-2">
+          <Link href="/">
+             <a className="font-mono text-2xl font-black tracking-tighter text-gray-900 dark:text-white uppercase transition-opacity hover:opacity-70">
+               MY<span className="text-blue-500">.</span>ENGINEER
+             </a>
+          </Link>
+          <p className="text-xs font-mono text-gray-400 dark:text-zinc-500 leading-relaxed max-w-[200px]">
+             Built with precision using Next.js & Framer Motion. 
+          </p>
         </div>
 
-        <div className="border-t border-zinc-100 dark:border-zinc-800 pt-10 md:pt-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
-
-            {/* Column 1: Resources */}
-            <div className="flex flex-col gap-8">
-                 <div>
-                     <h4 className="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
-                        Resources
-                    </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-3 gap-x-12 max-w-2xl">
-                        <FooterLink href="/snippets" label="Snippets" />
-                        <FooterLink href="/resources" label="Resources" />
-                        <FooterLink href="/demos" label="Demos" />
-                        <FooterLink href="/design-inspiration" label="Inspiration" />
-                    </div>
-                 </div>
-            </div>
-
-            {/* Column 2: Copyright & Quick Links */}
-            <div className="flex flex-col md:items-end justify-between gap-8 h-full">
-                 <div className="flex flex-col md:text-right">
-                    <h3 className="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
-                        Muhammad Yaqoob
-                    </h3>
-                    <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2 font-medium">
-                        Full-Stack Developer
-                    </p>
-                 </div>
-
-                 <div className="flex flex-wrap md:justify-end gap-x-8 gap-y-2 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                    <Link href="/"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</a></Link>
-                    <Link href="/projects"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Projects</a></Link>
-                    <Link href="/blog"><a className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Blog</a></Link>
-                 </div>
-
-                 <p className="text-zinc-400 dark:text-zinc-600 text-xs md:text-right mt-auto tracking-wide uppercase font-semibold">
-                    © {new Date().getFullYear()} Muhammad Yaqoob
-                </p>
-            </div>
-
+        {/* Navigation - Centered */}
+        <div className="flex flex-col md:items-center gap-4">
+           <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-gray-400 dark:text-zinc-600 mb-2">Navigation</h4>
+           <nav className="flex flex-col md:items-center gap-2 text-sm font-medium text-gray-600 dark:text-zinc-400">
+             <Link href="/"><a className="hover:text-black dark:hover:text-white transition-colors">Home</a></Link>
+             <Link href="/projects"><a className="hover:text-black dark:hover:text-white transition-colors">Projects</a></Link>
+             <Link href="/blog"><a className="hover:text-black dark:hover:text-white transition-colors">Writing</a></Link>
+             <Link href="/resources"><a className="hover:text-black dark:hover:text-white transition-colors">Resources</a></Link>
+           </nav>
         </div>
+
+        {/* Metadata - Right Aligned */}
+        <div className="flex flex-col md:items-end gap-4">
+           <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-gray-400 dark:text-zinc-600 mb-2">System Status</h4>
+           <div className="flex flex-col md:items-end gap-1 font-mono text-[10px] text-gray-500 dark:text-zinc-500">
+             <span>LOCAL TIME: {new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })} UTC+5</span>
+             <span>STATUS: STABLE</span>
+             <span className="mt-2 text-gray-400 dark:text-zinc-600 uppercase tracking-widest leading-loose">
+               &copy; {new Date().getFullYear()} MUHAMMAD YAQOOB
+             </span>
+           </div>
+        </div>
+      </div>
+
+      {/* ── Bottom Dot Grid ── */}
+      <div className="relative border-x border-b border-gray-100 dark:border-zinc-800">
+        <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"><CrossMark /></div>
+        <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2"><CrossMark /></div>
+        
+        <div 
+          className="h-12 w-full opacity-20" 
+          style={{ 
+            backgroundImage: 'radial-gradient(circle, #a1a1aa 0.5px, transparent 0.5px)', 
+            backgroundSize: '16px 16px'
+          }} 
+        />
+      </div>
     </footer>
+  );
+}
+
+function SocialIcon({ href, icon }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2.5 rounded-xl border border-gray-100 dark:border-zinc-800 hover:border-gray-300 dark:hover:border-zinc-600 bg-white dark:bg-zinc-900 transition-all hover:scale-110 shadow-sm text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white"
+    >
+      {icon}
+    </a>
   );
 }
