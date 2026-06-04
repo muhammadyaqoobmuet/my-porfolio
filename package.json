@@ -64,6 +64,7 @@
     "image-size": "^0.9.3",
     "postcss": "^8.4.5",
     "prettier": "2.2.1",
+    "prisma": "^6.9.0",
     "rehype": "^11.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-parse": "^9.0.0",

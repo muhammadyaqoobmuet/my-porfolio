@@ -1,149 +1,146 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Briefcase,
-  MapPin,
-  Calendar,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 
-const ExperienceItem = ({ experience }) => {
-  const [showDetails, setShowDetails] = useState(false);
+/* ── reusable hatch divider (same as ProfileHeader) ── */
+function HatchDivider() {
+  return (
+    <div
+      className="relative flex h-6 w-full border-x border-gray-200 dark:border-zinc-800"
+      style={{
+        background:
+          "repeating-linear-gradient(315deg, rgba(161,161,170,0.25) 0, rgba(161,161,170,0.25) 1px, transparent 0, transparent 50%) 0 0 / 10px 10px",
+      }}
+    />
+  );
+}
+
+/* ── single experience entry ── */
+function ExperienceItem({ exp, isLast }) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.div
-      layout
-      className="group relative p-6 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300"
+    <div
+      className={`pl-4 pr-3 sm:pl-5 sm:pr-4 py-4 ${
+        isLast ? "" : "border-b border-gray-200 dark:border-zinc-800"
+      }`}
     >
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <Briefcase className="w-4 h-4 text-zinc-500" />
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-              {experience.role}
-            </h3>
-          </div>
+      {/* top row: icon + role + chevron */}
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full text-left group"
+        aria-expanded={open}
+      >
+        <div className="flex items-start gap-3">
+          {/* dot marker */}
+          <span className="mt-1.5 flex size-2 shrink-0 rounded-full bg-zinc-300 dark:bg-zinc-600" />
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-600 dark:text-zinc-400">
-            <a
-              href={experience.companyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium hover:text-blue-500 transition-colors flex items-center gap-1"
-            >
-              {experience.company}
-              <ExternalLink className="w-3 h-3" />
-            </a>
-            {experience.location && (
-              <>
-                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
-                <div className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5" />
-                  {experience.location}
-                </div>
-              </>
-            )}
-            {experience.period && (
-              <>
-                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
-                <div className="flex items-center gap-1 font-medium text-zinc-500">
-                  <Calendar className="w-3.5 h-3.5" />
-                  {experience.period}
-                </div>
-              </>
-            )}
-            {experience.certificateUrl && (
-              <>
-                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
-                <a
-                  href={experience.certificateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-emerald-600 hover:text-emerald-500 transition-colors flex items-center gap-1"
-                >
-                  View Certificate
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </>
-            )}
-            {experience.projectUrl && (
-              <>
-                <span className="text-zinc-300 dark:text-zinc-700 mx-1">•</span>
-                <a
-                  href={experience.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-purple-600 hover:text-purple-500 transition-colors flex items-center gap-1"
-                >
-                  View Project
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </>
-            )}
+          <div className="flex flex-1 flex-col gap-0.5 min-w-0">
+            {/* role */}
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
+                {exp.role}
+              </h3>
+              <ChevronDown
+                className={`size-4 shrink-0 text-gray-400 dark:text-zinc-500 transition-transform duration-200 ${
+                  open ? "rotate-180" : ""
+                }`}
+                aria-hidden="true"
+              />
+            </div>
+
+            {/* company + period */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-mono text-xs text-gray-500 dark:text-zinc-500">
+              <a
+                href={exp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="hover:text-gray-800 dark:hover:text-zinc-200 transition-colors inline-flex items-center gap-0.5"
+              >
+                {exp.company}
+                <ExternalLink className="size-2.5 ml-0.5" />
+              </a>
+              <span aria-hidden="true">·</span>
+              <span>{exp.period}</span>
+              {exp.location && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>{exp.location}</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
-        {experience.highlights && experience.highlights.length > 0 && (
-          <button
-            onClick={() => setShowDetails(!showDetails)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-semibold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors self-start"
-          >
-            {showDetails ? (
-              <>
-                Hide Details <ChevronUp className="w-3 h-3" />
-              </>
-            ) : (
-              <>
-                View Details <ChevronDown className="w-3 h-3" />
-              </>
-            )}
-          </button>
+        {/* short description always visible */}
+        {exp.description && (
+          <p className="mt-2 ml-5 font-mono text-xs text-gray-500 dark:text-zinc-500 leading-relaxed italic">
+            {exp.description}
+          </p>
         )}
-      </div>
+      </button>
 
-      {experience.description && (
-        <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 italic leading-relaxed max-w-2xl">
-          {experience.description}
-        </p>
-      )}
+      {/* expandable highlights */}
+      <AnimatePresence initial={false}>
+        {open && exp.highlights && exp.highlights.length > 0 && (
+          <motion.div
+            key="details"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <ul className="mt-4 ml-5 space-y-2.5">
+              {exp.highlights.map((h, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04 }}
+                  className="flex gap-2.5 font-mono text-xs text-gray-600 dark:text-zinc-400 leading-relaxed"
+                >
+                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-zinc-600" />
+                  {h}
+                </motion.li>
+              ))}
+            </ul>
 
-      <AnimatePresence>
-        {showDetails &&
-          experience.highlights &&
-          experience.highlights.length > 0 && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-                <ul className="space-y-3">
-                  {experience.highlights.map((highlight, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ x: -10, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="flex gap-3 text-sm text-zinc-700 dark:text-zinc-300"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                      <span className="leading-relaxed">{highlight}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+            {/* certificate / project links */}
+            {(exp.certificateUrl || exp.projectUrl) && (
+              <div className="mt-4 ml-5 flex flex-wrap gap-2">
+                {exp.certificateUrl && (
+                  <a
+                    href={exp.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2.5 py-1 font-mono text-xs text-emerald-600 dark:text-emerald-400 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+                  >
+                    Certificate <ExternalLink className="size-2.5" />
+                  </a>
+                )}
+                {exp.projectUrl && (
+                  <a
+                    href={exp.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2.5 py-1 font-mono text-xs text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+                  >
+                    Project <ExternalLink className="size-2.5" />
+                  </a>
+                )}
               </div>
-            </motion.div>
-          )}
+            )}
+          </motion.div>
+        )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
-};
+}
 
-const Experience = () => {
+/* ── main section ── */
+export default function Experience() {
   const experiences = [
     {
       role: "Software Engineer Intern",
@@ -169,7 +166,7 @@ const Experience = () => {
       company: "DS Digitals",
       companyUrl: "https://dsdigitals.de/",
       location: "Remote",
-      period: "Aug 2025 – Dec",
+      period: "Aug 2025 – Dec 2025",
       description:
         "German Digital Agency specializing in high-performance web solutions.",
       highlights: [
@@ -182,18 +179,29 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-8">
-      <h2 className="font-serif text-2xl font-bold mb-6 text-gray-900 dark:text-zinc-100 italic">
-        Experience
-      </h2>
+    <section className="mx-auto w-full max-w-3xl">
+      {/* ── panel header ── */}
+      <div className="border-x border-gray-200 dark:border-zinc-800">
+        <header className="px-5 py-3 border-b border-gray-200 dark:border-zinc-800">
+          <h2 className="font-mono text-2xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight">
+            Experience
+          </h2>
+        </header>
 
-      <div className="flex flex-col gap-4">
-        {experiences.map((exp, index) => (
-          <ExperienceItem key={index} experience={exp} />
-        ))}
+        {/* ── entries ── */}
+        <div>
+          {experiences.map((exp, i) => (
+            <ExperienceItem
+              key={i}
+              exp={exp}
+              isLast={i === experiences.length - 1}
+            />
+          ))}
+        </div>
       </div>
+
+      {/* ── hatch divider at bottom ── */}
+      <HatchDivider />
     </section>
   );
-};
-
-export default Experience;
+}
