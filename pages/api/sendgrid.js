@@ -6,8 +6,8 @@ export default async (req, res) => {
   try {
     // console.log("REQ.BODY", req.body);
     await resend.emails.send({
-      to: [req.body.email, "hi@yaqoobhalepoto.engineer"],
-      from: "Muhammad Yaqoob <hi@yaqoobhalepoto.engineer>",
+      to: [req.body.email, "hi@yaqoobhalepoto.dev"],
+      from: "Muhammad Yaqoob <hi@yaqoobhalepoto.dev>",
       subject: "Greetings! Thank you for contacting me",
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">
@@ -31,15 +31,15 @@ export default async (req, res) => {
               <div style="font-size: 16px;">
               <p>Thank you for contacting me through my website. I'm excited to work with you.</p>
               <p><span class="spantext" style="font-weight: bold;">Reply</span> to this email with your requirements and I will get back to you.</p>
-              <p>Meanwhile, <a class="blog" href="https://yaqoobhalepoto.engineer/" style="text-decoration: none;color: blue;font-weight: bold;">checkout my portfolio</a> to get more insights about my work.</p>
+              <p>Meanwhile, <a class="blog" href="https://yaqoobhalepoto.dev/" style="text-decoration: none;color: blue;font-weight: bold;">checkout my portfolio</a> to get more insights about my work.</p>
               <p>Or simply, just say Hi :) <a href="https://wa.me/923483314202?text=Hi" target="__blank" class="whatsapp" style="text-decoration: none;font-weight: bold;background: #10B981;padding: 4px;border-radius: 5px;color: white;">WhatsApp</a></p>
               <br>
               </div>
-              <img src="https://yaqoobhalepoto.engineer/logo.png" class="logo-image" style="height: 50px;width: 50px;border-radius: 5px;overflow: hidden;">
+              <img src="https://yaqoobhalepoto.dev/logo.png" class="logo-image" style="height: 50px;width: 50px;border-radius: 5px;overflow: hidden;">
               <p class="footer" style="font-size: 16px;padding-bottom: 20px;border-bottom: 1px solid #D1D5DB;">Regards<br>Muhammad Yaqoob<br>Full Stack Developer<br>+92 348 331 4202</p>
               <div class="footer-links" style="display: flex;justify-content: center;align-items: center;">
-                <a href="https://yaqoobhalepoto.engineer/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">Website</a>
-                <a href="https://yaqoobhalepoto.engineer/blog/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">Blog</a>
+                <a href="https://yaqoobhalepoto.dev/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">Website</a>
+                <a href="https://yaqoobhalepoto.dev/blog/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">Blog</a>
                 <a href="https://github.com/muhammadyaqoobmuet/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">GitHub</a>
                 <a href="https://instagram.com/yaqoob_halepoto/" style="text-decoration: none;margin: 8px;color: #9CA3AF;">Instagram</a>
                 

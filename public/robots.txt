@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://yaqoobhalepoto.engineer/sitemap.xml
+Sitemap: https://yaqoobhalepoto.dev/sitemap.xml

@@ -28,7 +28,7 @@ export const links = [
   {
     id: 4,
     name: "Website",
-    href: "https://yaqoobhalepoto.engineer",
+    href: "https://yaqoobhalepoto.dev",
     icon: SiNextdotjs,
   },
 

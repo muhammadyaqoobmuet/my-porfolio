@@ -4,8 +4,8 @@ import RSS from "rss";
 export async function getServerSideProps({ res }) {
   const feed = new RSS({
     title: "Yaqoob Halepoto",
-    site_url: "https://yaqoobhalepoto.engineer",
-    feed_url: "https://yaqoobhalepoto.engineer/feed.xml",
+    site_url: "https://yaqoobhalepoto.dev",
+    feed_url: "https://yaqoobhalepoto.dev/feed.xml",
   });
 
   const posts = await getAllFilesFrontMatter("blog");
@@ -15,7 +15,7 @@ export async function getServerSideProps({ res }) {
   filteredBlogPosts.map((post) => {
     feed.item({
       title: post.title,
-      url: `https://yaqoobhalepoto.engineer/blog/${post.slug}`,
+      url: `https://yaqoobhalepoto.dev/blog/${post.slug}`,
       date: post.publishedAt,
       description: post.summary,
     });

@@ -6,7 +6,7 @@ export default function CardBasic() {
     <div>
       <div className="bg-gray-200 h-screen">
         <div className="px-8">
-          <Link href="https://yaqoobhalepoto.engineer/snippets/tailwind-card">
+          <Link href="https://yaqoobhalepoto.dev/snippets/tailwind-card">
             <a>
               <div className="mx-auto lg:w-3/5 lg:flex lg:flex-row lg:h-auto ">
 

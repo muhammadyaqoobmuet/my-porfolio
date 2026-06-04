@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="flex flex-col gap-2">
           <Link href="/">
              <a className="font-mono text-2xl font-black tracking-tighter text-gray-900 dark:text-white uppercase transition-opacity hover:opacity-70">
-               MY<span className="text-blue-500">.</span>ENGINEER
+               MY<span className="text-blue-500">.</span>DEV
              </a>
           </Link>
           <p className="text-xs font-mono text-gray-400 dark:text-zinc-500 leading-relaxed max-w-[200px]">

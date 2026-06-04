@@ -8,10 +8,10 @@ const sendEmail = async (req, res) => {
   const { email, message } = req.body;
   try {
     const data = await resend.emails.send({
-      from: "Muhammad Yaqoob <hi@yaqoobhalepoto.engineer>",
+      from: "Muhammad Yaqoob <hi@yaqoobhalepoto.dev>",
       to: [email],
       // Remove CC to yourself initially - can trigger spam filters
-      // cc: ["hi@yaqoobhalepoto.engineer"],
+      // cc: ["hi@yaqoobhalepoto.dev"],
       subject: `Thank you for reaching out to Yaqoob`,
       // Add both HTML and text versions
       react: EmailTemplate({ email: email, message: message }),
@@ -20,7 +20,7 @@ const sendEmail = async (req, res) => {
         'X-Entity-Ref-ID': new Date().getTime().toString(),
       },
       // Add reply-to
-      replyTo: 'hi@yaqoobhalepoto.engineer',
+      replyTo: 'hi@yaqoobhalepoto.dev',
     });
 
     console.log("Data from email response: ", data);

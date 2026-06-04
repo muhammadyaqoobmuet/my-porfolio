@@ -26,7 +26,7 @@ const prettier = require("prettier");
 
         return `
                         <url>
-                            <loc>${`https://yaqoobhalepoto.engineer${route}`}</loc>
+                            <loc>${`https://yaqoobhalepoto.dev${route}`}</loc>
                         </url>
                     `;
       })

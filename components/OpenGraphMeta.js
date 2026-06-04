@@ -4,7 +4,7 @@ export default function OpenGraphMeta({
   image = "/opengraph.png",
   title = "Muhammad Yaqoob",
   description = "Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.",
-  url = "https://yaqoobhalepoto.engineer",
+  url = "https://yaqoobhalepoto.dev",
 }) {
   return (
     <Head>

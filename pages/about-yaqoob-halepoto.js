@@ -8,8 +8,8 @@ export default function AboutYaqoobHalepoto() {
         "name": "Yaqoob Halepoto",
         "alternateName": "Muhammad Yaqoob Halepoto",
         "jobTitle": "Software Engineer",
-        "url": "https://www.yaqoobhalepoto.engineer/",
-        "image": "https://www.yaqoobhalepoto.engineer/_next/image?url=%2Fdevimage.png&w=1920&q=75",
+        "url": "https://www.yaqoobhalepoto.dev/",
+        "image": "https://www.yaqoobhalepoto.dev/_next/image?url=%2Fdevimage.png&w=1920&q=75",
         "sameAs": [
             "https://github.com/muhammadyaqoobmuet",
             "https://www.linkedin.com/in/muhammad-yaqoob-59971625b/",
